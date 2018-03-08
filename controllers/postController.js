@@ -16,6 +16,12 @@ module.exports = {
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },
+      findByTitle: function(req, res) {
+        db.Post
+          .find({title:req.params.title})
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+      },
       create: function(req, res) {
         db.Post
           .create(req.body)
