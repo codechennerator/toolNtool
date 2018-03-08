@@ -9,10 +9,10 @@ class Nav extends React.Component{
   render() {
     return(
       <Toolbar>
-        <ToolbarGroup firstChild = {true}>
+        <ToolbarGroup>
           <ToolbarTitle text = "ToolNTool" />
         </ToolbarGroup>
-        <ToolbarGroup>
+        <ToolbarGroup firstChild = {false}>
           <RaisedButton label = "Find Tool" />
           <RaisedButton label = "Post Tool" />
         </ToolbarGroup>
