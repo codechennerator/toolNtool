@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import startPage from "./pages/startPage";
 import findTool from "./pages/findTool";
 import postTool from "./pages/postTool";
@@ -8,18 +9,20 @@ import Detail from "./pages/Detail";
 import Nav from "./components/Nav";
 
 const App = () => (
-  <Router>
-    <div>
-      <Nav />
-      <Switch>
-        <Route exact path="/" component={startPage} />
-        <Route exact path="/findTool" component={findTool} />
-        <Route exact path="/findTool/:id" component={Detail} />
-        <Route exact path="/postTool" component={postTool} />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </Router>
+  <MuiThemeProvider>
+    <Router>
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={startPage} />
+          <Route exact path="/findTool" component={findTool} />
+          <Route exact path="/findTool/:id" component={Detail} />
+          <Route exact path="/postTool" component={postTool} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
+    </Router>
+  </MuiThemeProvider>
 );
 
 export default App;
