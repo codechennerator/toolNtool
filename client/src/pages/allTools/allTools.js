@@ -1,24 +1,19 @@
 import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import Cards from "../../components/Cards"
-import "./startPage.css"
+import "./allTools.css"
 import Searchinput from "../../components/Searchinput";
 import Footer from "../../components/Footer"
-import Navbar from "../../components/Navbar"
+import NonhomepageNav from "../../components/NonhomepageNav"
 
-const startPage = () => (
+const allTools = () => (
   <div>
-    <Navbar/>
-    <Searchinput/>
-   <div class="container">
+    <NonhomepageNav />
+    <div class="container">
     <div className="section">
       <div className="row">
         <div calssName="col s12">
           <div className="section">
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
            <Cards/>
            <Cards/>
            <Cards/>
@@ -37,4 +32,4 @@ const startPage = () => (
   </div>
 );
 
-export default startPage;
+export default allTools;
