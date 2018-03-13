@@ -13,5 +13,9 @@ router
   .put(postController.update)
   .delete(postController.remove);
 
+router
+  .route("/title/:title")
+  .get(postController.findByTitle)
+
 
 module.exports = router;

@@ -1,14 +1,12 @@
 import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import Cards from "../../components/Cards"
-import "./startPage.css"
+import "./resultPage.css"
 import Searchinput from "../../components/Searchinput";
 import Footer from "../../components/Footer"
-import Navbar from "../../components/Navbar"
 
-const startPage = () => (
+const resultPage = () => (
   <div>
-    <Navbar/>
     <Searchinput/>
    <div class="container">
     <div className="section">
@@ -37,4 +35,4 @@ const startPage = () => (
   </div>
 );
 
-export default startPage;
+export default resultPage;
