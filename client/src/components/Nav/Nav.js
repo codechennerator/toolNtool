@@ -1,33 +1,9 @@
 import React, {Component} from "react";
 import API from "../../utils/API";
+import SearchForm from "../Search"
+
 
 class Nav extends Component {
-
-  constructor(){
-    super()
-    this.state = {
-      term: ""
-    };
-  }
-
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    console.log(name,value)
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-      API.getPostByTitle(this.state.term)
-        .then(res=>{
-          console.log(res)
-        })
-        .catch(err => console.log(err));
-    }
-
 
   render() {
     return(    
@@ -39,14 +15,13 @@ class Nav extends Component {
         </a>
 
             <a href="/findTool" className="navbar-brand">
-              find Tool
+              find All
         </a>
 
             <a href="/postTool" className="navbar-brand">
               post Tool
         </a>
-          <input name="term" onChange={this.handleInputChange} type="text"/>
-          <button onClick={this.handleFormSubmit}>Submit</button>
+        <SearchForm />
 
           </div>
         </div>

@@ -2,13 +2,20 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
+import { connect } from "react-redux";
+
+
+let mapStateToProps = (store) => {
+  return {
+      data: store.data.data
+  }
+}
 
 class Detail extends Component {
   state = {
     post: {}
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
   componentDidMount() {
     API.getPost(this.props.match.params.id)
       .then(res => this.setState({ post: res.data }))
@@ -16,6 +23,7 @@ class Detail extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Container fluid>
         <Row>
@@ -47,4 +55,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+export default connect(mapStateToProps)(Detail);

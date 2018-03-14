@@ -1,32 +1,29 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
+import { fetchDataSelected } from "../../actions/dataAction"
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
+let mapStateToProps = (store) => {
+  return {
+      data: store.data.data
+  }
+}
 
-class findTool extends Component {
-  state = {
-    posts: [],
-    title: "",
-    user: "",
-    description: ""
-  };
+class findTool extends Component {  
 
-  componentDidMount() {
-    this.loadPosts();
+  componentWillMount(){
+    console.log(`data is...: ${this.props.data}`)
   }
 
-  loadPosts = () => {
-    API.getPosts()
-      .then(res =>
-        this.setState({ posts: res.data, title: "", user: "", description: "" })
-      )
-      .catch(err => console.log(err));
-  };
+  fetchDataSelected(id) {
+    this.props.dispatch(fetchDataSelected(id).bind(this))
+}
 
   render() {
-    console.log(this.state.posts)
+    const {data} = this.props;
     return (
       <Container fluid>
         <Row>
@@ -35,22 +32,26 @@ class findTool extends Component {
 
               <h1>Posts on the List</h1>
 
-            {this.state.posts.length ? (
+            {data.length !=0 &&
               <List>
-                {this.state.posts.map(post => (
+                {data.data.map(post => (
                   <ListItem key={post._id}>
-                    <Link to={"/findTool/" + post._id}>
+                    <a href={"/findTool/"+post._id}>
+                    {/* <Link to={"/findTool/" + post._id}> */}
                       <strong>
                         {post.title} by {post.user}
                       </strong>
-                    </Link>
+                    {/* </Link> */}
+                    </a>
 
                   </ListItem>
                 ))}
               </List>
-            ) : (
+            }
+            {data.length ==0 &&
               <h3>No Results to Display</h3>
-            )}
+            }
+
           </Col>
         </Row>
       </Container>
@@ -58,4 +59,4 @@ class findTool extends Component {
   }
 }
 
-export default findTool;
+export default connect(mapStateToProps)(findTool);
