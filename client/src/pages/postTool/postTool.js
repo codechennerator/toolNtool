@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Redirect } from "react-router-dom";
 
 
 class postTool extends Component {
 
-  state = {
-    posts: [],
-    title: "",
-    user: "",
-    description: ""
-  };
+  constructor() {
+    super()
+    this.state = {
+      posts: [],
+      title: "",
+      user: "",
+      description: "",
+      image:"",
+    };
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -26,8 +31,12 @@ class postTool extends Component {
       API.savePost({
         title: this.state.title,
         user: this.state.user,
-        description: this.state.description
+        description: this.state.description,
+        img: this.state.image
       })
+        .then(res => {
+          window.location.href = "/"
+        })
         .catch(err => console.log(err));
     }
   };
@@ -54,6 +63,13 @@ class postTool extends Component {
                 name="user"
                 placeholder="User (required)"
               />
+              <Input                 
+                value={this.state.image}
+                onChange={this.handleInputChange}
+                name="image"
+                placeholder="Image link (optional)"
+                />
+
               <TextArea
                 value={this.state.description}
                 onChange={this.handleInputChange}

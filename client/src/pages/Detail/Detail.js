@@ -2,14 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-import { connect } from "react-redux";
 
-
-let mapStateToProps = (store) => {
-  return {
-      data: store.data.data
-  }
-}
 
 class Detail extends Component {
   state = {
@@ -18,12 +11,15 @@ class Detail extends Component {
 
   componentDidMount() {
     API.getPost(this.props.match.params.id)
-      .then(res => this.setState({ post: res.data }))
+      .then(res =>{
+        // console.log(res)
+        this.setState({ post: res.data })
+      })
       .catch(err => console.log(err));
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.state.post)
     return (
       <Container fluid>
         <Row>
@@ -35,19 +31,27 @@ class Detail extends Component {
 
           </Col>
         </Row>
+
+        <Row>
+          <Col size="md12">
+          
+          <img src={this.state.post.img} />
+
+          </Col>
+          </Row>
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Description</h1>
-              <p>
+              <h3>Description</h3>
+              <h4>
                 {this.state.post.description}
-              </p>
+              </h4>
             </article>
           </Col>
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/findTool">← Back to Posts</Link>
+            <Link to="/findAll">← Back to Posts</Link>
           </Col>
         </Row>
       </Container>
@@ -55,4 +59,4 @@ class Detail extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Detail);
+export default (Detail);

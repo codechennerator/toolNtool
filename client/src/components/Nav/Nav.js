@@ -14,7 +14,7 @@ class Nav extends Component {
               Tool N Tool
         </a>
 
-            <a href="/findTool" className="navbar-brand">
+            <a href="/findAll" className="navbar-brand">
               find All
         </a>
 
