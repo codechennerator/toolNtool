@@ -14,7 +14,7 @@ export default function reducer(state={
                 ...state, 
                 fetching: true
             }
-            break
+
         }
         case "FETCH_USER_FULFILLED":{
             return{
@@ -23,7 +23,7 @@ export default function reducer(state={
                 fetched: true, 
                 users: action.payload
             }
-            break
+
         }
         case "FETCH_USER_REJECTED":{
             return{
@@ -31,7 +31,7 @@ export default function reducer(state={
                 fetching: false, 
                 error: action.payload
             }
-            break
+
         }
         case "SET_USER_NAME": {
             return {
@@ -39,6 +39,9 @@ export default function reducer(state={
               users: {...state.user, name: action.payload},
             }
           }
+        default:{
+            return state
+        }
     }
-    return state
+
     }

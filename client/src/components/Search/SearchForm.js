@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchData } from "../../actions/dataAction"
-import { Link } from "react-router-dom";
-import { Route, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 let mapStateToProps = (store) => {
     return {
@@ -28,9 +27,9 @@ class SearchForm extends Component {
     };
 
     fetchData() {
-        this.props.dispatch(fetchData(this.state.term))
-        console.log(this.props)
+        this.props.dispatch(fetchData(this.state.term))     
     }
+
 
     render() {
         const { data } = this.props;
@@ -39,7 +38,7 @@ class SearchForm extends Component {
                 <input name="term" onChange={this.handleInputChange} type="text" />
                 <button onClick={this.fetchData.bind(this)}>Submit</button>
                 
-                {data.length != 0 && data.data.length != 0 &&
+                {data.length !== 0 && data.data.length !== 0 &&
                     <Redirect to='/findTool' />
                 }
 

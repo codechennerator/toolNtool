@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { fetchAll } from "../../actions/dataAction"
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 let mapStateToProps = (store) => {
   return {
@@ -15,7 +13,6 @@ let mapStateToProps = (store) => {
 class findAll extends Component {  
 
   componentWillMount(){
-    console.log(`data is...: ${this.props.data}`)
     this.props.dispatch(fetchAll())
   }
 
@@ -29,23 +26,21 @@ class findAll extends Component {
 
               <h1>Posts on the List</h1>
 
-            {data.length !=0 &&
+            {data.length !==0 &&
               <List>
                 {data.data.map(post => (
                   <ListItem key={post._id}>
                     <a href={"/findTool/"+post._id}>
-                    {/* <Link to={"/findTool/" + post._id}> */}
                       <strong>
                         {post.title} by {post.user}
                       </strong>
-                    {/* </Link> */}
                     </a>
 
                   </ListItem>
                 ))}
               </List>
             }
-            {data.length ==0 &&
+            {data.length ===0 &&
               <h3>No Results to Display</h3>
             }
 

@@ -35,7 +35,7 @@ class Detail extends Component {
         <Row>
           <Col size="md12">
           
-          <img src={this.state.post.img} />
+          <img alt={this.state.post.title} src={this.state.post.img} />
 
           </Col>
           </Row>
