@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Cards.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item

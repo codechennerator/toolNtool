@@ -1,8 +1,8 @@
 import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import Cards from "../../components/Cards"
+// import { Col, Row, Container } from "../../components/Grid";
+// import Cards from "../../components/Cards"
 import "./signIn.css"
-import Searchinput from "../../components/Searchinput";
+// import Searchinput from "../../components/Searchinput";
 import Footer from "../../components/Footer"
 import NonhomepageNav from "../../components/NonhomepageNav"
 

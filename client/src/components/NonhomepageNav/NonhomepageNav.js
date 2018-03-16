@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./NonhomepageNav.css";
-import { Input } from "../Form";
+// import { Input } from "../Form";
 
 const fontColor = {
   color:"black"

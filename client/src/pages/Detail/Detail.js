@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-import Cards from "../../components/Cards"
+// import Cards from "../../components/Cards"
 import "./Detail.css"
-import Searchinput from "../../components/Searchinput";
-import Footer from "../../components/Footer"
-import NonhomepageNav from "../../components/NonhomepageNav"
+// import Searchinput from "../../components/Searchinput";
+// import Footer from "../../components/Footer"
+// import NonhomepageNav from "../../components/NonhomepageNav"
 
 // const detail = () => (
 //   <div>

@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
-import Cards from "../../components/Cards"
+// import Cards from "../../components/Cards"
 import "./postTool.css"
-import Searchinput from "../../components/Searchinput";
-import Footer from "../../components/Footer"
+// import Searchinput from "../../components/Searchinput";
+// import Footer from "../../components/Footer"
 import NonhomepageNav from "../../components/NonhomepageNav"
 import { Redirect } from "react-router-dom";
 
@@ -103,6 +103,7 @@ class postTool extends Component {
   </div>
  
         <Footer/> */}
+        <NonhomepageNav />
         <Row>
           <Col size="md-6">
 

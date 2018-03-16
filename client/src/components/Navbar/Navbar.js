@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const fontColor = {
-  color:"black"
-}
+// const fontColor = {
+//   color:"black"
+// }
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => (
