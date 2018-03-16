@@ -1,5 +1,8 @@
-import React from "react";
+
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
+import API from "../../utils/API";
 import Cards from "../../components/Cards"
 import "./Detail.css"
 import Searchinput from "../../components/Searchinput";
