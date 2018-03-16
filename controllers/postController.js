@@ -18,7 +18,7 @@ module.exports = {
   },
   findByTitle: function (req, res) {
     db.Post
-      .find({ title: { $regex: `.*${req.params.title}.*` } })
+      .find({ title: { $regex: `(?i).*${req.params.title}.*` } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
