@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import startPage from "./pages/startPage";
 import findTool from "./pages/findTool";
 import findAll from "./pages/findAll";
