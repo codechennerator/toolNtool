@@ -2,6 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import "./NonhomepageNav.css";
 // import { Input } from "../Form";
+import SearchForm from "../Search";
 
 const fontColor = {
   color:"black"
@@ -14,8 +15,9 @@ const NonhomepageNav = props => (
       <div className="container">
         <a href="/" class="brand-logo black-text">TNT</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>    
-              <div class="center row searchbar">
+            <li>
+              <SearchForm />    
+              {/* <div class="center row searchbar">
                 <div class="col s12 " >
                   <div class="row" id="topbarsearch">
                     <div class="input-field col s6 s12 red-text">
@@ -24,7 +26,7 @@ const NonhomepageNav = props => (
                       </div>
                     </div>
                   </div>
-                </div>          
+                </div>           */}
             </li> 
             <li><a href="/allTools" class="black-text">All Tools</a></li>
             <li><a href="/postTool" class="black-text">Post Tools</a></li>
