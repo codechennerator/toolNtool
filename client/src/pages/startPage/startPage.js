@@ -10,10 +10,11 @@ import {
 
 
 const HomepageHeading = ({ mobile }) => (
-  <Container text
+  <Container fluid
     style={{
       textAlign: "center",
       zIndex:"1",
+      
     }}>
     <Header
       as='h1'
@@ -24,7 +25,7 @@ const HomepageHeading = ({ mobile }) => (
         fontWeight: 'normal',
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '3em',
-        color: "black",
+        color:"black"
       }}
     />
     <Header
@@ -35,7 +36,8 @@ const HomepageHeading = ({ mobile }) => (
         fontSize: mobile ? '1.5em' : '1.7em',
         fontWeight: 'normal',
         marginTop: mobile ? '0.5em' : '1.5em',
-        color: "black",
+        color:"black"
+
       }}
     />
 

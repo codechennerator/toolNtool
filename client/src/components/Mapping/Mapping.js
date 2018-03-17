@@ -15,7 +15,7 @@ class Mapping extends Component {
     constructor() {
         super()
         this.state = {
-            count: 6
+            count: 10
         };
     }
 
@@ -33,9 +33,10 @@ class Mapping extends Component {
         return (
             <div>
                 <select name="count" onChange={this.handleInputChange}>
-                    <option value="3">3</option>
-                    <option value="4">3</option>
-                    <option value="5">5</option>
+                    <option value="1">1</option>
+                    <option selected="selected" value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
                     <option value="999">All</option>
                 </select>
                 {data.length !== 0 &&
