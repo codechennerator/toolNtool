@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchData } from "../../actions/dataAction"
 import { Link } from "react-router-dom";
-import { Card, Icon, Image } from 'semantic-ui-react'
-
-
-
+import { Card, Image } from 'semantic-ui-react'
 
 
 let mapStateToProps = (store) => {
@@ -19,7 +15,7 @@ class Mapping extends Component {
     constructor() {
         super()
         this.state = {
-            count: 3
+            count: 6
         };
     }
 
@@ -37,10 +33,10 @@ class Mapping extends Component {
         return (
             <div>
                 <select name="count" onChange={this.handleInputChange}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="4">3</option>
+                    <option value="5">5</option>
+                    <option value="999">All</option>
                 </select>
                 {data.length !== 0 &&
                     <Card.Group>

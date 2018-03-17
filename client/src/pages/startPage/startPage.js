@@ -1,33 +1,55 @@
 import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import logo from "../../components/img/logo.png"
 import SearchForm from "../../components/Search"
-import { Card, Icon, Image } from 'semantic-ui-react'
+import logo from "../../components/img/logo.png"
+
+import {
+  Container,
+  Header,
+  Image
+} from 'semantic-ui-react'
+
+
+const HomepageHeading = ({ mobile }) => (
+  <Container text
+    style={{
+      textAlign: "center",
+      zIndex:"1",
+    }}>
+    <Header
+      as='h1'
+      content='Welcome to Tool N Tool'
+      inverted
+      style={{
+        fontSize: mobile ? '2em' : '4em',
+        fontWeight: 'normal',
+        marginBottom: 0,
+        marginTop: mobile ? '1.5em' : '3em',
+        color: "black",
+      }}
+    />
+    <Header
+      as='h2'
+      content='Search any tool you need'
+      inverted
+      style={{
+        fontSize: mobile ? '1.5em' : '1.7em',
+        fontWeight: 'normal',
+        marginTop: mobile ? '0.5em' : '1.5em',
+        color: "black",
+      }}
+    />
+
+      <SearchForm />
+  </Container>
+)
+
 
 const startPage = () => (
 
-    <Card>
-      <Image size="Medium" src={logo} />
-      <Card.Content>
-        <Card.Header>
-          Matthew
-      </Card.Header>
-        <Card.Meta>
-          <span className='date'>
-            Joined in 2015
-        </span>
-        </Card.Meta>
-        <Card.Description>
-          Matthew is a musician living in Nashville.
-      </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name='user' />
-          22 Friends
-      </a>
-      </Card.Content>
-    </Card>
+  <div>
+    <HomepageHeading />
+    <Image src={logo} size='medium' centered />
+  </div>
 
 
 );

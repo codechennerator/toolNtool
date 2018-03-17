@@ -1,34 +1,46 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import SearchForm from "../Search"
-import { Menu, Segment } from 'semantic-ui-react'
-import "./NavCss.css"
-import PropTypes from 'prop-types'
+import { Menu } from 'semantic-ui-react'
 
-const colors = [
-  'red', 'orange', 'yellow', 'olive', 'green', 'teal',
-  'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black',
-]
 
+const fontStyle={
+  fontSize: '1.5em',
+  fontWeight: 'normal',
+}
+
+const inputStyle={
+  position:"absolute",
+  right:"5%",
+  top:"15%",
+}
 
 class Nav extends Component {
 
-  static propTypes = {
-    color: PropTypes.string,
-  }
-
   render() {
-    const { red } = this.props
-    return(
-      <div className="Navbar">
-      <Menu pointing secondary color={red}>
-      <a href="/"><Menu.Item name='Tool N Tool'  /></a>
-      <a href="/findAll"><Menu.Item name='find All' /></a>
-      <a href="/postTool"><Menu.Item name='post Tool' /></a>
 
-      <SearchForm />
-    </Menu>
-    </div>
-    
+    return (
+      <div 
+      className="ui huge top fixed menu"
+      style={{
+        display:"block"
+      }} 
+      >
+        <Menu pointing secondary >
+
+          <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
+          <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
+          <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>
+
+          {window.location.href.slice(-1) !== "/" && 
+          <div style={inputStyle}>
+          
+                <SearchForm />
+                </div>
+          }
+
+        </Menu>
+      </div>
+
     );
   }
 }

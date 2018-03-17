@@ -9,10 +9,11 @@ import Detail from "./pages/Detail";
 import Nav from "./components/Nav";
 
 const App = () => (
+  <div>
+  
   <Router>
     <div>
-      <Nav />
-
+    <Nav />    
       <Switch>
         <Route exact path="/" component={startPage} />
         <Route exact path="/findAll" component={findAll} />
@@ -20,10 +21,10 @@ const App = () => (
         <Route exact path="/findTool/:id" component={Detail} />
         <Route exact path="/postTool" component={postTool} />
         <Route component={NoMatch} />
-      </Switch>
-   
+      </Switch>   
     </div>
   </Router>
+  </div>
 );
 
 export default App;

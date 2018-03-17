@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../../components/Grid";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Form, TextArea, Container, Button, Input, Divider } from 'semantic-ui-react'
 
+const mainDivStyle = {
+  marginTop: "65px",
+}
 
 class postTool extends Component {
 
   constructor() {
     super()
     this.state = {
-      posts: [],
       title: "",
       user: "",
       description: "",
@@ -27,7 +28,12 @@ class postTool extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.user) {
+    if (
+      this.state.title !=="" && 
+      this.state.user !=="" &&
+      this.state.description !=="" &&
+      this.state.image !=="" &&
+      this.state.location !==""){
       API.savePost({
         title: this.state.title,
         user: this.state.user,
@@ -40,61 +46,86 @@ class postTool extends Component {
         })
         .catch(err => console.log(err));
     }
+    else{
+      alert("Please insert all information")
+    }
   };
+
+  handleKeyPress(target) {
+    if (target.charCode === 13) {
+        this.handleFormSubmit()
+    }
+}
 
   render() {
 
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
 
-            <h1>Post your tools</h1>
+      <Container style={mainDivStyle}>
+        <h1>Post your tools</h1>
+        <label>All Fields are required</label>
+        <Divider hidden />
 
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                value={this.state.user}
-                onChange={this.handleInputChange}
-                name="user"
-                placeholder="User (required)"
-              />
-              <Input
-                value={this.state.image}
-                onChange={this.handleInputChange}
-                name="image"
-                placeholder="Image link (optional)"
-              />
+        <Form>
+          <Form.Field>
+            <label>Post Title</label>
+            <Input
+              value={this.state.title}
+              onChange={this.handleInputChange}
+              name="title"
+              placeholder="Title"
+              size="big"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>User Name</label>
+            <Input
+              value={this.state.user}
+              onChange={this.handleInputChange}
+              name="user"
+              placeholder="User"
+              size="big"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Image</label>
+            <Input
+              value={this.state.image}
+              onChange={this.handleInputChange}
+              name="image"
+              placeholder="Image link"
+              size="big"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Item Location</label>
+            <Input
+              value={this.state.location}
+              onChange={this.handleInputChange}
+              name="location"
+              placeholder="Location: (Example: City, State)"
+              size="big"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Description</label>
+            <TextArea
+              style={{ minHeight: 100 }}
+              value={this.state.description}
+              onChange={this.handleInputChange}
+              name="description"
+              placeholder="Description"
+            />
+          </Form.Field>
 
-              <Input
-                value={this.state.location}
-                onChange={this.handleInputChange}
-                name="location"
-                placeholder="Location: City, State (required)"
-              />
+          <Button            
+            onClick={this.handleFormSubmit}
+            onKeyPress={this.handleKeyPress.bind(this)}
+          >
+            Submit Post
+              </Button>
+        </Form>
 
-              <TextArea
-                value={this.state.description}
-                onChange={this.handleInputChange}
-                name="description"
-                placeholder="Description (required)"
-              />
-              <FormBtn
-                disabled={!(this.state.user && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Post
-              </FormBtn>
-            </form>
-          </Col>
-
-
-        </Row>
       </Container>
     );
   }
