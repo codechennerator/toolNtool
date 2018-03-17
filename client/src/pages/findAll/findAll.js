@@ -1,52 +1,61 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { fetchAll } from "../../actions/dataAction"
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { Card, Icon, Image } from 'semantic-ui-react'
+import "./findAll.css"
+
+
 
 let mapStateToProps = (store) => {
   return {
-      data: store.data.data
+    data: store.data.data
   }
 }
 
-class findAll extends Component {  
+class findAll extends Component {
 
-  componentWillMount(){
+  componentWillMount() {
     this.props.dispatch(fetchAll())
   }
 
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
     return (
-      <Container fluid>
-        <Row>
 
-          <Col size="md-6 sm-12">
+      <div className="mainDiv">
+            <h1>Posts on the List</h1>
 
-              <h1>Posts on the List</h1>
 
-            {data.length !==0 &&
-              <List>
-                {data.data.map(post => (
-                  <ListItem key={post._id}>
-                    <a href={"/findTool/"+post._id}>
-                      <strong>
-                        {post.title} by {post.user}
-                      </strong>
-                    </a>
+            {data.length !== 0 &&
+                    <Card.Group>
+                    {data.data.map(post => (
+                        <Card key={post._id}>
+                        <Link to={"/findTool/"+post._id}>
+                            <Image floated='right' size='medium' src={post.img} />
+                            </Link>
+                                <Card.Content>
+                                    <Card.Header>
+                                        {post.title}
+                                    </Card.Header>
+                                    <Card.Meta>
+                                        {post.user}
+                                    </Card.Meta>
+                                    <Card.Description>
+                                        {post.description}
+                                        <strong>${post.price}</strong>
+                                    </Card.Description>
+                                </Card.Content>
+                        </Card>
 
-                  </ListItem>
-                ))}
-              </List>
+                    ))}
+                </Card.Group>
             }
-            {data.length ===0 &&
+            {data.length === 0 &&
               <h3>No Results to Display</h3>
             }
-
-          </Col>
-        </Row>
-      </Container>
+            </div>
     );
   }
 }

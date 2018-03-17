@@ -13,6 +13,7 @@ router
   .put(postController.update)
   .delete(postController.remove);
 
+  // Matches with "/api/posts/:id"
 router
   .route("/title/:title")
   .get(postController.findByTitle)

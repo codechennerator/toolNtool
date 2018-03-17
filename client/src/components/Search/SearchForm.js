@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchData } from "../../actions/dataAction"
 import { Link, Redirect } from "react-router-dom";
+import { Input } from 'semantic-ui-react'
 
 
 
@@ -37,7 +38,7 @@ class SearchForm extends Component {
         const { data } = this.props;
         return (
             <div >
-                <input name="term" onChange={this.handleInputChange} type="text" />
+                 <Input name="term" onChange={this.handleInputChange} className='icon' icon='search' placeholder='Search...' />
                 <button onClick={this.fetchData.bind(this)}><Link to ="/findTool">Submit</Link></button>
 
             </div>

@@ -13,7 +13,8 @@ class postTool extends Component {
       title: "",
       user: "",
       description: "",
-      image:"",
+      image: "",
+      location: "",
     };
   }
 
@@ -31,7 +32,8 @@ class postTool extends Component {
         title: this.state.title,
         user: this.state.user,
         description: this.state.description,
-        img: this.state.image
+        img: this.state.image,
+        location: this.state.location,
       })
         .then(res => {
           window.location.href = "/"
@@ -62,12 +64,19 @@ class postTool extends Component {
                 name="user"
                 placeholder="User (required)"
               />
-              <Input                 
+              <Input
                 value={this.state.image}
                 onChange={this.handleInputChange}
                 name="image"
                 placeholder="Image link (optional)"
-                />
+              />
+
+              <Input
+                value={this.state.location}
+                onChange={this.handleInputChange}
+                name="location"
+                placeholder="Location: City, State (required)"
+              />
 
               <TextArea
                 value={this.state.description}

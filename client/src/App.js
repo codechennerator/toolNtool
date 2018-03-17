@@ -12,6 +12,7 @@ const App = () => (
   <Router>
     <div>
       <Nav />
+
       <Switch>
         <Route exact path="/" component={startPage} />
         <Route exact path="/findAll" component={findAll} />
@@ -20,6 +21,7 @@ const App = () => (
         <Route exact path="/postTool" component={postTool} />
         <Route component={NoMatch} />
       </Switch>
+   
     </div>
   </Router>
 );
