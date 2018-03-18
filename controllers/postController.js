@@ -1,4 +1,12 @@
 const db = require("../models");
+const geocoder = require('geocoder');
+
+function getCoord(location){
+  geocoder.geocode(location, function (err, data) {
+    console.log(data)
+      return data.results[0].geometry.location
+  });
+}
 
 module.exports = {
 
@@ -18,11 +26,14 @@ module.exports = {
   },
   findByTitle: function (req, res) {
     db.Post
-      .find({ title: { $regex: `.*${req.params.title}.*` } })
+      .find({ title: { $regex: `(?i).*${req.params.title}.*` } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
+    // var coord;
+    // getCoord(req.body.location)
+
     db.Post
       .create(req.body)
       .then(dbModel => res.json(dbModel))

@@ -1,0 +1,68 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\MRJ\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js dev
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Git\cmd;C:\Program Files\nodejs\;C:\Users\MRJ\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;C:\Users\MRJ\AppData\Local\GitHubDesktop\bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.3
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "toolntool",
+    "version": "1.0.0",
+    "description": "toolNtool React",
+    "main": "server.js",
+    "scripts": {
+      "server": "node server.js",
+      "client": "node scripts/start-client.js",
+      "dev": "concurrently \"nodemon server.js\" \"npm run client\"",
+      "start": "node server.js",
+      "build": "node scripts/build.js",
+      "seed": "node scripts/seedDB.js",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "installDeps": "yarn && cd client && yarn",
+      "heroku-postbuild": "npm install && cd client && npm install && npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "concurrently": "^3.5.0",
+      "nodemon": "^1.11.0"
+    },
+    "dependencies": {
+      "axios": "^0.16.2",
+      "body-parser": "^1.17.2",
+      "express": "^4.15.4",
+      "mongoose": "^4.13.11",
+      "react-router-dom": "^4.2.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 1
+  Command: C:\Windows\system32\cmd.exe
+  Arguments: /d /s /c concurrently "nodemon server.js" "npm run client"
+  Directory: c:\Users\MRJ\Desktop\bootcamp\toolNtool
+  Output:
+  
+      at ProcessTermError.MessageError (C:\Users\MRJ\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\MRJ\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\MRJ\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)

@@ -1,31 +1,46 @@
-import React, {Component} from "react";
-import API from "../../utils/API";
+import React, { Component } from "react";
 import SearchForm from "../Search"
+import { Menu } from 'semantic-ui-react'
 
+
+const fontStyle={
+  fontSize: '1.5em',
+  fontWeight: 'normal',
+}
+
+const inputStyle={
+  position:"absolute",
+  right:"5%",
+  top:"15%",
+}
 
 class Nav extends Component {
 
   render() {
-    return(    
-      <nav className="navbar navbar-inverse navbar-top">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <a href="/" className="navbar-brand">
-              Tool N Tool
-        </a>
 
-            <a href="/findAll" className="navbar-brand">
-              find All
-        </a>
+    return (
+      <div 
+      className="ui huge top fixed menu"
+      style={{
+        display:"block"
+      }} 
+      >
+        <Menu pointing secondary >
 
-            <a href="/postTool" className="navbar-brand">
-              post Tool
-        </a>
-        <SearchForm />
+          <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
+          <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
+          <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>
 
-          </div>
-        </div>
-      </nav>
+          {window.location.href.slice(-1) !== "/" && 
+          <div style={inputStyle}>
+          
+                <SearchForm />
+                </div>
+          }
+
+        </Menu>
+      </div>
+
     );
   }
 }

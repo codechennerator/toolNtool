@@ -6,6 +6,8 @@ const postSchema = new Schema({
   img:{type:Object, required: false},
   user: { type: String, required: true },
   description: { type: String, required: true },
+  location:{type: String, required: true},
+  coordinate:{type:String, required: false},
   date: { type: Date, default: Date.now }
 });
 
