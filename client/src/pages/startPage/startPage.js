@@ -1,6 +1,7 @@
 import React from "react";
-import SearchForm from "../../components/Search"
-import logo from "../../components/img/logo.png"
+import SearchForm from "../../components/Search";
+import logo from "../../components/img/logo.png";
+
 
 import {
   Container,
@@ -42,6 +43,7 @@ const HomepageHeading = ({ mobile }) => (
     />
 
       <SearchForm />
+      
   </Container>
 )
 
