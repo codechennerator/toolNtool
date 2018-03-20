@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "proxy": {
-    "/auth/*":{
+    "/auth/*": {
       "target": "http://localhost:3001"
     },
-    "/api/current_user":{
+    "/api/current_user": {
       "target": "http://localhost:3001"
     }
   },
