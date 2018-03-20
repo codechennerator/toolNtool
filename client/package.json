@@ -6,7 +6,7 @@
     "/auth/*": {
       "target": "http://localhost:3001"
     },
-    "/api/current_user": {
+    "/api/*": {
       "target": "http://localhost:3001"
     }
   },
