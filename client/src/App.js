@@ -23,12 +23,11 @@ class App extends Component{
           <Nav />
             {/*Switch seems like its causing some weird behavior for my login. Consider getting rid of it?*/}    
             <Switch>
-            
               <Route exact path="/" component={startPage} />
               <Route exact path="/findAll" component={findAll} />
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/postTool" component={postTool} />
-              <Route component={NoMatch} />
+              {/* <Route component={NoMatch} /> */}
             </Switch>   
           </div>
         </Router>
