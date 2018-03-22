@@ -9,7 +9,7 @@ let mapStateToProps = (store) => {
 }
 
 const mainDivStyle = {
-  marginTop: "65px",
+  marginTop: "100px",
 }
 
 class findTool extends Component {

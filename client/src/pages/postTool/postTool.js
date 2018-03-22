@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import { Form, TextArea, Container, Button, Input, Divider } from 'semantic-ui-react'
 
 const mainDivStyle = {
-  marginTop: "65px",
+  marginTop: "100px",
 }
 
 class postTool extends Component {

@@ -13,7 +13,7 @@ let mapStateToProps = (store) => {
 }
 
 const mainDivStyle={
-    marginTop:"65px",
+    marginTop:"60px",
 }
 
 class findAll extends Component {
