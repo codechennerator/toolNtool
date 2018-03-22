@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { Form, TextArea, Container, Button, Input, Divider } from 'semantic-ui-react'
+import { connect } from 'react-redux';
 
 const mainDivStyle = {
   marginTop: "65px",
@@ -131,4 +132,8 @@ class postTool extends Component {
   }
 }
 
-export default postTool;
+function mapStateToProps({user}){
+  return { user };
+}
+
+export default connect(mapStateToProps)(postTool);

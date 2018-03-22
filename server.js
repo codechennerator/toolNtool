@@ -35,7 +35,7 @@ app.use(passport.session());
 //=====================================================================================================================================================================
 mongoose.Promise = global.Promise;// Set up promises with mongoose
 mongoose.connect(// Connect to the Mongo DB
-  "mongodb://toolntooladmin:toolntool123@ds261678.mlab.com:61678/heroku_c0hzwfm7", //change to keys.mongoURI when going to production.
+  keys.mongoURI, //change to keys.mongoURI when going to production.
   {
     useMongoClient: true
   }
