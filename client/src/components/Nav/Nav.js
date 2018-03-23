@@ -4,7 +4,7 @@ import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 
 
-const Style={
+const fontStyle={
   fontSize: '1.2em',
   fontWeight: 'normal',
   display:"inline-block",
@@ -58,17 +58,6 @@ class Nav extends Component {
        
       }} 
       >
-<<<<<<< HEAD
-        <Menu pointing secondary  >
-    
-          <Menu.Item>
-          <a href="/"><img src={t2}  style={logoStyle}/></a>
-          </Menu.Item>
-          <Menu.Item name='Find All' href="/findAll" style={Style}/>
-          <Menu.Item name='Post Tool' href="/postTool" style={Style}/>
-          <Menu.Item name='Log In' href="/auth/google" style={Style}/>
-          {/* </div> */}
-=======
         <Menu pointing secondary >
 
           <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
@@ -77,7 +66,6 @@ class Nav extends Component {
           {this.renderContent()}
           {/* <Menu.Item name='Login' href="/auth/google" style={fontStyle} />
           <Menu.Item name='Logout' href='/auth/logout' style={fontStyle} /> */}
->>>>>>> 0c6f451caab3401a30e1c1da23264be693226198
           {window.location.href.slice(-1) !== "/" && 
           <div style={inputStyle}>
           

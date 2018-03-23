@@ -6,7 +6,6 @@ const routes = require("./routes");
 const path = require('path');
 //Passport requirements
 const passport = require('passport');
-const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 require('./config/passport');
 require('./models');
@@ -40,14 +39,6 @@ mongoose.connect(// Connect to the Mongo DB
     useMongoClient: true
   }
 );
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 
@@ -58,7 +49,6 @@ if (process.env.NODE_ENV === 'production'){
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   });
 }
-
 
 // Start the API server
 app.listen(PORT, function () {
