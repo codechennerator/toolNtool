@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import SearchForm from "../Search"
 import { Menu } from 'semantic-ui-react'
+<<<<<<< HEAD
 import t2 from "../../components/img/t2.jpg"
 import Footer from "../../components/Footer"
+=======
+import { connect } from 'react-redux';
+>>>>>>> 0c6f451caab3401a30e1c1da23264be693226198
 
 
 const Style={
@@ -34,6 +38,20 @@ const navbar = {
 
 class Nav extends Component {
 
+  renderContent(){
+    switch(this.props.user){
+      case null:
+        return;
+      case false:
+        return(
+          <Menu.Item name='Login' href="/auth/google" style={fontStyle} />
+        );
+      default:
+        return(
+          <Menu.Item name='Logout' href='/auth/logout' style={fontStyle} />
+        );
+    }
+  }
   render() {
 
     return (
@@ -45,6 +63,7 @@ class Nav extends Component {
        
       }} 
       >
+<<<<<<< HEAD
         <Menu pointing secondary  >
     
           <Menu.Item>
@@ -54,6 +73,16 @@ class Nav extends Component {
           <Menu.Item name='Post Tool' href="/postTool" style={Style}/>
           <Menu.Item name='Log In' href="/auth/google" style={Style}/>
           {/* </div> */}
+=======
+        <Menu pointing secondary >
+
+          <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
+          <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
+          <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>
+          {this.renderContent()}
+          {/* <Menu.Item name='Login' href="/auth/google" style={fontStyle} />
+          <Menu.Item name='Logout' href='/auth/logout' style={fontStyle} /> */}
+>>>>>>> 0c6f451caab3401a30e1c1da23264be693226198
           {window.location.href.slice(-1) !== "/" && 
           <div style={inputStyle}>
           
@@ -69,4 +98,7 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+function mapStateToProps({user}){
+  return { user };
+}
+export default connect(mapStateToProps)(Nav);
