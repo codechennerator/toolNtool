@@ -31,6 +31,7 @@ const startPage = () => (
      <br/>
      <br/>
      <br/>
+     <a href = "https://www.google.com"> go to google</a>
      <Footer/> 
   </div>
 );
