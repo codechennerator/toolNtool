@@ -54,6 +54,7 @@ class Nav extends Component {
           <Menu.Item name='Post Tool' href="/postTool" style={Style}/>
           <Menu.Item name='Sign Up' href="/SignUp" style={Style}/>
           <Menu.Item name='Log In' href="/LogIn" style={Style}/>
+          <Menu.Item name='Test' href="/Test" style={Style}/>
           {/* </div> */}
           {window.location.href.slice(-1) !== "/" && 
           <div style={inputStyle}>
