@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import SearchForm from "../Search"
 import { Menu } from 'semantic-ui-react'
-<<<<<<< HEAD
-import t2 from "../../components/img/t2.jpg"
-import Footer from "../../components/Footer"
-=======
 import { connect } from 'react-redux';
->>>>>>> 0c6f451caab3401a30e1c1da23264be693226198
 
 
 const Style={
