@@ -21,7 +21,7 @@ const App = () => (
         <Route exact path="/findTool" component={findTool} />
         <Route exact path="/findTool/:id" component={Detail} />
         <Route exact path="/postTool" component={postTool} />
-        <Route component={NoMatch} />
+        {/* <Route component={NoMatch} /> */}
       </Switch>   
     </div>
   </Router>
