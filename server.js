@@ -12,8 +12,7 @@ require('./config/passport');
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// Serve up static assets
-app.use(express.static("client/build"));
+
 // Add routes, both API and view
 app.use(routes);
 
@@ -28,9 +27,14 @@ mongoose.connect(
 );
 
 
-// app.get('*', (req,res) =>{
-//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-// });
+if (process.env.NODE_ENV === 'production'){
+  // Serve up static assets
+  app.use(express.static("client/build"));
+  app.get('*', (req,res) =>{
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  });
+}
+
 
 // Start the API server
 app.listen(PORT, function() {
