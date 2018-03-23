@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 // Add routes, both API and view
 app.use(routes);
-app.use(express.static("client/build"));
+
 //Configuring passport for app use.
 app.use(
   cookieSession({
