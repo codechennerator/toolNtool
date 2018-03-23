@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 // Add routes, both API and view
 app.use(routes);
-
+app.use(express.static("client/build"));
 //Configuring passport for app use.
 app.use(
   cookieSession({
@@ -42,13 +42,13 @@ mongoose.connect(// Connect to the Mongo DB
 
 require('./routes/authRoutes')(app);
 
-if (process.env.NODE_ENV === 'production'){
-  // Serve up static assets
-  app.use(express.static("client/build"));
-  app.get('*', (req,res) =>{
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  });
-}
+// if (process.env.NODE_ENV === 'production'){
+//   // Serve up static assets
+//   app.use(express.static("client/build"));
+//   app.get('*', (req,res) =>{
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+//   });
+// }
 
 // Start the API server
 app.listen(PORT, function () {
