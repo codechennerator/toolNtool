@@ -3,8 +3,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const path = require('path');
+const passport = require('passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+require('./config/passport');
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,9 +27,11 @@ mongoose.connect(
   }
 );
 
-app.get('*', (req,res) =>{
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-});
+require('./routes/authRoutes')(app);
+
+// app.get('*', (req,res) =>{
+//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+// });
 
 // Start the API server
 app.listen(PORT, function() {
