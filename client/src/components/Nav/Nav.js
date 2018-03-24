@@ -61,9 +61,9 @@ class Nav extends Component {
       }} 
       >
         <Menu pointing secondary >
-          <Menu.Item>
+          {/* <Menu.Item>
             <a href="/"><img src={t2}  style={logoStyle}/></a>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
           <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
           <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>

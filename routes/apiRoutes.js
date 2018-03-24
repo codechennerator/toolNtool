@@ -72,7 +72,7 @@ app.get(
 
 app.get('/auth/logout', (req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('/api/current_user');
 });
 
 app.get('/api/current_user', (req, res) => {
