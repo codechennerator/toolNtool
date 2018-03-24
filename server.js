@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
+const session = require('express-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 require('./models');
@@ -10,12 +11,13 @@ mongoose.connect("mongodb://toolntooladmin:toolntool123@ds261678.mlab.com:61678/
 
 const app = express();
 
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-);
+// app.use(
+//   cookieSession({
+//     maxAge: 30 * 24 * 60 * 60 * 1000,
+//     keys: [keys.cookieKey]
+//   })
+// );
+app.use(session({secret: keys.cookieKey, resave: true, saveUninitialized:true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
