@@ -55,15 +55,6 @@ module.exports = app => {
       .catch(err => res.status(422).json(err));;
   })
 
-  app.get("/auth", function(req,res){
-      db.Userdata
-      .find()
-      .then(response => {
-          console.log(response)
-          res.json(response)
-      })
-  })
-
   app.get(
     '/auth/google',
     passport.authenticate('google', {
