@@ -66,13 +66,13 @@ app.get(
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-        res.redirect('/api/current_user');
+        res.redirect('/');
     }
 );
 
 app.get('/auth/logout', (req, res) => {
     req.logout();
-    res.redirect('/api/current_user');
+    res.redirect('/');
 });
 
 app.get('/api/current_user', (req, res) => {
