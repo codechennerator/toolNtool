@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import SearchForm from "../Search"
 import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux';
+import t2 from "../../components/img/t2.jpg"
+import Footer from "../../components/Footer"
 
 
 const fontStyle={
@@ -59,7 +61,9 @@ class Nav extends Component {
       }} 
       >
         <Menu pointing secondary >
-
+          <Menu.Item>
+            <a href="/"><img src={t2}  style={logoStyle}/></a>
+          </Menu.Item>
           <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
           <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
           <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>
