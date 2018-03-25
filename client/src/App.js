@@ -13,8 +13,7 @@ const App = () => (
   <div>
   
   <Router>
-    <div>
-    <Nav />    
+    <div> 
       <Switch>
         <Route exact path="/" component={startPage} />
         <Route exact path="/findAll" component={findAll} />

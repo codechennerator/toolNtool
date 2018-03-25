@@ -3,6 +3,8 @@ import { fetchAll } from "../../actions/dataAction"
 import { connect } from "react-redux";
 import Mapping from "../../components/Mapping"
 import { Container } from 'semantic-ui-react'
+import NonhomepageNav from "../../components/NonhomepageNav/NonhomepageNav"
+import Footer from "../../components/Footer/Footer"
 
 
 
@@ -25,13 +27,15 @@ class findAll extends Component {
 
   render() {
     return (
+     <div>
       <Container style={mainDivStyle}>
-
+      <NonhomepageNav/>
       <Mapping />
-          
+    
     </Container>
-
-    );
+    <Footer/>  
+    </div>
+   );
   }
 }
 

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Form, TextArea, Container, Button, Input, Divider } from 'semantic-ui-react'
 
+import NonhomepageNav from "../../components/NonhomepageNav/NonhomepageNav"
+import Footer from "../../components/Footer/Footer"
+
+
 const mainDivStyle = {
   marginTop: "100px",
 }
@@ -60,7 +64,8 @@ class postTool extends Component {
   render() {
 
     return (
-
+      <div>
+      <NonhomepageNav/>
       <Container style={mainDivStyle}>
         <h1>Post your tools</h1>
         <label>All Fields are required</label>
@@ -127,6 +132,8 @@ class postTool extends Component {
         </Form>
 
       </Container>
+      <Footer/>
+      </div>
     );
   }
 }

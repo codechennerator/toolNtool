@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Card, Icon, Image } from 'semantic-ui-react'
 // import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-
+import NonhomepageNav from "../../components/NonhomepageNav/NonhomepageNav"
+import Footer from "../../components/Footer/Footer"
 
 const cardStyle = {
   position:"relative",
@@ -27,7 +28,8 @@ class Detail extends Component {
   render() {
     console.log(this.state.post)
     return (
-      
+      <div>
+        <NonhomepageNav/>
       <Card style={cardStyle}>
       <Image src={this.state.post.img} />
       <Card.Content>
@@ -44,23 +46,8 @@ class Detail extends Component {
         </Card.Description>
       </Card.Content>
     </Card>
-
-    
-  
-      // <div class="col s12 m3 14">
-      //   <div class="card">
-      //      <div class="card-image">
-      //        <img  src={this.state.post.img}/>
-      //      </div>
-      //           <div class="card-content">
-      //            <p>{this.state.post.title} by {this.state.post.user}</p>
-      //            <p>{this.state.post.price}</p>
-      //            <p>{this.state.post.description}</p>
-      //            <p><Link to="/findAll">← Back to Posts</Link></p>
-      //           </div>
-      // </div>
-      // </div>
-     
+    <Footer/>
+  </div>
     )
  
   }
