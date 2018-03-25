@@ -1,30 +1,63 @@
 import axios from "axios"
 
-export function fetchData(title){
-    return (dispatch)=>{
+export const fetchData = (title) => (
+    async (dispatch) => {
+        const res = await axios.get("/api/posts/title/" + title);
         dispatch({
-        type: "FETCH_DATA",
-        payload: axios.get("/api/posts/title/" + title)
+            type: "FETCH_DATA_FULFILLED",
+            payload: res
         })
-}
-}
+    }
+)
 
-export function fetchDataSelected(id){
-    return (dispatch)=>{
+export const fetchDataSelected = (id)=> (
+    async (dispatch) => {
+        const res = await axios.get("/api/posts/" + id);
         dispatch({
-        type: "FETCH_DATA",
-        payload: axios.get("/api/posts/" + id)
+            type: "FETCH_DATA_FULFILLED",
+            payload: res
         })
-}
-}
+    }
+)
 
 
-export function fetchAll(){
-    return (dispatch)=>{
+export const fetchAll = () => (
+    async (dispatch) => {
+        const res = await axios.get("/api/posts");
         dispatch({
-        type: "FETCH_DATA",
-        payload: axios.get("/api/posts")
+            type: "FETCH_DATA_FULFILLED",
+            payload: res
         })
-}
-}
+    }
+)
+
+// import axios from "axios"
+
+// export function fetchData(title){
+//     return (dispatch)=>{
+//         dispatch({
+//         type: "FETCH_DATA",
+//         payload: axios.get("/api/posts/title/" + title)
+//         })
+// }
+// }
+
+// export function fetchDataSelected(id){
+//     return (dispatch)=>{
+//         dispatch({
+//         type: "FETCH_DATA",
+//         payload: axios.get("/api/posts/" + id)
+//         })
+// }
+// }
+
+
+// export function fetchAll(){
+//     return (dispatch)=>{
+//         dispatch({
+//         type: "FETCH_DATA",
+//         payload: axios.get("/api/posts")
+//         })
+// }
+// }
 
