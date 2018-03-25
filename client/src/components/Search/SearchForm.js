@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { fetchData, fetchAll } from "../../actions/dataAction"
 import { Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
-import { Container, Divider, Grid, Header, Image } from 'semantic-ui-react'
-import power from "../../components/img/power.jpg"
 import "./SearchForm.css"
 
 

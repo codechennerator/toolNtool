@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import SearchForm from "../Search"
+
 import { Menu } from 'semantic-ui-react'
 import t from "../../components/img/t.jpg"
-import Footer from "../../components/Footer"
+
 
 
 const Style={
@@ -12,11 +12,7 @@ const Style={
   bottom:"15px"
 }
 
-const inputStyle={
-  position:"absolute",
-  right:"5%",
-  top:"25%",
-}
+
 const logoStyle={
   width:"50px",
   display:"inline-block",
@@ -24,13 +20,6 @@ const logoStyle={
   top:"4px"
   
 }
-
-const navbar = {
-  display:"block",
-  position:"relative",
-  left:"68%",
-}
-
 
 class Nav extends Component {
 
@@ -47,7 +36,7 @@ class Nav extends Component {
       >
         <Menu stackable pointing secondary >
           <Menu.Item>
-          <a href="/"><img src={t}  style={logoStyle}/></a>
+          <a href="/"><img src={t}  alt="logo" style={logoStyle}/></a>
           </Menu.Item>
           <Menu.Item name='Find All' href="/findAll" style={Style}/>
           <Menu.Item name='Post Tool' href="/postTool" style={Style}/>

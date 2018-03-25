@@ -6,9 +6,6 @@ import findAll from "./pages/findAll";
 import postTool from "./pages/postTool";
 import NoMatch from "./pages/NoMatch";
 import Detail from "./pages/Detail";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer"
-
 const App = () => (
   <div>
   

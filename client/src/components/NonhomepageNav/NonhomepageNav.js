@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import SearchForm from "../Search"
-import Input, { Menu } from 'semantic-ui-react'
+
+import  { Menu } from 'semantic-ui-react'
 import t from "../../components/img/t.jpg"
-import Footer from "../../components/Footer"
+
 
 
 const Style={
@@ -25,11 +25,7 @@ const logoStyle={
   
 }
 
-const navbar = {
-  display:"block",
-  position:"relative",
-  left:"68%",
-}
+
 
 
 class NonhomepageNav extends Component {
@@ -47,7 +43,7 @@ class NonhomepageNav extends Component {
       >
         <Menu stackable pointing secondary  >
           <Menu.Item>
-          <a href="/"><img src={t}  style={logoStyle}/></a>
+          <a href="/"><img src={t}  alt="logo" style={logoStyle}/></a>
           </Menu.Item>
           <Menu.Item name='Find All' href="/findAll" style={Style}/>
           <Menu.Item name='Post Tool' href="/postTool" style={Style}/>

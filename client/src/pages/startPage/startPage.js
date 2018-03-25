@@ -1,13 +1,8 @@
 import React from "react";
 import SearchForm from "../../components/Search"
-import logo from "../../components/img/logo.png"
 import Footer from "../../components/Footer"
 import Nav from "../../components/Nav"
-import {
-  Container,
-  Header,
-  Image
-} from 'semantic-ui-react'
+
 
 // const HomepageHeading = ({ mobile }) => (
 //   <Container fluid
