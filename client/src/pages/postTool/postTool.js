@@ -29,15 +29,16 @@ class postTool extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log(this.props.user);
     if (
       this.state.title !=="" && 
-      this.state.user !=="" &&
+      this.props.user !== false &&
       this.state.description !=="" &&
       this.state.image !=="" &&
       this.state.location !==""){
       API.savePost({
         title: this.state.title,
-        user: this.state.user,
+        user: this.props.user._id,
         description: this.state.description,
         img: this.state.image,
         location: this.state.location,
@@ -75,16 +76,6 @@ class postTool extends Component {
               onChange={this.handleInputChange}
               name="title"
               placeholder="Title"
-              size="big"
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>User Name</label>
-            <Input
-              value={this.state.user}
-              onChange={this.handleInputChange}
-              name="user"
-              placeholder="User"
               size="big"
             />
           </Form.Field>
