@@ -1,5 +1,6 @@
 const db = require("../models")
 const passport = require('passport');
+const requireLogin = require('../middlewares/requireLogin');
 
 
 module.exports = app => {
@@ -12,8 +13,7 @@ module.exports = app => {
       .catch(err => res.status(422).json(err));
   })
 
-  app.post("/api/posts", function (req, res) {
-    console.log(req.body);
+  app.post("/api/posts", requireLogin, function (req, res){
     db.Post
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -34,14 +34,14 @@ module.exports = app => {
       .catch(err => res.status(422).json(err));
   })
 
-  app.put("/api/posts/:id", function (req, res) {
+  app.put("/api/posts/:id", requireLogin, function (req, res) {
     db.Post
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   })
 
-  app.delete("/api/posts/:id", function (req, res) {
+  app.delete("/api/posts/:id", requireLogin,function (req, res) {
     db.Post
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())

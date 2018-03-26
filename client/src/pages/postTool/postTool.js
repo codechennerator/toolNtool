@@ -29,10 +29,9 @@ class postTool extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.props.user);
     if (
       this.state.title !=="" && 
-      this.props.user !== false &&
+      // this.props.user !== false &&
       this.state.description !=="" &&
       this.state.image !=="" &&
       this.state.location !==""){
@@ -49,6 +48,7 @@ class postTool extends Component {
         .catch(err => console.log(err));
     }
     else{
+      console.log(this.props.user);
       alert("Please insert all information")
     }
   };

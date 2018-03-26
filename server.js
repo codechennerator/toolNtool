@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
+const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 require('./models');
 require('./config/passport');
 
-mongoose.connect("mongodb://toolntooladmin:toolntool123@ds261678.mlab.com:61678/heroku_c0hzwfm7");
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
@@ -18,6 +19,8 @@ const app = express();
 //   })
 // );
 app.use(session({secret: keys.cookieKey, resave: true, saveUninitialized:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
