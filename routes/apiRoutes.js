@@ -8,6 +8,7 @@ module.exports = app => {
   app.get("/api/posts", function (req, res) {
     db.Post
       .find(req.query)
+      .populate('user')
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -67,24 +68,24 @@ module.exports = app => {
 
  //===================MESSAGING ROUTES ===================================
 //  //Making a new conversation
-//   app.post('/api/message/:id', requireLogin, function(req,res){
+  app.post('/api/message/:id', requireLogin, function(req,res){
 
-//     Conversation.findOne({ googleId: profile.id }).then(existingUser => {
-//         if (false) {
-//             // we already have a record with the given profile ID
+    findOne( { $and:[ {'participants.user':_id}, {'participants.user':_id}]}).then(existingConversation => {
+        if (false) {
+            // we already have a record with the given profile ID
             
-//         } else {
-//             // we don't have a user record with this ID, make a new record!
-//             new User({ 
+        } else {
+            // we don't have a user record with this ID, make a new record!
+            new User({ 
 
-//                 })
-//                 .save()
-//                 .then(user => done(null, user));
-//         }
-//     });
-//       db.Conversation
-//         .create()
-//   });
+                })
+                .save()
+                .then(user => done(null, user));
+        }
+    });
+      db.Conversation
+        .create()
+  });
   //===================AUTH ROUTES ===================================
 
     app.get(
