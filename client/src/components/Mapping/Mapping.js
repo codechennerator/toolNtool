@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Card, Image } from 'semantic-ui-react'
+import { Button, Header, Icon, Image, Divider, Container, Card, } from 'semantic-ui-react';
 
+
+const style = {
+    container: {
+      marginTop: '8em',
+      marginBottom: '10em'
+    },
+    image: {
+      marginBottom: '3em'
+    },
+  };
 
 let mapStateToProps = (store) => {
     return {
@@ -31,41 +41,44 @@ class Mapping extends Component {
     render() {
         const { data } = this.props;
         return (
-            <div>
-                <select name="count" onChange={this.handleInputChange}>
-                    <option value="3">3</option>
-                    <option value="4">3</option>
-                    <option value="5">5</option>
-                    <option value="999">All</option>
-                </select>
-                {data.length !== 0 &&
-                    <Card.Group>
-                        {data.data.slice(0, this.state.count).map(post => (
-                            <Card key={post._id}>
-                            <Link to={"/findTool/"+post._id}>
-                                <Image floated='right' size='medium' src={post.img} />
-                                </Link>
-                                    <Card.Content>
-                                        <Card.Header>
-                                            {post.title}
-                                        </Card.Header>
-                                        <Card.Meta>
-                                            {post.user}
-                                        </Card.Meta>
-                                        <Card.Description>
-                                            {post.description}
-                                            <strong>${post.price}</strong>
-                                        </Card.Description>
-                                    </Card.Content>
-                            </Card>
+            <Container style={style.container}>
+                <div>
+                    <select name="count" onChange={this.handleInputChange}>
+                        <option value="3">3</option>
+                        <option value="4">3</option>
+                        <option value="5">5</option>
+                        <option value="999">All</option>
+                    </select>
+                    <p/>
+                    {data.length !== 0 &&
+                        <Card.Group>
+                            {data.data.slice(0, this.state.count).map(post => (
+                                <Card key={post._id}>
+                                <Link to={"/findTool/"+post._id}>
+                                    <Image floated='right' src={post.img} />
+                                    </Link>
+                                        <Card.Content>
+                                            <Card.Header>
+                                                {post.title}
+                                            </Card.Header>
+                                            <Card.Meta>
+                                                {post.user}
+                                            </Card.Meta>
+                                            <Card.Description>
+                                                {post.description}
+                                                <strong>${post.price}</strong>
+                                            </Card.Description>
+                                        </Card.Content>
+                                </Card>
 
-                        ))}
-                    </Card.Group>
-                }
-                {data.length === 0 &&
-                    <h3>No Results to Display</h3>
-                }
-            </div>
+                            ))}
+                        </Card.Group>
+                    }
+                    {data.length === 0 &&
+                        <h3>No Results to Display</h3>
+                    }
+                </div>
+            </Container>
         )
     }
 }

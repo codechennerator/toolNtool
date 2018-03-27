@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Form, TextArea, Container, Button, Input, Divider } from 'semantic-ui-react'
+import { Form, TextArea, Container, Button, Input, Divider } from 'semantic-ui-react';
+import PostModal from "../../components/PostModal";
+import Detail from '../Detail/Detail';
+
 
 const mainDivStyle = {
   marginTop: "65px",
@@ -25,6 +28,7 @@ class postTool extends Component {
       [name]: value
     });
   };
+
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -58,7 +62,7 @@ class postTool extends Component {
 }
 
   render() {
-
+    // console.log(this.state)
     return (
 
       <Container style={mainDivStyle}>
@@ -118,15 +122,16 @@ class postTool extends Component {
             />
           </Form.Field>
 
-          <Button            
+          {/* <Button            
             onClick={this.handleFormSubmit}
-            onKeyPress={this.handleKeyPress.bind(this)}
-          >
-            Submit Post
-              </Button>
+            onKeyPress={this.handleKeyPress.bind(this)}>
+            Submit
+          </Button> */}
+          <PostModal info={this.state}/>
         </Form>
 
       </Container>
+
     );
   }
 }

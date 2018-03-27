@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
+import { Button, Header, Icon, Image, Divider, Container } from 'semantic-ui-react'
 import API from "../../utils/API";
 
+const style = {
+  container: {
+    marginTop: '8em',
+    marginBottom: '10em'
+  },
+  image: {
+    marginBottom: '3em'
+  },
+};
 
 class Detail extends Component {
   state = {
@@ -10,53 +19,31 @@ class Detail extends Component {
   };
 
   componentDidMount() {
-    API.getPost(this.props.match.params.id)
+    if(this.props.match.params != undefined){
+      API.getPost(this.props.match.params.id)
       .then(res =>{
         // console.log(res)
         this.setState({ post: res.data })
       })
       .catch(err => console.log(err));
-  }
+    }
+  };
 
   render() {
     console.log(this.state.post)
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-
-              <h1>
-                {this.state.post.title} by {this.state.post.user}
-              </h1>
-
-          </Col>
-        </Row>
-
-        <Row>
-          <Col size="md12">
-          
-          <img alt={this.state.post.title} src={this.state.post.img} />
-
-          </Col>
-          </Row>
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h3>Description</h3>
-              <h4>
-                {this.state.post.description}
-              </h4>
-            </article>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/findAll">← Back to Posts</Link>
-          </Col>
-        </Row>
+      <Container style={style.container}>
+        <div className="postDetail">
+          <Image src={this.state.post.img} size='large' alt={this.state.post.title} style={style.image} rounded />
+          <p className="postTitle">{this.state.post.title}</p>
+          <p>User: {this.state.post.user}</p>
+          <p>Notes: {this.state.post.description}</p>
+          <p/>
+          <Link to="/findAll">Back to Posts</Link>
+        </div>
       </Container>
     );
-  }
+  };
 }
 
 export default (Detail);
