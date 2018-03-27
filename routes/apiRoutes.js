@@ -66,48 +66,48 @@ module.exports = app => {
   });
 
  //===================MESSAGING ROUTES ===================================
- //Making a new conversation
-  app.post('/api/message/:id', requireLogin, function(req,res){
+//  //Making a new conversation
+//   app.post('/api/message/:id', requireLogin, function(req,res){
 
-    Conversation.findOne({ googleId: profile.id }).then(existingUser => {
-        if (false) {
-            // we already have a record with the given profile ID
+//     Conversation.findOne({ googleId: profile.id }).then(existingUser => {
+//         if (false) {
+//             // we already have a record with the given profile ID
             
-        } else {
-            // we don't have a user record with this ID, make a new record!
-            new User({ 
+//         } else {
+//             // we don't have a user record with this ID, make a new record!
+//             new User({ 
 
-                })
-                .save()
-                .then(user => done(null, user));
-        }
-    });
-      db.Conversation
-        .create()
-  });
+//                 })
+//                 .save()
+//                 .then(user => done(null, user));
+//         }
+//     });
+//       db.Conversation
+//         .create()
+//   });
   //===================AUTH ROUTES ===================================
 
-  app.get(
-    '/auth/google',
-    passport.authenticate('google', {
-        scope: ['profile', 'email']
-    })
-);
+    app.get(
+        '/auth/google',
+        passport.authenticate('google', {
+            scope: ['profile', 'email']
+        })
+    );
 
-app.get(
-    '/auth/google/callback',
-    passport.authenticate('google'),
-    (req, res) => {
-        res.redirect('/');
-    }
-);
+    app.get(
+        '/auth/google/callback',
+        passport.authenticate('google'),
+        (req, res) => {
+            res.redirect('/dashboard');
+    });
 
-app.get('/auth/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-});
+    app.get('/auth/logout', (req, res) => {
+        req.logout();
+        res.redirect('/dashboard');
+        
+    });
 
-app.get('/api/current_user', (req, res) => {
-    res.send(req.user);
-});
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user);
+    });
 }

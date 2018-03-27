@@ -50,9 +50,6 @@ class Mapping extends Component {
                                         <Card.Header>
                                             {post.title}
                                         </Card.Header>
-                                        <Card.Meta>
-                                            {post.user}
-                                        </Card.Meta>
                                         <Card.Description>
                                             {post.description}
                                             <strong>${post.price}</strong>
