@@ -8,7 +8,7 @@ const keys = require('./config/keys');
 require('./models');
 require('./config/passport');
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect("mongodb://toolntooladmin:toolntool123@ds261678.mlab.com:61678/heroku_c0hzwfm7");
 
 const app = express();
 
