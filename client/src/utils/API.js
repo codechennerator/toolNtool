@@ -13,7 +13,6 @@ export default {
   },
   //pushing post into the DB
   savePost: function(postData) {
-    console.log(postData);
     return axios.post("/api/posts", postData);
   }
 };

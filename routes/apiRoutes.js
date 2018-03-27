@@ -53,8 +53,41 @@ module.exports = app => {
     db.Post
       .find({ title: { $regex: `(?i).*${req.params.title}.*` } })
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));;
+      .catch(err => res.status(422).json(err));
   })
+
+  //TODO: Hook up this route with front end
+  app.get("/api/usersposts", requireLogin, function(req,res) {
+      db.Post
+        .find({user: req.user._id})
+        .populate('user')
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+  });
+
+ //===================MESSAGING ROUTES ===================================
+ //Making a new conversation
+//   app.post('/api/conversation:id', requireLogin, function(req,res){
+
+//     Conversation.findOne({ googleId: profile.id }).then(existingUser => {
+//         if (existingUser) {
+//             // we already have a record with the given profile ID
+            
+//         } else {
+//             // we don't have a user record with this ID, make a new record!
+//             new User({ 
+//                     googleId: profile.id,
+//                     name: profile.name,
+//                     email: profile.emails[0].value
+//                 })
+//                 .save()
+//                 .then(user => done(null, user));
+//         }
+//     });
+//       db.Conversation
+//         .create()
+//   });
+  //===================AUTH ROUTES ===================================
 
   app.get(
     '/auth/google',

@@ -27,7 +27,7 @@ class App extends Component{
               <Route exact path="/findAll" component={findAll} />
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/postTool" component={postTool} />
-              {/* <Route component={NoMatch} /> */}
+              <Route component={NoMatch} />
             </Switch>   
           </div>
         </Router>
