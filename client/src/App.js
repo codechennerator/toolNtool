@@ -7,6 +7,7 @@ import findAll from "./pages/findAll";
 import postTool from "./pages/postTool";
 import Detail from "./pages/Detail/Detail"
 import NoMatch from "./pages/NoMatch";
+import Messages from "./pages/Messages";
 import Nav from "./components/Nav";
 import * as userActions from "./actions/userAction";
 
@@ -29,6 +30,7 @@ class App extends Component{
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/postTool" component={postTool} />
+              <Route exact path="/messages" component = {Messages} />
               <Route component={NoMatch} />
             </Switch>   
           </div>

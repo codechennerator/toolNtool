@@ -24,6 +24,7 @@ class PostModal extends Component {
           API.savePost({
             title: this.props.info.title,
             description: this.props.info.description,
+            user: this.props.user._id,
             img: this.props.info.image,
             location: this.props.info.location,
           })
@@ -46,7 +47,6 @@ class PostModal extends Component {
                 <Modal.Description>
                     <p>{this.props.info.location}</p>
                     <p>Title: {this.props.info.title}</p>
-                    <p>User: {this.props.info.user}</p>
                     <p>Description: {this.props.info.description}</p>
                 </Modal.Description>
                 </Modal.Content>

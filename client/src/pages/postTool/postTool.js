@@ -121,7 +121,7 @@ class postTool extends Component {
             onKeyPress={this.handleKeyPress.bind(this)}>
             Submit
           </Button> */}
-          <PostModal info={this.state}/>
+          <PostModal info={this.state} user = {this.props.user}/>
         </Form>
 
       </Container>
