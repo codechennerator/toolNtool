@@ -67,7 +67,7 @@ class Nav extends Component {
           <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
           <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
           <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>
-          <Menu.Item name='Messages' href="/messages" style={fontStyle}/>
+          <Menu.Item name='Inbox' href="/inbox" style={fontStyle}/>
           {this.renderContent()}
           {window.location.href.slice(-1) !== "/" && 
           <div style={inputStyle}>

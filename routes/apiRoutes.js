@@ -78,6 +78,7 @@ module.exports = app => {
   app.get('/api/conversations', requireLogin, function(req,res){
       db.Conversation
         .find({users: req.user._id})
+        .populate('users')
         .sort({ date: -1 })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
@@ -88,12 +89,12 @@ module.exports = app => {
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
-  app.put('/api/messages/:id', function(req,res){
+  app.put('/api/messages/:converseid', function(req,res){
       db.Message
         .create({
-            conversation,
+            conversation: req.params.converseid,
             sender: req.user._id,
-            content  
+            content: req.body.content  
         })
   });
   //===================AUTH ROUTES ===================================
