@@ -77,7 +77,7 @@ module.exports = app => {
   //Note that these routes do not prevent a user from accessing conversations that do not belong to him! (yet)
   app.get('/api/conversations', requireLogin, function(req,res){
       db.Conversation
-        .find({})
+        .find({users: req.user._id})
         .sort({ date: -1 })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));

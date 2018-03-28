@@ -14,6 +14,10 @@ export default {
   //pushing post into the DB
   savePost: function(postData) {
     return axios.post("/api/posts", postData);
+  },
+
+  getConversations: function(){
+    return axios.get("/api/conversations")
   }
 };
 
