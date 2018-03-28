@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Card, Image } from 'semantic-ui-react'
+import { Button, Header, Icon, Image, Divider, Container, Card, } from 'semantic-ui-react';
 
+
+const style = {
+    container: {
+      marginTop: '8em',
+      marginBottom: '10em'
+    },
+    image: {
+      marginBottom: '3em'
+    },
+  };
 
 let mapStateToProps = (store) => {
     return {
@@ -31,6 +41,7 @@ class Mapping extends Component {
     render() {
         const { data } = this.props;
         return (
+            <Container style = {style.container}>
             <div>
                 <select name="count" onChange={this.handleInputChange}>
                     <option value="1">1</option>
@@ -39,6 +50,7 @@ class Mapping extends Component {
                     <option value="50">50</option>
                     <option value="999">All</option>
                 </select>
+                <p/>
                 {data.length !== 0 &&
                     <Card.Group>
                         {data.data.slice(0, this.state.count).map(post => (
@@ -60,13 +72,14 @@ class Mapping extends Component {
                                     </Card.Content>
                             </Card>
 
-                        ))}
-                    </Card.Group>
-                }
-                {data.length === 0 &&
-                    <h3>No Results to Display</h3>
-                }
-            </div>
+                            ))}
+                        </Card.Group>
+                    }
+                    {data.length === 0 &&
+                        <h3>No Results to Display</h3>
+                    }
+                </div>
+            </Container>
         )
     }
 }

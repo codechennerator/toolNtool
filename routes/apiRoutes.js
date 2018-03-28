@@ -68,23 +68,33 @@ module.exports = app => {
 
  //===================MESSAGING ROUTES ===================================
 //  //Making a new conversation
-  app.post('/api/message/:id', requireLogin, function(req,res){
-
-    findOne( { $and:[ {'participants.user':_id}, {'participants.user':_id}]}).then(existingConversation => {
-        if (false) {
-            // we already have a record with the given profile ID
-            
-        } else {
-            // we don't have a user record with this ID, make a new record!
-            new User({ 
-
-                })
-                .save()
-                .then(user => done(null, user));
-        }
-    });
+  app.post('/api/conversations/:id', requireLogin, function(req,res){
       db.Conversation
-        .create()
+        .create({users:[req.user._id, req.params.id]})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));;
+  });
+  //Note that these routes do not prevent a user from accessing conversations that do not belong to him! (yet)
+  app.get('/api/conversations', requireLogin, function(req,res){
+      db.Conversation
+        .find({})
+        .sort({ date: -1 })
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+  });
+  app.get('/api/conversations/:id', requireLogin, function(req,res){
+      db.Conversation
+        .findById(req.params.id)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+  });
+  app.put('/api/messages/:id', function(req,res){
+      db.Message
+        .create({
+            conversation,
+            sender: req.user._id,
+            content  
+        })
   });
   //===================AUTH ROUTES ===================================
 
@@ -112,3 +122,18 @@ module.exports = app => {
         res.send(req.user);
     });
 }
+
+
+    // findOne( { $and:[ {'participants.user':_id}, {'participants.user':_id}]}).then(existingConversation => {
+    //     if (false) {
+    //         // we already have a record with the given profile ID
+            
+    //     } else {
+    //         // we don't have a user record with this ID, make a new record!
+    //         new User({ 
+
+    //             })
+    //             .save()
+    //             .then(user => done(null, user));
+    //     }
+    // });

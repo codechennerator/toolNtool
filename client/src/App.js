@@ -5,6 +5,7 @@ import startPage from "./pages/startPage";
 import findTool from "./pages/findTool";
 import findAll from "./pages/findAll";
 import postTool from "./pages/postTool";
+import Detail from "./pages/Detail/Detail"
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import * as userActions from "./actions/userAction";
@@ -26,6 +27,7 @@ class App extends Component{
               <Route exact path="/" component={startPage} />
               <Route exact path="/findAll" component={findAll} />
               <Route exact path="/findTool" component={findTool} />
+              <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/postTool" component={postTool} />
               <Route component={NoMatch} />
             </Switch>   

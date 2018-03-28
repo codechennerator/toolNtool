@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Button, Header, Container} from 'semantic-ui-react'
 // import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
 
+const style = {
+  container: {
+    marginTop: '8em',
+    marginBottom: '10em'
+  },
+  image: {
+    marginBottom: '3em'
+  },
+};
 
 const cardStyle = {
   position:"relative",
@@ -16,54 +25,34 @@ class Detail extends Component {
   };
 
   componentDidMount() {
-    API.getPost(this.props.match.params.id)
+    if(this.props.match.params != undefined){
+      API.getPost(this.props.match.params.id)
       .then(res =>{
         // console.log(res)
         this.setState({ post: res.data })
       })
       .catch(err => console.log(err));
-  }
+    }
+  };
 
   render() {
     console.log(this.state.post)
     return (
-      
-      <Card style={cardStyle}>
-      <Image src={this.state.post.img} />
-      <Card.Content>
-        <Card.Header>
-        {this.state.post.title} by {this.state.post.user}
-        </Card.Header>
-        <Card.Meta>
-          <span className='date'>
-          {this.state.post.price}
-          </span>
-        </Card.Meta>
-        <Card.Description>
-        {this.state.post.description}
-        </Card.Description>
-      </Card.Content>
-    </Card>
-
-    
+      <Container style={style.container}>
+        <div className="postDetail">
+          <Image src={this.state.post.img} size='large' alt={this.state.post.title} style={style.image} rounded />
+          <p className="postTitle">{this.state.post.title}</p>
+          <p>User: {this.state.post.user}</p>
+          <p>Notes: {this.state.post.description}</p>
+          <p/>
+          <Link to="/findAll">Back to Posts</Link>
+        </div>
+      </Container>
+    );
   
-      // <div class="col s12 m3 14">
-      //   <div class="card">
-      //      <div class="card-image">
-      //        <img  src={this.state.post.img}/>
-      //      </div>
-      //           <div class="card-content">
-      //            <p>{this.state.post.title} by {this.state.post.user}</p>
-      //            <p>{this.state.post.price}</p>
-      //            <p>{this.state.post.description}</p>
-      //            <p><Link to="/findAll">← Back to Posts</Link></p>
-      //           </div>
-      // </div>
-      // </div>
-     
-    )
- 
   }
-}
 
-export default (Detail);
+};
+
+
+export default Detail;
