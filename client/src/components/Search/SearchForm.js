@@ -3,11 +3,8 @@ import { connect } from "react-redux";
 import { fetchData, fetchAll } from "../../actions/dataAction"
 import { Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
-<<<<<<< HEAD
 import { Container, Divider, Grid, Header, Image } from 'semantic-ui-react'
 import power from "../../components/img/power.jpg"
-=======
->>>>>>> c55b12b546be53490b9291271190ee2d8ec9688a
 import "./SearchForm.css"
 
 
@@ -21,7 +18,6 @@ const searchStyle = {
     width: "300px"
 }
 
-<<<<<<< HEAD
 const gridStyle = {
     backgroundImage: `url(${power})`,
    height:"600px", 
@@ -95,56 +91,6 @@ class SearchForm extends Component {
 
                      </Grid>
                 </container>
-=======
-
-
-class SearchForm extends Component {
-    constructor() {
-        super()
-        this.state = {
-            term: "",
-        };
-    }
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    };
-    fetchData() {
-        this.props.dispatch(fetchData(this.state.term)
-        )
-    }
-    fetchAll() {
-        this.props.dispatch(fetchAll())
-    }
-    handleKeyPress(target) {
-        if (target.charCode === 13) {
-            this.conditionalFetch()
-        }
-    }
-    conditionalFetch() {
-        if (this.state.term === "") {
-            this.fetchAll()
-        }
-        else {
-            this.fetchData()
-        }
-    }
-    render() {
-        const { data } = this.props;
-        if (window.location.href.slice(-1) === "/") {
-            return (
-                <div className="divStyle">                                
-                      <Input
-                            name="term"
-                            onKeyPress={this.handleKeyPress.bind(this)}
-                            onChange={this.handleInputChange}
-                            icon='search'
-                            placeholder='Search...'
-                            className="inputStyle"
-                        />
->>>>>>> c55b12b546be53490b9291271190ee2d8ec9688a
                 </div>
             )
         }

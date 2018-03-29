@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import SearchForm from "../Search"
 import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux';
@@ -19,22 +18,6 @@ const inputStyle={
   right:"5%",
   top:"25%",
 }
-=======
-
-import { Menu } from 'semantic-ui-react'
-import t from "../../components/img/t.jpg"
-
-
-
-const Style={
-  fontSize: '1.2em',
-  fontWeight: 'normal',
-  display:"inline-block",
-  bottom:"15px"
-}
-
-
->>>>>>> c55b12b546be53490b9291271190ee2d8ec9688a
 const logoStyle={
   width:"50px",
   display:"inline-block",
@@ -43,7 +26,6 @@ const logoStyle={
   
 }
 
-<<<<<<< HEAD
 const navbar = {
   display:"block",
   position:"relative",
@@ -67,10 +49,6 @@ class Nav extends Component {
         );
     }
   }
-=======
-class Nav extends Component {
-
->>>>>>> c55b12b546be53490b9291271190ee2d8ec9688a
   render() {
 
     return (
@@ -82,7 +60,6 @@ class Nav extends Component {
        
       }} 
       >
-<<<<<<< HEAD
         <Menu pointing secondary >
           <Menu.Item>
             <a href="/"><img src={t2}  style={logoStyle}/></a>
@@ -100,16 +77,6 @@ class Nav extends Component {
                 </div>
           }
 
-=======
-        <Menu stackable pointing secondary >
-          <Menu.Item>
-          <a href="/"><img src={t}  alt="logo" style={logoStyle}/></a>
-          </Menu.Item>
-          <Menu.Item name='Find All' href="/findAll" style={Style}/>
-          <Menu.Item name='Post Tool' href="/postTool" style={Style}/>
-          <Menu.Item name='Sign Up' href="/SignUp" style={Style}/>
-          <Menu.Item name='Log In' href="/LogIn" style={Style}/>
->>>>>>> c55b12b546be53490b9291271190ee2d8ec9688a
         </Menu>
       </div>
 
@@ -117,11 +84,7 @@ class Nav extends Component {
   }
 }
 
-<<<<<<< HEAD
 function mapStateToProps({user}){
   return { user };
 }
 export default connect(mapStateToProps)(Nav);
-=======
-export default Nav;
->>>>>>> c55b12b546be53490b9291271190ee2d8ec9688a
