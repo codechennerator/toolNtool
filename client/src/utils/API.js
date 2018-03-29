@@ -16,8 +16,13 @@ export default {
     return axios.post("/api/posts", postData);
   },
 
+
+  //==========================APIs for Messaging =================================
   getConversations: function(){
-    return axios.get("/api/conversations")
+    return axios.get("/api/conversations");
+  },
+  getMessages: function(cid){
+    return axios.get("/api/conversations/" + cid);
   }
 };
 

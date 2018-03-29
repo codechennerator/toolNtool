@@ -75,6 +75,7 @@ module.exports = app => {
         .catch(err => res.status(422).json(err));;
   });
   //Note that these routes do not prevent a user from accessing conversations that do not belong to him! (yet)
+  //Shows the conversations the user has started. (Lists the inbox)
   app.get('/api/conversations', requireLogin, function(req,res){
       db.Conversation
         .find({users: req.user._id})
@@ -83,13 +84,15 @@ module.exports = app => {
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
-  app.get('/api/conversations/:id', function(req,res){
+  //Gets a specific conversation and populates their messages. (Data will be displayed in message well) 
+  app.get('/api/conversations/:cid', function(req,res){
       db.Conversation
-        .findById(req.params.id)
+        .findById(req.params.cid)
         .populate('messages')
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
+  //POSTs messages as well as push to appropriate conversation. (Hooks up to the messaging box)
   app.post('/api/messages/:converseid', requireLogin, function(req,res){
       db.Message
         .create({
