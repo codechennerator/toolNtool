@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .textStyle1 {
     font-family: 'Russo One', sans-serif;
     color:white;
@@ -33,3 +34,70 @@ img {
     right:41%;
     font-size:30px
 }
+=======
+
+
+.divStyle {
+    /* width:100%; */
+    /* // backgroundColor:"orange", */
+    height:625px;
+    background-image: url(../img/gardening.jpg);
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    /* position: relative; */
+  
+}
+
+.inputStyle {
+    position:relative;
+    left:25%;
+    top:50%;
+    width:50%;
+    height: 10%
+}
+
+@media screen and (max-width: 400px) {
+    .divStyle { 
+        height:200px;
+        background-image: url(../img/gardening.jpg);
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;
+        position: relative;
+        margin-top: 220px; 
+    }
+  }
+
+  @media screen 
+  and (min-width: 401px)
+  and (max-width: 600px)
+   {
+    .divStyle { 
+         height:330px;
+        background-image: url(../img/gardening.jpg);
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;
+        position: relative; 
+        margin-top: 180px; 
+      
+    }
+  }
+
+  @media screen 
+  and (min-width: 601px)
+  and (max-width: 800px)
+   {
+    .divStyle { 
+        height:380px;
+        background-image: url(../img/gardening.jpg);
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;
+        position: relative; 
+        margin-top: 180px;
+    }
+  }
+
+>>>>>>> c55b12b546be53490b9291271190ee2d8ec9688a
