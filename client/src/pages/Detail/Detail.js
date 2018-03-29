@@ -1,35 +1,58 @@
-import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import Cards from "../../components/Cards"
-import "./Detail.css"
-import Searchinput from "../../components/Searchinput";
-import Footer from "../../components/Footer"
-import NonhomepageNav from "../../components/NonhomepageNav"
+import React, { Component } from "react";
 
-const detail = () => (
-  <div>
-    <NonhomepageNav />
-    <div class="container">
-    <div className="section">
-      <div className="row">
-        <div calssName="col s12">
-          <div className="section">
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-          </div>
+import { Card, Image } from "semantic-ui-react";
+// import { Col, Row, Container } from "../../components/Grid";
+import API from "../../utils/API";
+import NonhomepageNav from "../../components/NonhomepageNav/NonhomepageNav";
+import Footer from "../../components/Footer/Footer";
+import Button from "../../components/Button/Button";
+
+const cardStyle = {
+  position: "relative",
+  top: "100px",
+  paddingBottom: "10px"
+};
+
+class Detail extends Component {
+  state = {
+    post: {}
+  };
+
+  componentDidMount() {
+    API.getPost(this.props.match.params.id)
+      .then(res => {
+        // console.log(res)
+        this.setState({ post: res.data });
+      })
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    console.log(this.state.post);
+    return (
+      <div>
+        <NonhomepageNav />
+        <div class="ui centered card" style={{ minHeight: "550px" }}>
+          <Card style={cardStyle}>
+            <Image src={this.state.post.img} />
+            <Card.Content>
+              <Card.Header>
+                {this.state.post.title} by {this.state.post.user}
+              </Card.Header>
+              <Card.Meta>
+                <span className="date">{this.state.post.price}</span>
+              </Card.Meta>
+              <Card.Description>{this.state.post.description}</Card.Description>
+            </Card.Content>
+            <Button />
+          </Card>
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
-    </div>
-  </div>
- 
-    <Footer/>
-  </div>
-);
+    );
+  }
+}
 
-export default detail;
+export default Detail;

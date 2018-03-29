@@ -1,39 +1,67 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./NonhomepageNav.css";
-import { Input } from "../Form";
+import React, { Component } from "react";
 
-const fontColor = {
-  color:"black"
+import  { Menu } from 'semantic-ui-react'
+import t from "../../components/img/t.jpg"
+
+
+
+const Style={
+  fontSize: '1.2em',
+  fontWeight: 'normal',
+  display:"inline-block",
+  bottom:"15px"
 }
 
-// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const NonhomepageNav = props => (
-  <div class="navbar-fixed">
-    <nav>
-      <div className="container">
-        <a href="/" class="brand-logo black-text">TNT</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>    
-              <div class="center row searchbar">
-                <div class="col s12 " >
-                  <div class="row" id="topbarsearch">
-                    <div class="input-field col s6 s12 red-text">
-                      <i class="black-text material-icons prefix">search</i>
-                      <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete red-text" />
-                      </div>
-                    </div>
-                  </div>
-                </div>          
-            </li> 
-            <li><a href="/allTools" class="black-text">All Tools</a></li>
-            <li><a href="/postTool" class="black-text">Post Tools</a></li>
-            <li><a href="/signIn" class="black-text">Sign In</a></li>
-            <li><a href="/signUp" class="black-text">Sign Up</a></li>
-        </ul>
-      </div>   
-    </nav>
-  </div>
-);
+const inputStyle={
+  display:"inline-block",
+  position:"relative",
+  bottom:"10px"
+}
+const logoStyle={
+  width:"50px",
+  display:"inline-block",
+  position:"relative",
+  top:"4px"
+  
+}
+
+
+
+
+class NonhomepageNav extends Component {
+
+  render() {
+
+    return (
+      <div 
+      className="ui huge top fixed menu"
+      style={{
+        display:"block",
+        border:"none"
+       
+      }} 
+      >
+        <Menu stackable pointing secondary  >
+          <Menu.Item>
+          <a href="/"><img src={t}  alt="logo" style={logoStyle}/></a>
+          </Menu.Item>
+          <Menu.Item name='Find All' href="/findAll" style={Style}/>
+          <Menu.Item name='Post Tool' href="/postTool" style={Style}/>
+          <Menu.Item name='Sign Up' href="/SignUp" style={Style}/>
+          <Menu.Item name='Log In' href="/LogIn" style={Style}/> 
+          <Menu.Item>
+            <div class="ui action input" style={inputStyle}>
+                <input type="text" placeholder="Search..."style={inputStyle}/>
+                <button class="ui icon button" style={inputStyle}>
+                <i class="search icon"></i>
+                </button>
+            </div>
+          </Menu.Item>    
+        </Menu>
+      </div>
+
+    );
+  }
+}
 
 export default NonhomepageNav;

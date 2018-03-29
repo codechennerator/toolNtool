@@ -1,82 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Footer.css";
+import { Icon, Container,  Grid, Header,  List, Segment } from 'semantic-ui-react'
+import "./Footer.css"
 
-// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const Footer = props => (
-
-  <footer class="page-footer white">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="black-text">Company Bio</h5>
-          <p class="black-text text-lighten-4">
-          Ut nec lorem vehicula, tempus metus luctus, interdum elit. Donec efficitur accumsan massa, in vestibulum nunc tincidunt non. Morbi vel luctus enim, at laoreet dui. In in nibh at sem convallis consequat vel dapibus enim. Praesent at dapibus tortor. Sed aliquam ligula non risus dictum auctor. 
-          </p>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li>
-              <a class="black-text">link 1</a>
-            </li>
-            <li>
-              <a class="black-text">link 2</a>
-            </li>
-            <li>
-              <a class="black-text">link 3</a>
-            </li>
-            <li>
-              <a class="black-text">link 4</a>
-            </li>
-            <li>
-              <a class="black-text">link 5</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li>
-              <a class="black-text">link 1</a>
-            </li>
-            <li>
-              <a class="black-text">link 2</a>
-            </li>
-            <li>
-              <a class="black-text">link 3</a>
-            </li>
-            <li>
-              <a class="black-text">link 4</a>
-            </li>
-            <li>
-              <a class="black-text">link 5</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-    </div>
-  </footer>
-  //   <footer class="page-footer footer-color">
-  //   <div class="container">
-  //     <div class="row">
-  //       <div class="col l6 s12">
-  //         <h5 class="black-text">Tool Rental Company</h5>
-  //         <p class="black-text text-lighten-4">    
-  //           Add more information
-  //         </p>
-  //       </div>
-  //       <div class="col l4 offset-l2 s12">
-  //       </div>
-  //     </div>
-  //   </div>
-  //   <div class="footer-copyright">
-  //     <div class="container black-text">
-  //     © 2018 Copyright Text
-  //     </div>
-  //   </div>
-  // </footer>
-);
+const Footer = props =>  (
+    
+    <Segment inverted vertical style={{ padding: '2em 0em' }}>
+    <Container>
+      <Grid divided inverted stackable>
+        <Grid.Row>
+          <Grid.Column width={5}>
+            <Header inverted as='h4' content='About' />
+            <List link inverted>
+              <List.Item as='a'>Contact Us</List.Item>
+              <List.Item as='a'>FAQ</List.Item>
+              <List.Item as='a'>Customer Service</List.Item>
+              <List.Item as='a'>How TNT works</List.Item>
+              <List.Item as='a'>Payment Method</List.Item>
+            </List>
+          </Grid.Column>
+          <Grid.Column width={5}>
+            <Header inverted as='h4' content='Meet Our TEAM' />
+            <List link inverted>
+              <List.Item content={<a href='https://github.com/mtoasis'>Julian</a>}/>  
+              <List.Item content={<a href='https://github.com/codechennerator'>Nathan</a>}/>              
+              <List.Item content={<a href='https://github.com/akaryanreynolds'>Ryan</a>}/>
+              <List.Item content={<a href='https://github.com/yangmeeso'>Meeso</a>}/>
+              <List.Item content={<a href='https://github.com/liuzhongiceman'>Zhong</a>}/>              
+            </List>
+          </Grid.Column>
+          <Grid.Column width={5}>
+            <Header inverted as='h4' content='Follow Us' />
+            <List link inverted>
+              <List.Item as='a'><Icon name='twitter' size='big' color="teal" /></List.Item>
+              <List.Item as='a'><Icon name='facebook'size='big' color="teal" /></List.Item>
+              <List.Item as='a'><Icon name='instagram' size='big' color="teal"/></List.Item>
+            </List>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>
+  </Segment>
+   
+)
 
 export default Footer;

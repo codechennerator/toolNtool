@@ -1,39 +1,25 @@
 import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import Cards from "../../components/Cards"
-import "./startPage.css"
-import Searchinput from "../../components/Searchinput";
+import SearchForm from "../../components/Search"
 import Footer from "../../components/Footer"
-import Navbar from "../../components/Navbar"
+import Nav from "../../components/Nav"
 
-const startPage = () => (
+
+// const HomepageHeading = ({ mobile }) => (
+//   <Container fluid
+//     style={{
+//       textAlign: "center",
+//       zIndex:"1",
+      
+//     }}>
+//       <SearchForm />
+//   </Container>
+// )
+const startPage = () => ( 
   <div>
-    <Navbar/>
-    <Searchinput/>
-   <div class="container">
-    <div className="section">
-      <div className="row">
-        <div calssName="col s12">
-          <div className="section">
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-           <Cards/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-    <Footer/>
+    <Nav/>
+     {/* <HomepageHeading /> */}
+     <SearchForm/>
+     <Footer/> 
   </div>
 );
 

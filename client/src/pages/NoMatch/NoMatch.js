@@ -1,19 +1,12 @@
 import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
-
+import "./NoMatch.css"
 const NoMatch = () => (
-  <Container fluid>
-    <Row>
-      <Col size="md-12">
-
-          <h1>Welcome to Tool N Tool</h1>
+  <div>
+          
           <h1>
               This is 404 No Match
           </h1>
 
-      </Col>
-    </Row>
-  </Container>
+</div>
 );
-
 export default NoMatch;
