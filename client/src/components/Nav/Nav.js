@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-
+import SearchForm from "../Search"
 import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import t2 from "../../components/img/t2.jpg"
-import Footer from "../../components/Footer"
-import t from "../../components/img/t.jpg"
 
 
 
@@ -15,6 +13,11 @@ const fontStyle={
   bottom:"15px"
 }
 
+const inputStyle={
+  position:"absolute",
+  right:"5%",
+  top:"25%",
+}
 
 const logoStyle={
   width:"50px",
@@ -53,9 +56,8 @@ class Nav extends Component {
       >
         <Menu pointing secondary >
           <Menu.Item>
-            <a href="/"><img src={t2}  style={logoStyle}/></a>
+            <a href="/"><img src={t2} alt="logo" style={logoStyle}/></a>
           </Menu.Item>
-          <Menu.Item name='Tool N Tool' href="/" style={fontStyle}/>
           <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
           <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>
           <Menu.Item name='Inbox' href="/inbox" style={fontStyle}/>

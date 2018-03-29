@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import _ from 'lodash'
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
-import Detail from '../../pages/Detail/Detail';
+import { Button, Icon, Image, Modal } from 'semantic-ui-react'
 import API from "../../utils/API";
 
 
 
 class PostModal extends Component {
-
-    constructor(props) {
-        super(props)
-    };
 
     handleFormSubmit = event => {
         event.preventDefault();

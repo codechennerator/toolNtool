@@ -21,11 +21,11 @@ const Footer = props =>  (
           <Grid.Column width={5}>
             <Header inverted as='h4' content='Meet Our TEAM' />
             <List link inverted>
-              <List.Item as='a'>Julian</List.Item>
-              <List.Item as='a'>Nathan</List.Item>
-              <List.Item as='a'> Ryan</List.Item>
-              <List.Item as='a'>Meeso</List.Item>
-              <List.Item as='a'>Zhong</List.Item>
+              <List.Item content={<a href='https://github.com/mtoasis'>Julian</a>}/>  
+              <List.Item content={<a href='https://github.com/codechennerator'>Nathan</a>}/>              
+              <List.Item content={<a href='https://github.com/akaryanreynolds'>Ryan</a>}/>
+              <List.Item content={<a href='https://github.com/yangmeeso'>Meeso</a>}/>
+              <List.Item content={<a href='https://github.com/liuzhongiceman'>Zhong</a>}/>              
             </List>
           </Grid.Column>
           <Grid.Column width={5}>

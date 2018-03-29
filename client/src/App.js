@@ -10,6 +10,7 @@ import Messages from "./pages/Messages";
 import NoMatch from "./pages/NoMatch";
 import Inbox from "./pages/Inbox";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import * as userActions from "./actions/userAction";
 
 class App extends Component{
@@ -24,7 +25,6 @@ class App extends Component{
         <Router>
           <div>
           <Nav />
-            {/*Switch seems like its causing some weird behavior for my login. Consider getting rid of it?*/}    
             <Switch>
               <Route exact path="/" component={startPage} />
               <Route exact path="/findAll" component={findAll} />
@@ -37,6 +37,7 @@ class App extends Component{
             </Switch>   
           </div>
         </Router>
+        <Footer />
         </div>
       );
   }

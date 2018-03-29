@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Form, TextArea, Container, Button, Input, Divider } from 'semantic-ui-react'
+import { Form, TextArea, Container, Input, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import PostModal from "../../components/PostModal";
-import Detail from '../Detail/Detail';
-
-import NonhomepageNav from "../../components/NonhomepageNav/NonhomepageNav"
-import Footer from "../../components/Footer/Footer"
 
 
 const mainDivStyle = {
@@ -73,7 +69,6 @@ class postTool extends Component {
     // console.log(this.state)
     return (
       <div>
-      <NonhomepageNav/>
       <Container style={mainDivStyle}>
         <h1>Post your tools</h1>
         <label>All Fields are required</label>
@@ -130,7 +125,6 @@ class postTool extends Component {
         </Form>
 
       </Container>
-      <Footer/>
       </div>
     );
   }

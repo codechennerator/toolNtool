@@ -3,9 +3,6 @@ import { fetchAll } from "../../actions/dataAction"
 import { connect } from "react-redux";
 import Mapping from "../../components/Mapping"
 import { Container } from 'semantic-ui-react'
-import NonhomepageNav from "../../components/NonhomepageNav/NonhomepageNav"
-import Footer from "../../components/Footer/Footer"
-
 
 
 let mapStateToProps = (store) => {
@@ -15,7 +12,7 @@ let mapStateToProps = (store) => {
 }
 
 const mainDivStyle={
-    marginTop:"60px",
+    marginTop:"65px",
 }
 
 class findAll extends Component {
@@ -27,15 +24,12 @@ class findAll extends Component {
 
   render() {
     return (
-     <div>
       <Container style={mainDivStyle}>
-      <NonhomepageNav/>
+
       <Mapping />
-    
+          
     </Container>
-    <Footer/>  
-    </div>
-   );
+    );
   }
 }
 
