@@ -32,7 +32,7 @@ class App extends Component{
               <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/postTool" component={postTool} />
               <Route exact path="/inbox" component = {Inbox} />
-              <Route exact path="/messages/:id" component={Messages} />
+              <Route exact path="/messages/:cid" component={Messages} />
               <Route component={NoMatch} />
             </Switch>   
           </div>

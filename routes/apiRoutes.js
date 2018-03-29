@@ -83,19 +83,36 @@ module.exports = app => {
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
-  app.get('/api/conversations/:id', requireLogin, function(req,res){
+  app.get('/api/conversations/:id', function(req,res){
       db.Conversation
         .findById(req.params.id)
+        .populate('messages')
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
-  app.put('/api/messages/:converseid', function(req,res){
+  app.post('/api/messages/:converseid', requireLogin, function(req,res){
       db.Message
         .create({
             conversation: req.params.converseid,
             sender: req.user._id,
             content: req.body.content  
+            // conversation: req.params.converseid,
+            // sender: "5ab9a9633e94220364526b5a",
+            // content: "Hello World 3" 
         })
+        .then(dbModel => (
+            db.Conversation
+                .findByIdAndUpdate(
+                    {
+                        _id:req.params.converseid
+                    },
+                    {
+                        $push:{messages: dbModel._id}
+                    }
+                )
+        ))
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
   });
   //===================AUTH ROUTES ===================================
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { fetchAll } from "../../actions/dataAction"
 import { connect } from "react-redux";
 import { Container } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
@@ -8,12 +7,6 @@ import API from "../../utils/API";
 const mainDivStyle={
     marginTop:"90px",
 }
-
-
-function mapStateToProps({user}){
-    return { user };
-}
-
 
 class Inbox extends Component{
     constructor() {
@@ -40,9 +33,9 @@ class Inbox extends Component{
                 <h1>Inbox</h1>
 
                 {this.state.conversations.map(conversation =>{
-                    // console.log(this.props);
                     let userId = this.props.user._id;
-                    let partnerInd = (conversation.users.indexOf(userId))===1 ? 0 : 1 ;
+                
+                    let partnerInd = (conversation.users.findIndex(c=>c._id === userId))===1 ? 0 : 1 ;
                     
                     return(
                         <div key = {conversation._id}>
@@ -57,6 +50,10 @@ class Inbox extends Component{
             </Container>
         );
     }
+}
+
+function mapStateToProps({user}){
+    return { user };
 }
 
 
