@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-import SearchForm from "../Search"
+
 import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import t2 from "../../components/img/t2.jpg"
 import Footer from "../../components/Footer"
+import t from "../../components/img/t.jpg"
+
 
 
 const fontStyle={
   fontSize: '1.2em',
   fontWeight: 'normal',
   display:"inline-block",
-  bottom:"10px"
+  bottom:"15px"
 }
 
-const inputStyle={
-  position:"absolute",
-  right:"5%",
-  top:"25%",
-}
+
 const logoStyle={
   width:"50px",
   display:"inline-block",
@@ -25,13 +23,6 @@ const logoStyle={
   top:"4px"
   
 }
-
-const navbar = {
-  display:"block",
-  position:"relative",
-  left:"68%",
-}
-
 
 class Nav extends Component {
 

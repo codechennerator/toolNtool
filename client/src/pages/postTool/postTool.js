@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import PostModal from "../../components/PostModal";
 import Detail from '../Detail/Detail';
 
+import NonhomepageNav from "../../components/NonhomepageNav/NonhomepageNav"
+import Footer from "../../components/Footer/Footer"
+
+
 const mainDivStyle = {
   marginTop: "100px",
 }
@@ -68,7 +72,8 @@ class postTool extends Component {
   render() {
     // console.log(this.state)
     return (
-
+      <div>
+      <NonhomepageNav/>
       <Container style={mainDivStyle}>
         <h1>Post your tools</h1>
         <label>All Fields are required</label>
@@ -125,7 +130,8 @@ class postTool extends Component {
         </Form>
 
       </Container>
-
+      <Footer/>
+      </div>
     );
   }
 }

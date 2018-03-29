@@ -1,35 +1,65 @@
-.textStyle1 {
-    font-family: 'Russo One', sans-serif;
-    color:white;
-    position:relative; 
-    top:70%;
-    right:41%;
-    font-size:30px
-}
-.textStyle2 {
-    font-family: 'Russo One', sans-serif;
-    color:white;
-    position:relative; 
-    top:70%;
-    right:44%;
-    font-size:30px
+
+
+.divStyle {
+    /* width:100%; */
+    /* // backgroundColor:"orange", */
+    height:625px;
+    background-image: url(../img/gardening.jpg);
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    /* position: relative; */
+  
 }
 
-a {
-    display: inline-block;
+.inputStyle {
+    position:relative;
+    left:25%;
+    top:50%;
+    width:50%;
+    height: 10%
 }
 
-img {
-    position: relative;
-    float: left;
-    width: 100%;
-}
+@media screen and (max-width: 400px) {
+    .divStyle { 
+        height:200px;
+        background-image: url(../img/gardening.jpg);
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;
+        position: relative;
+        margin-top: 220px; 
+    }
+  }
 
-.imgA{
-    font-family: 'Russo One', sans-serif;
-    color:white;
-    position:relative; 
-    top:70%;
-    right:41%;
-    font-size:30px
-}
+  @media screen 
+  and (min-width: 401px)
+  and (max-width: 600px)
+   {
+    .divStyle { 
+         height:330px;
+        background-image: url(../img/gardening.jpg);
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;
+        position: relative; 
+        margin-top: 180px; 
+      
+    }
+  }
+
+  @media screen 
+  and (min-width: 601px)
+  and (max-width: 800px)
+   {
+    .divStyle { 
+        height:380px;
+        background-image: url(../img/gardening.jpg);
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;
+        position: relative; 
+        margin-top: 180px;
+    }
+  }
+
