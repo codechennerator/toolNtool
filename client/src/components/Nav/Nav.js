@@ -1,17 +1,7 @@
 import React, { Component } from "react";
-
 import { Menu } from 'semantic-ui-react'
 import t from "../../components/img/t.jpg"
-
-
-
-const Style={
-  fontSize: '1.2em',
-  fontWeight: 'normal',
-  display:"inline-block",
-  bottom:"15px"
-}
-
+import "./Nav.css"
 
 const logoStyle={
   width:"50px",
@@ -27,21 +17,21 @@ class Nav extends Component {
 
     return (
       <div 
-      className="ui huge top fixed menu"
+      className="ui huge top fixed menu navbar"
       style={{
         display:"block",
-        border:"none"
-       
+        border:"none"  
       }} 
+     
       >
-        <Menu stackable pointing secondary >
+        <Menu pointing secondary>
           <Menu.Item>
-          <a href="/"><img src={t}  alt="logo" style={logoStyle}/></a>
+          <a href="/"><img src={t} alt="logo" style={logoStyle}/></a>
           </Menu.Item>
-          <Menu.Item name='Find All' href="/findAll" style={Style}/>
-          <Menu.Item name='Post Tool' href="/postTool" style={Style}/>
-          <Menu.Item name='Sign Up' href="/SignUp" style={Style}/>
-          <Menu.Item name='Log In' href="/LogIn" style={Style}/>
+          <Menu.Item className ="Style" name='Find All' href="/findAll" />
+          <Menu.Item className ="Style" name='Post Tool' href="/postTool" />
+          <Menu.Item className ="Style" name='Sign Up' href="/SignUp" />
+          <Menu.Item className ="Style" name='Log In' href="/LogIn"/>
         </Menu>
       </div>
 

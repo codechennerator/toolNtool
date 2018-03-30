@@ -1,38 +1,116 @@
-
-
 .divStyle {
-    /* width:100%; */
-    /* // backgroundColor:"orange", */
-    height:625px;
-    background-image: url(../img/gardening.jpg);
+    
+    background-image: url("../img/gardening.jpg");
+    height:475px;
+    width:100%;
     background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-    /* position: relative; */
-  
+    background-size:cover;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin-top:70px;
 }
 
 .inputStyle {
     position:relative;
     left:25%;
-    top:50%;
+     top:50%;
     width:50%;
-    height: 10%
+    height: 10%;
+    padding:0;
+    margin: 0;
 }
 
-@media screen and (max-width: 400px) {
+@media(max-width:1400px){
+    .divStyle {
+        height:100%;
+        margin-top:70px;
+        min-height:330px;
+    }
+    .inputStyle{
+        position: absolute !important;
+        top: 57%;   
+        height: 13%;  
+    }
+} 
+
+@media(max-width:1200px){
+    .divStyle {
+        height:100%;
+        margin-top:80px;
+    }
+    .inputStyle{
+        position: absolute !important;
+        top: 57%; 
+        height: 13%;  
+    }
+}
+@media(max-width:768px){
+    .divStyle {
+        height:100%;
+        margin-top:70px;
+     
+    }
+    .inputStyle{
+        position: absolute !important;
+        top: 57%;   
+        height: 14%;
+    }
+}
+
+@media(max-width:600px){
+    .divStyle {
+        height:100%;
+        margin-top:70px;
+        min-height:330px;
+    }
+    .inputStyle{
+        position: absolute !important;
+        top: 57%;   
+        height: 14%;
+    }
+}
+
+
+@media(max-width:480px){
+    .divStyle {
+        height:100%;
+        margin-top:80px;
+        min-height: 200px;
+    }
+    .inputStyle{
+        position: absolute !important;
+        height: 20%;
+        top: 40%;   
+    }
+}
+
+
+/* small phones and tablets: from 481-767px*/
+/* @media only screen and (max-width:767px){
+   
+} */
+
+
+/* small phones: from 0-480px*/
+/* @media only screen and (max-width:480px){
+   
+}  */
+
+
+ /* @media screen and (max-width: 1200px) {
     .divStyle { 
-        height:200px;
+        
         background-image: url(../img/gardening.jpg);
         background-repeat:no-repeat;
         background-size:contain;
         background-position:center;
         position: relative;
-        margin-top: 220px; 
+      
     }
-  }
+  } */
 
-  @media screen 
+  /* @media screen 
   and (min-width: 401px)
   and (max-width: 600px)
    {
@@ -61,5 +139,5 @@
         position: relative; 
         margin-top: 180px;
     }
-  }
+  }  */
 

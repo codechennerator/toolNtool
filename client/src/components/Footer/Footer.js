@@ -1,10 +1,10 @@
 import React from "react";
-import { Icon, Container,  Grid, Header,  List, Segment } from 'semantic-ui-react'
+import { Icon, Container,Grid, Header, List,Segment } from 'semantic-ui-react'
 import "./Footer.css"
 
 const Footer = props =>  (
     
-    <Segment inverted vertical style={{ padding: '2em 0em' }}>
+    <Segment inverted vertical style={{ padding: '2em 0em' }} className="footer">
     <Container>
       <Grid divided inverted stackable>
         <Grid.Row>

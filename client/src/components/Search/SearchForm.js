@@ -55,7 +55,8 @@ class SearchForm extends Component {
         const { data } = this.props;
         if (window.location.href.slice(-1) === "/") {
             return (
-                <div className="divStyle">                                
+         
+                <div className="divStyle">                           
                       <Input
                             name="term"
                             onKeyPress={this.handleKeyPress.bind(this)}

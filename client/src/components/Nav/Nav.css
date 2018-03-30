@@ -1,0 +1,13 @@
+.Style{
+    font-size: 1.2em;
+    font-weight: normal;
+    display:inline-block;
+    bottom:15px;
+  }
+
+@media only screen and (max-width:767px){
+ .Style{
+     display: inline-block;
+     font-size: 1em;
+ }
+}
