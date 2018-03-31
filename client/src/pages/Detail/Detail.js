@@ -14,9 +14,12 @@ const style = {
 };
 
 class Detail extends Component {
-  state = {
-    post: {}
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      post: {}
+    };
+  }
 
   componentDidMount() {
     if(this.props.match.params !== undefined){

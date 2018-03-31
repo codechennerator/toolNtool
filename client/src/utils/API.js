@@ -23,6 +23,12 @@ export default {
   },
   getMessages: function(cid){
     return axios.get("/api/conversations/" + cid);
+  },
+  startConversation: function(ownerId){
+    return axios.post("/api/conversations/" + ownerId)
+  },
+  newMessage: function(messageData){
+    return axios.post("/api/messages/", messageData);
   }
 };
 

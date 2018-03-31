@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button"
+import ButtonModal from "../ButtonModal"
 import { Image, Container, Card, } from 'semantic-ui-react';
 
 
@@ -57,7 +57,6 @@ class Mapping extends Component {
                 {data.length !== 0 &&
                     <Card.Group>
                         {data.data.slice(0, this.state.count).map(post => {
-                            console.log(post);
                             return(
                             <Card key={post._id}>
                             <Link to={"/findTool/"+post._id}>
@@ -74,7 +73,7 @@ class Mapping extends Component {
                                             {post.description}
                                             <strong>${post.price}</strong>
                                         </Card.Description>
-                                        <Button/>
+                                        <ButtonModal post = {post}/>
                                     </Card.Content>
                             </Card>
 

@@ -28,13 +28,6 @@ module.exports = app => {
       .catch(err => res.status(422).json(err));
   })
 
-  app.get("/api/posts/:id", function (req, res) {
-    db.Post
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  })
-
   app.put("/api/posts/:id", requireLogin, function (req, res) {
     db.Post
       .findOneAndUpdate({ _id: req.params.id }, req.body)
@@ -53,6 +46,7 @@ module.exports = app => {
   app.get("/api/posts/title/:title", function (req, res) {
     db.Post
       .find({ title: { $regex: `(?i).*${req.params.title}.*` } })
+      .populate('user')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   })
@@ -68,11 +62,28 @@ module.exports = app => {
 
  //===================MESSAGING ROUTES ===================================
 //  //Making a new conversation
-  app.post('/api/conversations/:id', requireLogin, function(req,res){
-      db.Conversation
-        .create({users:[req.user._id, req.params.id]})
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));;
+  app.post('/api/conversations/:id', requireLogin, async (req,res) =>{
+      //If users already match && 
+      if(req.params.id !== req.user._id){      
+        const existingConversation = await db.Conversation.findOne({
+          users: {
+              $all: [req.params.id, req.user._id]
+          }
+      })
+
+        if (existingConversation){
+            console.log(existingConversation);
+            return res.json(existingConversation)
+        }
+
+        db.Conversation
+            .create({users:[req.user._id, req.params.id]})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    }else{
+        console.log('you cannot rent your own item!');
+    }
+
   });
   //Note that these routes do not prevent a user from accessing conversations that do not belong to him! (yet)
   //Shows the conversations the user has started. (Lists the inbox)
@@ -88,32 +99,42 @@ module.exports = app => {
   app.get('/api/conversations/:cid', function(req,res){
       db.Conversation
         .findById(req.params.cid)
-        .populate('messages')
+        .populate({
+            path: 'messages',
+            options: {
+                sort: {
+                    date: -1
+                }
+            },
+            populate: {
+                path: 'sender'
+            }
+        })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
   //POSTs messages as well as push to appropriate conversation. (Hooks up to the messaging box)
-  app.post('/api/messages/:converseid', requireLogin, function(req,res){
+  app.post('/api/messages/', requireLogin, function(req,res){
+      console.log(req.body);
       db.Message
         .create({
-            conversation: req.params.converseid,
+            conversation: req.body.conversation,
             sender: req.user._id,
-            content: req.body.content  
-            // conversation: req.params.converseid,
-            // sender: "5ab9a9633e94220364526b5a",
-            // content: "Hello World 3" 
+            content: req.body.content
         })
-        .then(dbModel => (
+        .then(dbModel => {
+            return(
+            
             db.Conversation
                 .findByIdAndUpdate(
                     {
-                        _id:req.params.converseid
+                        _id:req.body.conversation
                     },
                     {
                         $push:{messages: dbModel._id}
                     }
                 )
-        ))
+        )})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
