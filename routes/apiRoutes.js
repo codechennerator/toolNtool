@@ -161,7 +161,19 @@ module.exports = app => {
     app.get('/api/current_user', (req, res) => {
         res.send(req.user);
     });
-    app.post('/auth/mobile/', (req,res) =>{
+    app.post('/auth/mobile/', async (req,res) =>{
         console.log(req.body);
+        const existingUser = await db.User.findOne({ googleId: req.body.id });  
+
+        if (existingUser){
+            return res.json(existingUser);
+        }
+        db.User.create({ 
+            googleId: req.body.id,
+            name: req.body.name,
+            email: req.body.email
+        })
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
     });
 }
