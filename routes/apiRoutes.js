@@ -64,7 +64,7 @@ module.exports = app => {
 //  //Making a new conversation
   app.post('/api/conversations/:id', requireLogin, async (req,res) =>{
       //If users already match && 
-      if(req.params.id !== req.user._id){      
+      if(req.params.id != req.user._id){      
         const existingConversation = await db.Conversation.findOne({
           users: {
               $all: [req.params.id, req.user._id]
@@ -96,7 +96,7 @@ module.exports = app => {
         .catch(err => res.status(422).json(err));
   });
   //Gets a specific conversation and populates their messages. (Data will be displayed in message well) 
-  app.get('/api/conversations/:cid', function(req,res){
+  app.get('/api/conversations/:cid', requireLogin, function(req,res){
       db.Conversation
         .findById(req.params.cid)
         .populate({
@@ -164,18 +164,3 @@ module.exports = app => {
         res.send(req.user);
     });
 }
-
-
-    // findOne( { $and:[ {'participants.user':_id}, {'participants.user':_id}]}).then(existingConversation => {
-    //     if (false) {
-    //         // we already have a record with the given profile ID
-            
-    //     } else {
-    //         // we don't have a user record with this ID, make a new record!
-    //         new User({ 
-
-    //             })
-    //             .save()
-    //             .then(user => done(null, user));
-    //     }
-    // });

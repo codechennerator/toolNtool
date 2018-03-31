@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react'
-import MessageWell from "../../components/MessageWell"
+import Messaging from "../../components/Messaging"
 
 const mainDivStyle={
   marginTop:"90px",
@@ -11,7 +11,7 @@ const Messages = (props) => {
     <Container style = {mainDivStyle} fluid>
       {/* <Item />
       <NewMessage /> */}
-      <MessageWell cid = {props.match.params.cid}/>
+      <Messaging cid = {props.match.params.cid}/>
     </Container>
   );
 }
