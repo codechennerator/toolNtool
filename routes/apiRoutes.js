@@ -115,7 +115,6 @@ module.exports = app => {
   });
   //POSTs messages as well as push to appropriate conversation. (Hooks up to the messaging box)
   app.post('/api/messages/', requireLogin, function(req,res){
-      console.log(req.body);
       db.Message
         .create({
             conversation: req.body.conversation,
