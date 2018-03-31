@@ -72,7 +72,6 @@ module.exports = app => {
       })
 
         if (existingConversation){
-            console.log(existingConversation);
             return res.json(existingConversation)
         }
 
@@ -161,5 +160,8 @@ module.exports = app => {
 
     app.get('/api/current_user', (req, res) => {
         res.send(req.user);
+    });
+    app.post('/auth/mobile/', (req,res) =>{
+        console.log(req.body);
     });
 }
