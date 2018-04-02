@@ -7,7 +7,7 @@ const postSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
   description: { type: String, required: true },
   location:{type: String, required: true},
-  coordinate:{type:String, required: false},
+  coordinate:{type:Object, required: false},
   date: { type: Date, default: Date.now }
 });
 

@@ -14,7 +14,7 @@ class Messaging extends Component {
     componentDidMount() {
         this.timerID = setInterval(
           () => this.loadMessages(),
-          1000
+          3000
         );
     }
     componentWillUnmount() {

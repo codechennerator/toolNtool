@@ -62,7 +62,7 @@ module.exports = app => {
 
  //===================MESSAGING ROUTES ===================================
 //  //Making a new conversation
-  app.post('/api/conversations/:id', requireLogin, async (req,res) =>{
+  app.post('/api/conversations/:id', async (req,res) =>{
       //If users already match && 
       if(req.params.id != req.user._id){      
         const existingConversation = await db.Conversation.findOne({
@@ -136,44 +136,10 @@ module.exports = app => {
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
   });
-  //===================AUTH ROUTES ===================================
+ 
 
-    app.get(
-        '/auth/google',
-        passport.authenticate('google', {
-            scope: ['profile', 'email']
-        })
-    );
 
-    app.get(
-        '/auth/google/callback',
-        passport.authenticate('google'),
-        (req, res) => {
-            res.redirect('/dashboard');
-    });
-
-    app.get('/auth/logout', (req, res) => {
-        req.logout();
-        res.redirect('/dashboard');
-        
-    });
-
-    app.get('/api/current_user', (req, res) => {
-        res.send(req.user);
-    });
-    app.post('/auth/mobile/', async (req,res) =>{
-        console.log(req.body);
-        const existingUser = await db.User.findOne({ googleId: req.body.id });  
-
-        if (existingUser){
-            return res.json(existingUser);
-        }
-        db.User.create({ 
-            googleId: req.body.id,
-            name: req.body.name,
-            email: req.body.email
-        })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    });
+   
+    
+    
 }
