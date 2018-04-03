@@ -64,12 +64,12 @@ if(req.body.postUserId != req.body.userId){
 })
    console.log(existingConversation);
   if (existingConversation){
-      return res.json(existingConversation._id)
+      return res.json(existingConversation)
   }
 
   db.Conversation
       .create({users:[req.body.postUserId, req.body.userId]})
-      .then(dbModel => res.json(dbModel._id))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 }else{
     return res.send('You cannot start a conversation with yourself');
