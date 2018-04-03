@@ -1,8 +1,10 @@
 export default function reducer(state = {
     fetching: false,
     fetched: false,
+    isGeoStored: false,
     data: [],
     dataSelected: [],
+    location: {},
     error: null,
 }, action) {
     switch (action.type) {
@@ -27,6 +29,13 @@ export default function reducer(state = {
                 ...state,
                 fetching: false,
                 error: action.payload
+            }
+        }
+        case "STORE_LOC":{
+            return{
+                ...state,
+                isGeoStored: true,
+                location: action.payload
             }
         }
         default: {

@@ -31,7 +31,6 @@ class ButtonModal extends Component{
   };
 
 render(){
-  console.log(this.props);
     return(  
         <div>
           <Modal trigger={<Button content='Rent!' primary />}>

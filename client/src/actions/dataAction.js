@@ -31,6 +31,15 @@ export const fetchAll = () => (
     }
 )
 
+export const storeLoc = (loc) => (
+    async (dispatch) =>{
+        dispatch({
+            type: "STORE_LOC",
+            payload: loc
+        })
+    }
+)
+
 // import axios from "axios"
 
 // export function fetchData(title){
