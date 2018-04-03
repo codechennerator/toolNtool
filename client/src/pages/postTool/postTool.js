@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import { Form, TextArea, Container, Input, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import PostModal from "../../components/PostModal";
@@ -9,8 +9,12 @@ const mainDivStyle = {
   marginTop: "100px",
 }
 
-function mapStateToProps({user}){
-  return { user };
+function mapStateToProps(store){
+  return {
+    user: store.user,
+    geoInfo: store.data.geoInfo,
+    isGeoStored: store.data.isGeoStored
+  };
 }
 class postTool extends Component {
 
@@ -25,6 +29,11 @@ class postTool extends Component {
     };
   }
 
+  componentDidMount(){
+    this.setState({
+      location: `${this.props.geoInfo.city}, ${this.props.geoInfo.region}`
+    })
+  }
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -33,31 +42,31 @@ class postTool extends Component {
   };
 
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (
-      this.state.title !=="" && 
-      // this.props.user !== false &&
-      this.state.description !=="" &&
-      this.state.image !=="" &&
-      this.state.location !==""){
-      API.savePost({
-        title: this.state.title,
-        user: this.props.user._id,
-        description: this.state.description,
-        img: this.state.image,
-        location: this.state.location,
-      })
-        .then(res => {
-          window.location.href = "/"
-        })
-        .catch(err => console.log(err));
-    }
-    else{
-      console.log(this.props.user);
-      alert("Please insert all information")
-    }
-  };
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   if (
+  //     this.state.title !=="" && 
+  //     // this.props.user !== false &&
+  //     this.state.description !=="" &&
+  //     this.state.image !=="" &&
+  //     this.state.location !==""){
+  //     API.savePost({
+  //       title: this.state.title,
+  //       user: this.props.user._id,
+  //       description: this.state.description,
+  //       img: this.state.image,
+  //       location: this.state.location,
+  //     })
+  //       .then(res => {
+  //         window.location.href = "/"
+  //       })
+  //       .catch(err => console.log(err));
+  //   }
+  //   else{
+  //     console.log(this.props.user);
+  //     alert("Please insert all information")
+  //   }
+  // };
 
   handleKeyPress(target) {
     if (target.charCode === 13) {
@@ -66,7 +75,11 @@ class postTool extends Component {
 }
 
   render() {
-    // console.log(this.state)
+    if (!this.props.isGeoStored) {
+      return (
+          <h1> Couldn't get geo</h1>
+      )
+  }
     return (
       <div>
       <Container style={mainDivStyle}>

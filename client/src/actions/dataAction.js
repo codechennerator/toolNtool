@@ -31,8 +31,8 @@ export const fetchAll = () => (
     }
 )
 
-export const storeLoc = (loc) => (
-    async (dispatch) =>{
+export const storeLoc = (loc) =>(
+    async(dispatch) =>{
         dispatch({
             type: "STORE_LOC",
             payload: loc

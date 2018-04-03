@@ -4,7 +4,7 @@ export default function reducer(state = {
     isGeoStored: false,
     data: [],
     dataSelected: [],
-    location: {},
+    geoInfo:{},
     error: null,
 }, action) {
     switch (action.type) {
@@ -35,7 +35,7 @@ export default function reducer(state = {
             return{
                 ...state,
                 isGeoStored: true,
-                location: action.payload
+                geoInfo: action.payload
             }
         }
         default: {

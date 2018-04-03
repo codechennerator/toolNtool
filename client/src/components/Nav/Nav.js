@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchForm from "../Search"
 import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import t from "../../components/img/t.jpg"
 
 
@@ -55,12 +56,12 @@ class Nav extends Component {
       }} 
       >
         <Menu pointing secondary >
-          <Menu.Item>
-            <a href="/"><img src={t} alt="logo" style={logoStyle}/></a>
+          <Menu.Item as={Link} to = "/">
+            <img src={t} alt="logo" style={logoStyle}/>
           </Menu.Item>
-          <Menu.Item name='find All' href="/findAll" style={fontStyle}/>
-          <Menu.Item name='post Tool' href="/postTool" style={fontStyle}/>
-          <Menu.Item name='Inbox' href="/inbox" style={fontStyle}/>
+          <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
+          <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle}/>
+          <Menu.Item as={Link} name='Inbox' to="/inbox" style={fontStyle}/>
           {this.renderContent()}
           {window.location.href.slice(-1) !== "/" && 
           <div style={inputStyle}>
@@ -77,7 +78,12 @@ class Nav extends Component {
   }
 }
 
-function mapStateToProps({user}){
-  return { user };
+let mapStateToProps = (store) => {
+  console.log(store);
+  return {
+      geoInfo: store.data.geoInfo,
+      user: store.user,
+      isGeoStored: store.data.isGeoStored,
+  }
 }
 export default connect(mapStateToProps)(Nav);

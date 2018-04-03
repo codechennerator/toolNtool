@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { Button, Icon, Image, Modal } from 'semantic-ui-react'
+import { Button, Icon, Image, Modal } from 'semantic-ui-react';
+import { Redirect } from 'react-router';
 import API from "../../utils/API";
 
 
 
 class PostModal extends Component {
-
+    constructor () {
+        super();
+        this.state = {
+          fireRedirect: false
+        }
+      }
     handleFormSubmit = event => {
         event.preventDefault();
         if (
@@ -21,15 +27,16 @@ class PostModal extends Component {
             location: this.props.info.location,
           })
             .then(res => {
-              window.location.href = "/"
+                this.setState({ fireRedirect: true })
             })
             .catch(err => console.log(err));
         }
     };
 
     render(){
-        console.log(this.props.info)
-
+        console.log(this.props)
+        const { from } = this.props.location.state || '/'
+        const { fireRedirect } = this.state
         return(  
             <div>
             <Modal trigger={<Button>Preview</Button>}>
@@ -48,6 +55,9 @@ class PostModal extends Component {
                 </Button>
                 </Modal.Actions>
             </Modal>
+            {fireRedirect && (
+                <Redirect to={from || '/'}/>
+            )}
             </div>
         );
     };
