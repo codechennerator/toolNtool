@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Icon, Image, Modal } from 'semantic-ui-react';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import API from "../../utils/API";
 
 
@@ -35,7 +35,6 @@ class PostModal extends Component {
 
     render(){
         console.log(this.props)
-        const { from } = this.props.location.state || '/'
         const { fireRedirect } = this.state
         return(  
             <div>
@@ -54,10 +53,11 @@ class PostModal extends Component {
                     Submit <Icon name='right chevron' />
                 </Button>
                 </Modal.Actions>
+                {fireRedirect && (
+                    <Redirect to={'/'}/>
+                )}
             </Modal>
-            {fireRedirect && (
-                <Redirect to={from || '/'}/>
-            )}
+
             </div>
         );
     };

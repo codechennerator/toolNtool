@@ -55,7 +55,6 @@ app.post('/api/mobile/messages', function(req,res){
 //  //Making a new conversation
 app.post('/api/mobile/startconversation', async (req,res) =>{
 //If users already match && 
-console.log(req.body);
 if(req.body.postUserId != req.body.userId){      
   const existingConversation = await db.Conversation.findOne({
         users: {

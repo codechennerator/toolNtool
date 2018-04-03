@@ -75,11 +75,6 @@ class postTool extends Component {
 }
 
   render() {
-    if (!this.props.isGeoStored) {
-      return (
-          <h1> Couldn't get geo</h1>
-      )
-  }
     return (
       <div>
       <Container style={mainDivStyle}>
