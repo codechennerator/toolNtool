@@ -58,10 +58,11 @@ app.post('/api/mobile/startconversation', async (req,res) =>{
 console.log(req.body);
 if(req.body.postUserId != req.body.userId){      
   const existingConversation = await db.Conversation.findOne({
-    users: {
-        $all: [req.body.postUserId, req.body.userId]
-    }
-})
+        users: {
+            $all: [req.body.postUserId, req.body.userId]
+        }
+    })
+    .populate('users')
    console.log(existingConversation);
   if (existingConversation){
       return res.json(existingConversation)
@@ -69,6 +70,7 @@ if(req.body.postUserId != req.body.userId){
 
   db.Conversation
       .create({users:[req.body.postUserId, req.body.userId]})
+      .populate('users')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 }else{
