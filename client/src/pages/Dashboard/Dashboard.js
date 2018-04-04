@@ -40,30 +40,30 @@ class Dashboard extends Component{
         
         location.then((locationResults) =>{
             console.log(locationResults);
-            Geocode.setApiKey('AIzaSyCEN3E6DYSNWvPYnjAh3WyQZeJw3Y3lMVM');
-            Geocode.fromLatLng(locationResults.coords.latitude, locationResults.coords.longitude)
-            .then(
-                data =>{
-                    let geoInfo = {
-                        coordinate:{
-                            longitude: locationResults.coords.longitude,
-                            latitude: locationResults.coords.latitude
-                        }
-                    }
-                    for (let i = 0; i<data.results[0].address_components.length; i++){
-                        let component = data.results[0].address_components[i];
+            // Geocode.setApiKey('AIzaSyCEN3E6DYSNWvPYnjAh3WyQZeJw3Y3lMVM');
+            // Geocode.fromLatLng(locationResults.coords.latitude, locationResults.coords.longitude)
+            // .then(
+            //     data =>{
+            //         let geoInfo = {
+            //             coordinate:{
+            //                 longitude: locationResults.coords.longitude,
+            //                 latitude: locationResults.coords.latitude
+            //             }
+            //         }
+            //         for (let i = 0; i<data.results[0].address_components.length; i++){
+            //             let component = data.results[0].address_components[i];
         
-                        if(component.types.includes('sublocality') || component.types.includes('locality')) {
-                            geoInfo.city = component.long_name;
-                        }
-                        else if (component.types.includes('administrative_area_level_1')) {
-                            geoInfo.region = component.long_name;
-                    }
-                }
-                console.log(geoInfo);
-                this.props.storeLoc(geoInfo);
-                }
-            )
+            //             if(component.types.includes('sublocality') || component.types.includes('locality')) {
+            //                 geoInfo.city = component.long_name;
+            //             }
+            //             else if (component.types.includes('administrative_area_level_1')) {
+            //                 geoInfo.region = component.long_name;
+            //         }
+            //     }
+            //     console.log(geoInfo);
+            //     this.props.storeLoc(geoInfo);
+            //     }
+            // )
             // geocoder.reverseGeocode(locationResults.coords.latitude, locationResults.coords.longitude, (err, data) =>{
             //     console.log(data);
             //     let geoInfo = {
