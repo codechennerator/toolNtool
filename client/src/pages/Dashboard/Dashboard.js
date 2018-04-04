@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import geocoder from "geocoder";
-import Geocode from "react-geocode";
+// import Geocode from "react-geocode";
 import { connect } from "react-redux";
 import { Image, Container } from 'semantic-ui-react';
 import * as dataActions from '../../actions/dataAction';

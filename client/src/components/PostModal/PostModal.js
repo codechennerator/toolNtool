@@ -2,28 +2,30 @@ import React, { Component } from 'react';
 import { Button, Icon, Image, Modal } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
 import API from "../../utils/API";
-
+import axios from 'axios'
 
 
 class PostModal extends Component {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
-          fireRedirect: false
+          fireRedirect: false,
+          image:null,
         }
       }
-    handleFormSubmit = event => {
-        event.preventDefault();
+
+    handleFormSubmit(){
+
         if (
         this.props.info.title !=="" && 
         this.props.info.description !=="" &&
-        this.props.info.image !=="" &&
+        this.props.info.imageUrl !==null &&
         this.props.info.location !==""){
           API.savePost({
             title: this.props.info.title,
             description: this.props.info.description,
             user: this.props.user._id,
-            img: this.props.info.image,
+            img: this.state.image,
             location: this.props.info.location,
           })
             .then(res => {
@@ -33,15 +35,32 @@ class PostModal extends Component {
         }
     };
 
+    submitImage() {
+        console.log('submitting image')
+
+    
+        axios.post('https://api.cloudinary.com/v1_1/daretodate/image/upload',{
+          "file":this.props.info.imagePreviewUrl,
+          "upload_preset": "v4gae7vn",    
+        },
+        { "X-Requested-With": "XMLHttpRequest" })
+        .then(response=>{
+          this.setState({image:response.data.secure_url})
+          console.log(this.state.image)
+
+          this.handleFormSubmit()
+        })
+      }
+
     render(){
-        console.log(this.props)
+
         const { fireRedirect } = this.state
         return(  
             <div>
-            <Modal trigger={<Button>Preview</Button>}>
+            <Modal trigger={<Button disabled={false}>Preview</Button>}>
                 <Modal.Header>Post Preview</Modal.Header>
                 <Modal.Content image scrolling>
-                <Image wrapped size='medium' src={this.props.info.image} rounded />
+                <Image wrapped size='medium' src={this.props.info.imagePreviewUrl} rounded />
                 <Modal.Description>
                     <p>{this.props.info.location}</p>
                     <p>Title: {this.props.info.title}</p>
@@ -49,7 +68,7 @@ class PostModal extends Component {
                 </Modal.Description>
                 </Modal.Content>
                 <Modal.Actions>
-                <Button primary onClick={this.handleFormSubmit}>
+                <Button primary onClick={this.submitImage.bind(this)}>
                     Submit <Icon name='right chevron' />
                 </Button>
                 </Modal.Actions>
