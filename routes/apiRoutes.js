@@ -45,7 +45,7 @@ module.exports = app => {
 
   app.get("/api/posts/title/:title", function (req, res) {
     db.Post
-      .find({ title: { $regex: `(?i).*${req.params.title}.*` } })
+    .find({ $or: [{title: { $regex: `(?i).*${req.params.title}.*` }}, {description: { $regex: `(?i).*${req.params.title}.*` }} ] })
       .populate('user')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
