@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import geocoder from "geocoder";
+// import geocoder from "geocoder";
+import Geocode from "react-geocode";
 import { connect } from "react-redux";
 import { Image, Container } from 'semantic-ui-react'
 import * as dataActions from '../../actions/dataAction'
@@ -26,9 +27,9 @@ class Dashboard extends Component{
         console.log('trying to use navigator.geolocation');
         const geolocation = navigator.geolocation;
         const location = new Promise((resolve, reject) => {
-        //   if (!geolocation) {
-        //     reject(new Error('Not Supported'));
-        //   }
+          if (!geolocation) {
+            reject(new Error('Not Supported'));
+          }
 
           geolocation.getCurrentPosition((position) => {
             resolve(position);
@@ -38,31 +39,57 @@ class Dashboard extends Component{
         });
         
         location.then((locationResults) =>{
-            geocoder.reverseGeocode(locationResults.coords.latitude, locationResults.coords.longitude, (err, data) =>{
-                console.log(data);
-                let geoInfo = {
-                    coordinate:{
-                        longitude: locationResults.coords.longitude,
-                        latitude: locationResults.coords.latitude
+            console.log(locationResults);
+            Geocode.setApiKey('AIzaSyCEN3E6DYSNWvPYnjAh3WyQZeJw3Y3lMVM');
+            Geocode.fromLatLng(locationResults.coords.latitude, locationResults.coords.longitude)
+            .then(
+                data =>{
+                    let geoInfo = {
+                        coordinate:{
+                            longitude: locationResults.coords.longitude,
+                            latitude: locationResults.coords.latitude
+                        }
+                    }
+                    for (let i = 0; i<data.results[0].address_components.length; i++){
+                        let component = data.results[0].address_components[i];
+        
+                        if(component.types.includes('sublocality') || component.types.includes('locality')) {
+                            geoInfo.city = component.long_name;
+                        }
+                        else if (component.types.includes('administrative_area_level_1')) {
+                            geoInfo.region = component.long_name;
                     }
                 }
-                for (let i = 0; i<data.results[0].address_components.length; i++){
-                    let component = data.results[0].address_components[i];
-    
-                    if(component.types.includes('sublocality') || component.types.includes('locality')) {
-                        geoInfo.city = component.long_name;
-                    }
-                    else if (component.types.includes('administrative_area_level_1')) {
-                        geoInfo.region = component.long_name;
-                    }
-                }
+                console.log(geoInfo);
                 this.props.storeLoc(geoInfo);
-            })
+                }
+            )
+            // geocoder.reverseGeocode(locationResults.coords.latitude, locationResults.coords.longitude, (err, data) =>{
+            //     console.log(data);
+            //     let geoInfo = {
+            //         coordinate:{
+            //             longitude: locationResults.coords.longitude,
+            //             latitude: locationResults.coords.latitude
+            //         }
+            //     }
+            //     for (let i = 0; i<data.results[0].address_components.length; i++){
+            //         let component = data.results[0].address_components[i];
+    
+            //         if(component.types.includes('sublocality') || component.types.includes('locality')) {
+            //             geoInfo.city = component.long_name;
+            //         }
+            //         else if (component.types.includes('administrative_area_level_1')) {
+            //             geoInfo.region = component.long_name;
+            //         }
+            //     }
+            //     this.props.storeLoc(geoInfo);
+            // })
         })
     }
 
 
     render(){
+        console.log('rendered once');
         if (!this.props.isGeoStored) {
             return (
                 <Image src = {loadingGif}></Image>
