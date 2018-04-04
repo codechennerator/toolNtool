@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import geocoder from "geocoder";
+import geocoder from "geocoder";
 import Geocode from "react-geocode";
 import { connect } from "react-redux";
 import { Image, Container } from 'semantic-ui-react';
@@ -38,11 +38,8 @@ class Dashboard extends Component{
           });
         });
         
-        location.then((locationResults) =>{
-            Geocode.setApiKey("AIzaSyCEN3E6DYSNWvPYnjAh3WyQZeJw3Y3lMVM");
-            Geocode.enableDebug();
-            Geocode.fromLatLng(locationResults.coords.latitude, locationResults.coords.longitude)
-            .then((data) =>{
+            location.then((locationResults) =>{
+            geocoder.reverseGeocode(locationResults.coords.latitude, locationResults.coords.longitude, (err, data) =>{
                 console.log(data);
                 let geoInfo = {
                     coordinate:{
@@ -61,7 +58,7 @@ class Dashboard extends Component{
                     }
                 }
                 this.props.storeLoc(geoInfo);
-            }) 
+            }, {key: "AIzaSyCEN3E6DYSNWvPYnjAh3WyQZeJw3Y3lMVM"})
         })
     }
 
@@ -162,3 +159,4 @@ export default connect(mapStateToProps, dataActions)(Dashboard);
 // }
 
 // export default connect(mapStateToProps, storeLoc)(Dashboard);
+//AIzaSyCEN3E6DYSNWvPYnjAh3WyQZeJw3Y3lMVM
