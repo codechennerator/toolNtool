@@ -27,6 +27,7 @@ class PostModal extends Component {
             user: this.props.user._id,
             img: this.state.image,
             location: this.props.info.location,
+            coordinate: this.props.info.coordinate
           })
             .then(res => {
                 this.setState({ fireRedirect: true })

@@ -28,6 +28,7 @@ class postTool extends Component {
       location: '',
       file: '',
       imagePreviewUrl: '',
+      coordinate:{},
       isFulfilled: false,
     };
   }
@@ -36,7 +37,8 @@ class postTool extends Component {
     // console.log(this.props.geoInfo),
     // console.log(this.props.isGeoStored  )
     this.setState({
-      location: `${this.props.geoInfo.city}, ${this.props.geoInfo.region}` || ""
+      location: `${this.props.geoInfo.city}, ${this.props.geoInfo.region}` || "",
+      coordinate: this.props.geoInfo.coordinate
     })
   }
     handleInputChange = event => {
