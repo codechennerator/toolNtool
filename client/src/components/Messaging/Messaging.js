@@ -63,7 +63,10 @@ class Messaging extends Component {
                     </Form>
                 {this.state.messages.map(message =>{
                     return(
-                        <Comment key = {message._id}>
+                        <Comment key = {message._id} style={{
+                            border: "solid 2px #2185d0",
+                            borderRadius: "100px",
+                            padding: "12px"}}>
                             <Comment.Content>
                                 <Comment.Author>{message.sender.name.givenName}
                                     <Comment.Metadata><div>{message.date}</div></Comment.Metadata>

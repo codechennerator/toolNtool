@@ -26,7 +26,7 @@ class findAll extends Component {
     return (
       <Container style={mainDivStyle}>
 
-      <Mapping />
+      {/* <Mapping /> */}
           
     </Container>
     );
