@@ -9,8 +9,6 @@ const mainDivStyle={
 const Messages = (props) => {
   return (
     <Container style = {mainDivStyle} fluid>
-      {/* <Item />
-      <NewMessage /> */}
       <Messaging cid = {props.match.params.cid}/>
     </Container>
   );

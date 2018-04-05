@@ -60,7 +60,7 @@ class Nav extends Component {
           <Menu.Item as={Link} name = "home" to="/">
             <img src={t} alt="logo" style={logoStyle}/>
           </Menu.Item>
-          {/* <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/> */}
+          <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
           <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle}/>
           <Menu.Item as={Link} name='Inbox' to="/inbox" style={fontStyle}/>
           {this.renderContent()}

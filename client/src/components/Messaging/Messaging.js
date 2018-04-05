@@ -1,7 +1,55 @@
 import React, { Component } from 'react';
-// import { connect } from "react-redux";
-import { Comment, Container, Form, Button } from 'semantic-ui-react';
+import { connect } from "react-redux";
+import { Comment, Container, Form, Button, Image } from 'semantic-ui-react';
 import API from '../../utils/API';
+import loadingGif from '../img/loading.gif';
+
+const userStyling = {
+    "position": "relative",
+    "background": "#e8e8e8",
+    "borderRadius": ".4em",
+    "padding": "12px"
+}
+const userStylingAfter = {
+    "content": "''",
+    "position": "absolute",
+    "right": "0",
+    "top": "50%",
+    "width": "0",
+    "height": "0",
+    "border": "25px solid transparent",
+    "borderLeftColor": "#e8e8e8",
+    "borderRight": "0",
+    "borderBottom": "0",
+    "marginTop": "-12.5px",
+    "marginRight": "-25px"
+}
+
+const partnerStyling = {
+    "position": "relative",
+    "background": "#63e4e8",
+    "borderRadius": ".4em",
+    "padding": "12px"
+}
+const partnerStylingAfter ={
+      "content": "''",
+      "position": "absolute",
+      "left": "0",
+      "top": "50%",
+      "width": "0",
+      "height": "0",
+      "border": "25px solid transparent",
+      "borderRightColor": "#63e4e8",
+      "borderLeft": "0",
+      "borderBottom": "0",
+      "marginTop": "-12.5px",
+      "marginLeft": "-25px"
+}
+let mapStateToProps = (store) => {
+    return {
+        user: store.user
+    }
+  }
 
 class Messaging extends Component {
     constructor() {
@@ -14,7 +62,7 @@ class Messaging extends Component {
     componentDidMount() {
         this.timerID = setInterval(
           () => this.loadMessages(),
-          3000
+          1000
         );
     }
     componentWillUnmount() {
@@ -47,26 +95,30 @@ class Messaging extends Component {
       }
 
     render(){
+        if (this.state.messages.length === 0) {
+            return (
+                <Image src = {loadingGif}></Image>
+            )
+        }
         return(
             <Container> 
 
                 <Comment.Group>
                     <Form reply>
                         <Form.TextArea                       
-                        style={{ minHeight: 100 }}
+                        style={{ "minHeight": "50", "height": "10em" }}
                         value={this.state.content}
                         onChange={this.handleInputChange}
                         name="content"
                         placeholder="Send"
                         />
-                        <Button content='Send' labelPosition='right' icon='edit' primary onClick={this.handleFormSubmit}/>
+                        <Button content='Send Message' labelPosition='right' icon='edit' primary onClick={this.handleFormSubmit}/>
                     </Form>
                 {this.state.messages.map(message =>{
                     return(
-                        <Comment key = {message._id} style={{
-                            border: "solid 2px #2185d0",
-                            borderRadius: "100px",
-                            padding: "12px"}}>
+                        <Comment key = {message._id} 
+                         style={(message.sender._id === this.props.user._id) ? userStyling: partnerStyling}>
+                        <div style = {(message.sender._id === this.props.user._id) ? userStylingAfter: partnerStylingAfter}/>
                             <Comment.Content>
                                 <Comment.Author>{message.sender.name.givenName}
                                     <Comment.Metadata><div>{message.date}</div></Comment.Metadata>
@@ -79,7 +131,8 @@ class Messaging extends Component {
                 </Comment.Group>
             </Container>
         )
+        
     }
 }
 
-export default Messaging;
+export default connect(mapStateToProps)(Messaging);
