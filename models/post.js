@@ -9,7 +9,8 @@ const postSchema = new Schema({
   location:{type: String, required: true},
   coordinate:{type:Object, required: false},
   price:{type: Number, required: true},
-  date: { type: String}
+  availableDate: { type: String},
+  date: { type: Date, default: Date.now }
 });
 
 const Post = mongoose.model("Post", postSchema);
