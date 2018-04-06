@@ -37,8 +37,11 @@ class postTool extends Component {
   componentDidMount() {
     // console.log(this.props.geoInfo),
     // console.log(this.props.isGeoStored  )
+    
     this.setState({
-      location: `${this.props.geoInfo.city}, ${this.props.geoInfo.region}` || "",
+      location: (this.props.geoInfo.city && this.props.geoInfo.region) ? 
+                  (`${this.props.geoInfo.city}, ${this.props.geoInfo.region}`):
+                  "",
       coordinate: this.props.geoInfo.coordinate
     })
   }
