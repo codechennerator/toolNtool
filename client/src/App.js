@@ -7,6 +7,8 @@ import findAll from "./pages/findAll";
 import postTool from "./pages/postTool";
 import Detail from "./pages/Detail/Detail"
 import Messages from "./pages/Messages";
+import SignUp from "./pages/SignUp";
+import Protected from "./components/PrivateRoute";
 import NoMatch from "./pages/NoMatch";
 import Inbox from "./pages/Inbox";
 import Dashboard from "./pages/Dashboard";
@@ -14,34 +16,39 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import * as userActions from "./actions/userAction";
 
-class App extends Component{
-  componentDidMount(){
+
+class App extends Component {
+  componentDidMount() {
     this.props.fetchUser();
+    console.log("user info")
+    console.log(this.props.user)
   }
-  
-  render(){
-      return(
-        <div>
-        
+
+  render() {
+
+    return (
+      <div>
         <Router>
           <div>
-          <Nav />
+            <Nav />
             <Switch>
               <Route exact path="/" component={startPage} />
               <Route exact path="/findAll" component={findAll} />
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/postTool" component={postTool} />
-              <Route exact path="/inbox" component = {Inbox} />
+              <Route exact path="/inbox" component={Inbox} />
               <Route exact path="/messages/:cid" component={Messages} />
-              <Route exact path="/dashboard" component = {Dashboard} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/signUp" component={SignUp} />
+              <Route exact path="/protected" component={Protected} />
               <Route component={NoMatch} />
-            </Switch>   
+            </Switch>
           </div>
         </Router>
         <Footer />
-        </div>
-      );
+      </div>
+    );
   }
 }
 export default connect(null, userActions)(App);

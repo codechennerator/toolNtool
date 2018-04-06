@@ -5,7 +5,7 @@ import "./Footer.css"
 const Footer = props =>  (
     
     <Segment inverted vertical style={{ padding: '2em 0em' }}>
-    <Container>
+    <Container className="footer">
       <Grid divided inverted stackable>
         <Grid.Row>
           <Grid.Column width={5}>

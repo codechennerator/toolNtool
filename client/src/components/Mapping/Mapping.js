@@ -7,8 +7,8 @@ import { Image, Container, Card, } from 'semantic-ui-react';
 
 const style = {
     container: {
-      marginTop: '8em',
-      marginBottom: '10em'
+      marginTop: '3em',
+      marginBottom: '15px'
     },
     image: {
       marginBottom: '3em'

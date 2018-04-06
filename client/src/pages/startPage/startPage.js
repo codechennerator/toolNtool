@@ -1,6 +1,8 @@
 import React from "react";
 import SearchForm from "../../components/Search";
 import { Container } from "semantic-ui-react";
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const HomepageHeading = ({ mobile }) => (
   <Container

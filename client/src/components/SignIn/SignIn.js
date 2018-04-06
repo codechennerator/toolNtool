@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Message, Segment, Icon } from 'semantic-ui-react'
 
 const SignIn = () => (
   <div className='login-form'>
@@ -42,10 +42,14 @@ const SignIn = () => (
             />
 
             <Button color='teal' fluid size='large'>Login</Button>
+            <br />
+            <Button href="/auth/google" color='teal' fluid size='large' style={{
+              marginTop: "-15px"
+            }}><Icon name='google' />Login with Google</Button>
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          New to us?<a href='#'>Sign Up</a>
         </Message>
       </Grid.Column>
     </Grid>
