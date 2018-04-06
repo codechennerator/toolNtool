@@ -87,7 +87,7 @@ class postTool extends Component {
           <Divider hidden />
 
           <Form>
-            <img alt = "img" src={imagePreviewUrl ? imagePreviewUrl : noImage} style={{ width: 400, height: 300 }} />
+            <img alt = "img" src={imagePreviewUrl ? imagePreviewUrl : noImage} style={{ width: 300, height: 300 }} />
 
             <Form.Field>
               <label>Post Title</label>

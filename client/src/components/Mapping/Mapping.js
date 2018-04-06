@@ -19,7 +19,8 @@ const style = {
 
 let mapStateToProps = (store) => {
     return {
-        data: store.data.data
+        data: store.data.data,
+        user: store.user
     }
 }
 
@@ -73,7 +74,7 @@ class Mapping extends Component {
                                             {post.description}
                                             <strong>${post.price}</strong>
                                         </Card.Description>
-                                        <ButtonModal post = {post}/>
+                                        {(this.props.user) ? <ButtonModal post = {post}/> : null}
                                     </Card.Content>
                             </Card>
 
