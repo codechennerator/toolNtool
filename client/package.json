@@ -15,6 +15,7 @@
     "geocoder": "^0.2.3",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-calendar": "^2.14.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Button, Modal, Icon, Form, TextArea } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom';
 import API from "../../utils/API";
 
 class ButtonModal extends Component{
   constructor() {
     super()
     this.state = {
+      fireRedirect: false,
       content: "",
+      cid: ""
     };
   }
   handleInputChange = event => {
@@ -24,7 +27,7 @@ class ButtonModal extends Component{
             conversation: conversationModel.data._id,
             content: this.state.content
           }).then(res => {
-            window.location.href = "/messages/" + res.data._id
+            this.setState({ cid: res.data._id , fireRedirect: true })
           }).catch(err => console.log(err));
         })
     }
@@ -38,7 +41,7 @@ render(){
               <Modal.Content>
                 <Form>
                   <Form.Field>
-                    <label>Content</label>
+                    <label>Contact</label>
                     <TextArea
                       style={{ minHeight: 100 }}
                       value={this.state.content}
@@ -54,6 +57,9 @@ render(){
                     Submit <Icon name='right chevron' />
                 </Button>
               </Modal.Actions>
+              {this.state.fireRedirect && (
+                    <Redirect to={"/messages/" + this.state.cid}/>
+              )}
           </Modal>
         </div>
     );
