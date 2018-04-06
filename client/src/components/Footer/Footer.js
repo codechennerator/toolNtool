@@ -1,6 +1,5 @@
 import React from "react";
 import { Icon, Container,  Grid, Header,  List, Segment } from 'semantic-ui-react'
-import "./Footer.css"
 
 const Footer = props =>  (
     

@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import TNTLogo from "../../components/img/3DLogo.png";
 import PrivateRoute from "../PrivateRoute";
-// import SignInModal from '../../components/SignInModal';
 
 const fontStyle={
   fontSize: '1.2em',
@@ -59,12 +58,11 @@ class Nav extends Component {
       >
         <Menu pointing secondary >
           <Menu.Item as={Link} name = "home" to="/">
-            <img src={t} alt="logo" style={logoStyle}/>
+            <img src={TNTLogo} alt="logo" style={logoStyle}/>
           </Menu.Item>
           <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
-          <Menu.Item as={Link} name='post Tool' to="/protected" style={fontStyle}/>
-          <Menu.Item as={Link} name='Inbox' to="/protected" style={fontStyle}/>
-      {/* {this.props.user === false && <SignInModal /> } */}
+          <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle}/>
+          <Menu.Item as={Link} name='Inbox' to="/inbox" style={fontStyle}/>
         
           {this.renderContent()}
 

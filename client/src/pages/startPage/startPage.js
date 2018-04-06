@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 // );
 class startPage extends Component{
   
-
   render(){
     return (
       <div>
@@ -18,20 +17,9 @@ class startPage extends Component{
           style={{
             textAlign: "center",
             zIndex: "1"
-          }}
-      >
-    <SearchForm location = {this.props.location}/>
-  </Container>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+          }}>
+        <SearchForm location = {this.props.location}/>
+        </Container>
       </div>
     );
   }

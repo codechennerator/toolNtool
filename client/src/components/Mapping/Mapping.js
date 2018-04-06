@@ -7,14 +7,16 @@ import { Image, Container, Card, } from 'semantic-ui-react';
 
 const style = {
     container: {
-      marginTop: '3em',
-      marginBottom: '15px'
+      marginTop: "100px",
+      marginBottom: "15px"
     },
     image: {
       marginBottom: '3em'
     },
+    cardContainer: {
+        marginTop: '10px'
+    }
   };
-
 
 
 let mapStateToProps = (store) => {
@@ -47,7 +49,7 @@ class Mapping extends Component {
         console.log(data)
         return (
             <Container style = {style.container}>
-            <div>
+            <div className="counterContainer">
                 <select name="count" onChange={this.handleInputChange}>
                     <option value="1">1</option>
                     <option selected="selected" value="10">10</option>
@@ -55,6 +57,8 @@ class Mapping extends Component {
                     <option value="50">50</option>
                     <option value="999">All</option>
                 </select>
+            </div>
+            <div className="cardContainer" style={style.cardContainer}>
                 {data.length !== 0 &&
                     <Card.Group>
                         {data.data.slice(0, this.state.count).map(post => {

@@ -16,6 +16,20 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import * as userActions from "./actions/userAction";
 
+const style = {
+  appContent: {
+  maxHeight: 1024,
+  maxWidth: 1440,
+  width: "100%",
+  height: "100%",
+},
+  footer: {
+    position: "fixed",
+    left: 0,
+    bottom: 0,
+    width: "100%"
+  }
+}
 
 class App extends Component {
   componentDidMount() {
@@ -25,11 +39,11 @@ class App extends Component {
   }
 
   render() {
-
     return (
-      <div>
+      <div className="app">
+        <div className="appContent" style={style.appContent}>
         <Router>
-          <div>
+          <div className="router">
             <Nav />
             <Switch>
               <Route exact path="/" component={startPage} />
@@ -46,9 +60,10 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
-        <br/>
-        <br/>
+        </div>
+        <div className="footer" style={style.footer}>
         <Footer />
+        </div>
       </div>
     );
   }
