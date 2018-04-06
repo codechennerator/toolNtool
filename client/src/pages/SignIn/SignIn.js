@@ -1,7 +1,12 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Message, Segment, Container, Icon } from 'semantic-ui-react'
+
+const mainDivStyle={
+  marginTop:"90px",
+}
 
 const SignIn = () => (
+  <Container style = {mainDivStyle}>
   <div className='login-form'>
     {/*
       Heads up! The styles below are necessary for the correct render of this example.
@@ -42,14 +47,19 @@ const SignIn = () => (
             />
 
             <Button color='teal' fluid size='large'>Login</Button>
+            <br />
+            <Button href="/auth/google" color='teal' fluid size='large' style={{
+              marginTop: "-15px"
+            }}><Icon name='google' />Login with Google</Button>
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          New to us? <a>Sign Up</a>
         </Message>
       </Grid.Column>
     </Grid>
   </div>
+  </Container>
 )
 
 export default SignIn
