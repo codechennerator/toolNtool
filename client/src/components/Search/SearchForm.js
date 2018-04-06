@@ -31,14 +31,12 @@ class SearchForm extends Component {
             isButtonPressed: false
         };
     }
-    componentDidMount(){
-        console.log('locaiton');
-        console.log(this.props);
-    }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-            [name]: value
+            [name]: value,
+            isButtonPressed: false
         });
     };
     fetchData() {
@@ -61,7 +59,10 @@ class SearchForm extends Component {
             this.fetchData()
         }
         // this.setState({isButtonPressed:false});
-        this.setState({isButtonPressed:true});
+        this.setState({
+            isButtonPressed:true,
+            term: ""
+        });
 
     }
     render() {
@@ -73,6 +74,7 @@ class SearchForm extends Component {
                         name="term"
                         onKeyPress={this.handleKeyPress.bind(this)}
                         onChange={this.handleInputChange}
+                        value= {this.state.term}
                         icon='search'
                         placeholder='Search...'
                         style={searchStyle}
@@ -91,7 +93,7 @@ class SearchForm extends Component {
                  <Grid>
                      <Grid.Row centered  style={gridStyle}>
                        
-                       <Container text >
+                       <Container fluid >
                         <Grid.Row className="textStyle1">
                             <p>Find the tools you want and</p>
                         </Grid.Row>

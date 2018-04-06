@@ -7,10 +7,6 @@ import { Container } from "semantic-ui-react";
 // );
 class startPage extends Component{
   
-  componentDidMount(){
-    console.log('start page');
-    console.log(this.props);
-  }
 
   render(){
     return (

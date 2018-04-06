@@ -65,14 +65,13 @@ class Mapping extends Component {
                                 </Link>
                                     <Card.Content>
                                         <Card.Header>
-                                            {post.title}
+                                            {post.title}  ${post.price}
                                         </Card.Header>
                                         <Card.Meta>
                                             {post.user !== null ? post.user.name.givenName : null}
                                         </Card.Meta>
                                         <Card.Description>
-                                            {post.description}
-                                            <strong>${post.price}</strong>
+                                            {(post.description.length > 75) ? post.description.slice(0, 75) + '...': post.description}
                                         </Card.Description>
                                         {(this.props.user) ? <ButtonModal post = {post}/> : null}
                                     </Card.Content>

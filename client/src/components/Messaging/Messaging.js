@@ -59,7 +59,7 @@ class Messaging extends Component {
             content: ""
         };
     }
-    componentDidMount() {
+    componentWillMount() {
         this.timerID = setInterval(
           () => this.loadMessages(),
           1000
@@ -97,7 +97,9 @@ class Messaging extends Component {
     render(){
         if (this.state.messages.length === 0) {
             return (
-                <Image src = {loadingGif}></Image>
+                <Container>
+                    <Image src = {loadingGif} />
+                </Container>
             )
         }
         return(

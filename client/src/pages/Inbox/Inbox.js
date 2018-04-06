@@ -37,7 +37,14 @@ class Inbox extends Component{
       };
 
     render(){
-        console.log(this.state);
+        if(this.state.conversations.length === 0){
+            return(
+                <Container style = {mainDivStyle}>
+                    <h1>Inbox</h1>
+                    <h2>You do not have any existing conversations</h2>
+                </Container>
+            )
+        }
         return(
             <Container style = {mainDivStyle}>
                 <h1>Inbox</h1>
@@ -58,12 +65,10 @@ class Inbox extends Component{
                                             
                                         </Grid.Column>
                                         
-                                        <Grid.Column width = {10} >
-                                            <Link to = {"/messages/" + conversation._id} style = {{"verticalAlign": "middle"}}>
+                                        <Grid.Column width = {10} as = {Link} to = {"/messages/" + conversation._id} >
                                             <div >
                                                 <h3>Last Message: {(conversation.messages[0]) ? conversation.messages[0].content:null}</h3>
                                             </div>
-                                            </Link>
                                         </Grid.Column>
                                         
                                 </Grid.Row>

@@ -30,6 +30,7 @@ class postTool extends Component {
       imagePreviewUrl: '',
       coordinate:{},
       isFulfilled: false,
+      price: null
     };
   }
 
@@ -115,6 +116,17 @@ class postTool extends Component {
                 name="location"
                 placeholder="Location: (Example: City, State)"
                 size="big"
+              />
+            </Form.Field>
+            <Form.Field>
+              <label>Renting Price</label>
+              <Input
+                value={this.state.price}
+                onChange={this.handleInputChange}
+                name="price"
+                placeholder="Price"
+                size="big"
+                type="number"
               />
             </Form.Field>
             <Form.Field>
