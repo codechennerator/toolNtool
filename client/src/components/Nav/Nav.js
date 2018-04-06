@@ -81,7 +81,6 @@ class Nav extends Component {
 }
 
 let mapStateToProps = (store) => {
-  console.log(store);
   return {
       geoInfo: store.data.geoInfo,
       user: store.user,

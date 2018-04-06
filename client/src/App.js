@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
+import PrivateRoute from './components/PrivateRoute';
 import startPage from "./pages/startPage";
 import findTool from "./pages/findTool";
 import findAll from "./pages/findAll";
@@ -31,10 +32,10 @@ class App extends Component{
               <Route exact path="/findAll" component={findAll} />
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/findTool/:id" component={Detail} />
-              <Route exact path="/postTool" component={postTool} />
-              <Route exact path="/inbox" component = {Inbox} />
-              <Route exact path="/messages/:cid" component={Messages} />
-              <Route exact path="/dashboard" component = {Dashboard} />
+              <PrivateRoute exact path="/postTool" component={postTool} />
+              <PrivateRoute exact path="/inbox" component = {Inbox} />
+              <PrivateRoute exact path="/messages/:cid" component={Messages} />
+              <PrivateRoute exact path="/dashboard" component = {Dashboard} />
               <Route component={NoMatch} />
             </Switch>   
           </div>
