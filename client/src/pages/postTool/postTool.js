@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-// import API from "../../utils/API";
 import { Form, TextArea, Container, Input, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import PostModal from "../../components/PostModal";
-
+import Calendar from '../../components/Calendar';
 import noImage from '../../components/img/noImage.png'
 
 
@@ -30,14 +29,17 @@ class postTool extends Component {
       imagePreviewUrl: '',
       coordinate:{},
       isFulfilled: false,
+      price: null,
+      date: new Date()
     };
   }
 
   componentDidMount() {
-    // console.log(this.props.geoInfo),
-    // console.log(this.props.isGeoStored  )
+    
     this.setState({
-      location: `${this.props.geoInfo.city}, ${this.props.geoInfo.region}` || "",
+      location: (this.props.geoInfo.city && this.props.geoInfo.region) ? 
+                  (`${this.props.geoInfo.city}, ${this.props.geoInfo.region}`):
+                  "",
       coordinate: this.props.geoInfo.coordinate
     })
   }
@@ -82,12 +84,13 @@ class postTool extends Component {
     return (
       <div>
         <Container style={mainDivStyle}>
+        <Calendar />
           <h1>Post your tools</h1>
           <label>All Fields are required</label>
           <Divider hidden />
 
           <Form>
-            <img alt = "img" src={imagePreviewUrl ? imagePreviewUrl : noImage} style={{ width: 400, height: 300 }} />
+            <img alt = "img" src={imagePreviewUrl ? imagePreviewUrl : noImage} style={{ width: 300, height: 300 }} />
 
             <Form.Field>
               <label>Post Title</label>
@@ -115,6 +118,17 @@ class postTool extends Component {
                 name="location"
                 placeholder="Location: (Example: City, State)"
                 size="big"
+              />
+            </Form.Field>
+            <Form.Field>
+              <label>Renting Price</label>
+              <Input
+                value={this.state.price}
+                onChange={this.handleInputChange}
+                name="price"
+                placeholder="Price"
+                size="big"
+                type="number"
               />
             </Form.Field>
             <Form.Field>

@@ -22,15 +22,17 @@ class Detail extends Component {
   }
 
   componentDidMount() {
+    this.getDetail();
+  };
+  getDetail= () => {
     if(this.props.match.params !== undefined){
       API.getPost(this.props.match.params.id)
       .then(res =>{
-        // console.log(res)
         this.setState({ post: res.data })
       })
       .catch(err => console.log(err));
     }
-  };
+  }
 
   render() {
     console.log(this.state.post)
@@ -39,7 +41,7 @@ class Detail extends Component {
         <div className="postDetail">
           <Image src={this.state.post.img} size='large' alt={this.state.post.title} style={style.image} rounded />
           <p className="postTitle">{this.state.post.title}</p>
-          <p>User: {this.state.post.user}</p>
+          <p>Owner: {(this.state.post.user) ? this.state.post.user.name.givenName : null}</p>
           <p>Notes: {this.state.post.description}</p>
           <p/>
           <Link to="/findAll">Back to Posts</Link>

@@ -24,6 +24,7 @@ module.exports = app => {
   app.get("/api/posts/:id", function (req, res) {
     db.Post
       .findById(req.params.id)
+      .populate('user')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   })
@@ -90,6 +91,15 @@ module.exports = app => {
       db.Conversation
         .find({users: req.user._id})
         .populate('users')
+        .populate({
+            path: 'messages',
+            options:{ 
+                limit: 1,       
+                sort: {
+                    date: -1
+                }
+            }
+        })
         .sort({ date: -1 })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));

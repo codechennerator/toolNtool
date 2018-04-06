@@ -8,6 +8,8 @@ const postSchema = new Schema({
   description: { type: String, required: true },
   location:{type: String, required: true},
   coordinate:{type:Object, required: false},
+  price:{type: Number, required: true},
+  availableDate: { type: String},
   date: { type: Date, default: Date.now }
 });
 

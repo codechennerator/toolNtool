@@ -5,7 +5,7 @@ import { Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
 import { Container, Grid } from 'semantic-ui-react'
 import power from "../../components/img/power.jpg"
-import "./SearchForm.css"
+// import "./SearchForm.css"
 
 
 let mapStateToProps = (store) => {
@@ -28,12 +28,15 @@ class SearchForm extends Component {
         super()
         this.state = {
             term: "",
+            isButtonPressed: false
         };
     }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-            [name]: value
+            [name]: value,
+            isButtonPressed: false
         });
     };
     fetchData() {
@@ -55,10 +58,34 @@ class SearchForm extends Component {
         else {
             this.fetchData()
         }
+        // this.setState({isButtonPressed:false});
+        this.setState({
+            isButtonPressed:true,
+            term: ""
+        });
+
     }
     render() {
         const { data } = this.props;
-        if (window.location.href.slice(-1) === "/") {
+        if (this.props.location === undefined){
+            return (
+                <div>
+                    <Input
+                        name="term"
+                        onKeyPress={this.handleKeyPress.bind(this)}
+                        onChange={this.handleInputChange}
+                        value= {this.state.term}
+                        icon='search'
+                        placeholder='Search...'
+                        style={searchStyle}
+                    />
+
+                    {this.state.isButtonPressed === true && <Redirect to='/findTool' />}
+                    
+                </div>
+            )
+        }
+        else if (this.props.location.pathname === "/") {
             return (
 
                 <div>                 
@@ -66,7 +93,7 @@ class SearchForm extends Component {
                  <Grid>
                      <Grid.Row centered  style={gridStyle}>
                        
-                       <Container text >
+                       <Container fluid >
                         <Grid.Row className="textStyle1">
                             <p>Find the tools you want and</p>
                         </Grid.Row>
@@ -83,10 +110,8 @@ class SearchForm extends Component {
                             style={{ width: "1000px", fontSize: "20px",height:"60px" }}
                            
                         />
-                        {data.length !== 0 && data.data.length !== 0 &&
-                            <Redirect to='/findTool' />
-                        }
-    
+                        {console.log(data.length)}
+                        {this.state.isButtonPressed === true && <Redirect to='/findTool' />}
                     </Grid.Row>
 
                      </Grid>
@@ -94,22 +119,6 @@ class SearchForm extends Component {
                 </div>
             )
         }
-        return (
-            <div>
-                <Input
-                    name="term"
-                    onKeyPress={this.handleKeyPress.bind(this)}
-                    onChange={this.handleInputChange}
-                    icon='search'
-                    placeholder='Search...'
-                    style={searchStyle}
-                />
-
-                {data.length !== 0 && data.data.length !== 0 &&
-                    <Redirect to='/findTool' />
-                }
-            </div>
-        )
     }
 }
 

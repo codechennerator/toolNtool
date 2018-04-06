@@ -1,34 +1,40 @@
-import React from "react";
+import React, { Component } from 'react';
 import SearchForm from "../../components/Search";
 import { Container } from "semantic-ui-react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const HomepageHeading = ({ mobile }) => (
-  <Container
-    fluid
-    style={{
-      textAlign: "center",
-      zIndex: "1"
-    }}
-  >
-    <SearchForm />
+// const HomepageHeading = ({ mobile }) => (
+
+// );
+class startPage extends Component{
+  
+
+  render(){
+    return (
+      <div>
+        <Container
+          fluid
+          style={{
+            textAlign: "center",
+            zIndex: "1"
+          }}
+      >
+    <SearchForm location = {this.props.location}/>
   </Container>
-);
-const startPage = () => (
-  <div>
-    <HomepageHeading />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-  </div>
-);
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    );
+  }
+}
 
 export default startPage;

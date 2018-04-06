@@ -19,17 +19,17 @@ let mapStateToProps = (store) => {
     }
 }
 class Dashboard extends Component{
+
     componentDidMount(){
-        console.log('mounted');
         this._getLocation();
     }
     _getLocation = () => {
-        console.log('trying to use navigator.geolocation');
+        
         const geolocation = navigator.geolocation;
         const location = new Promise((resolve, reject) => {
-        //   if (!geolocation) {
-        //     reject(new Error('Not Supported'));
-        //   }
+          if (!geolocation) {
+            reject(new Error('Not Supported'));
+          }
 
           geolocation.getCurrentPosition((position) => {
             resolve(position);
@@ -40,7 +40,7 @@ class Dashboard extends Component{
         
             location.then((locationResults) =>{
             geocoder.reverseGeocode(locationResults.coords.latitude, locationResults.coords.longitude, (err, data) =>{
-                console.log(data);
+                
                 let geoInfo = {
                     coordinate:{
                         longitude: locationResults.coords.longitude,

@@ -45,6 +45,7 @@ class Nav extends Component {
         );
     }
   }
+
   render() {
 
     return (
@@ -52,11 +53,13 @@ class Nav extends Component {
       className="ui huge top fixed menu"
       style={{
         display:"block",
-        border:"none",
-      }}>
-        <Menu pointing secondary>
-          <Menu.Item as={Link} to = "/">
-            <img src={TNTLogo} alt="logo" style={logoStyle}/>
+        border:"none"
+       
+      }} 
+      >
+        <Menu pointing secondary >
+          <Menu.Item as={Link} name = "home" to="/">
+            <img src={t} alt="logo" style={logoStyle}/>
           </Menu.Item>
           <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
           <Menu.Item as={Link} name='post Tool' to="/protected" style={fontStyle}/>
@@ -64,13 +67,14 @@ class Nav extends Component {
       {/* {this.props.user === false && <SignInModal /> } */}
         
           {this.renderContent()}
-          {window.location.href.slice(-1) !== "/" && 
+
           <div style={inputStyle}>
           
-                <SearchForm />
-               
-                </div>
-          }
+            
+            <SearchForm />
+            
+              
+          </div>
 
         </Menu>
       </div>

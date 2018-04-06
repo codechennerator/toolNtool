@@ -20,6 +20,7 @@ class PostModal extends Component {
         this.props.info.title !=="" && 
         this.props.info.description !=="" &&
         this.props.info.imageUrl !==null &&
+        this.props.info.price !==null &&
         this.props.info.location !==""){
           API.savePost({
             title: this.props.info.title,
@@ -27,7 +28,8 @@ class PostModal extends Component {
             user: this.props.user._id,
             img: this.state.image,
             location: this.props.info.location,
-            coordinate: this.props.info.coordinate
+            coordinate: this.props.info.coordinate,
+            price: this.props.info.price
           })
             .then(res => {
                 this.setState({ fireRedirect: true })
