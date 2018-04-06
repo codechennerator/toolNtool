@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Comment, Container, Form, Button, Image } from 'semantic-ui-react';
+import { Comment, Container, Form, Button, Image, Segment } from 'semantic-ui-react';
 import API from '../../utils/API';
 import loadingGif from '../img/loading.gif';
 
@@ -104,16 +104,21 @@ class Messaging extends Component {
             <Container> 
 
                 <Comment.Group>
-                    <Form reply>
-                        <Form.TextArea                       
-                        style={{ "minHeight": "50", "height": "10em" }}
-                        value={this.state.content}
-                        onChange={this.handleInputChange}
-                        name="content"
-                        placeholder="Send"
-                        />
-                        <Button content='Send Message' labelPosition='right' icon='edit' primary onClick={this.handleFormSubmit}/>
-                    </Form>
+                    <Segment.Group>
+                        <Segment>
+                        <Form reply>
+                            <Form.TextArea                       
+                            style={{ "minHeight": "50", "height": "10em" }}
+                            value={this.state.content}
+                            onChange={this.handleInputChange}
+                            name="content"
+                            placeholder="Send"
+                            />
+                            <Button content='Send Message' labelPosition='right' icon='edit' primary onClick={this.handleFormSubmit}/>
+                        </Form>
+                        </Segment>
+                    </Segment.Group>
+                    
                 {this.state.messages.map(message =>{
                     return(
                         <Comment key = {message._id} 
@@ -128,6 +133,7 @@ class Messaging extends Component {
                         </Comment>
                     )
                 })}
+                    
                 </Comment.Group>
             </Container>
         )

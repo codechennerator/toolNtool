@@ -90,6 +90,15 @@ module.exports = app => {
       db.Conversation
         .find({users: req.user._id})
         .populate('users')
+        .populate({
+            path: 'messages',
+            options:{ 
+                limit: 1,       
+                sort: {
+                    date: -1
+                }
+            }
+        })
         .sort({ date: -1 })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
