@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Modal, Icon, Form, TextArea } from 'semantic-ui-react'
+import { Button, Modal, Form, TextArea } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 import API from "../../utils/API";
 

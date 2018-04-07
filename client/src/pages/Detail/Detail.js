@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Image, Container } from 'semantic-ui-react'
+import ButtonModal from "../../components/ButtonModal"
 import API from "../../utils/API";
 
 const style = {
@@ -43,6 +44,7 @@ class Detail extends Component {
           <p className="postTitle">{this.state.post.title}</p>
           <p>Owner: {(this.state.post.user) ? this.state.post.user.name.givenName : null}</p>
           <p>Notes: {this.state.post.description}</p>
+          <ButtonModal post = {this.state.post}/>
           <p/>
           <Link to="/findAll">Back to Posts</Link>
         </div>

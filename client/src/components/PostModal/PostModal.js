@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Icon, Image, Modal } from 'semantic-ui-react';
+import { Button, Image, Modal } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
 import API from "../../utils/API";
 import axios from 'axios'

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form, TextArea, Container, Input, Divider } from "semantic-ui-react";
 import { connect } from "react-redux";
 import PostModal from "../../components/PostModal";
-import Calendar from "../../components/Calendar";
 import noImage from "../../components/img/noImage.png";
 
 const mainDivStyle = {

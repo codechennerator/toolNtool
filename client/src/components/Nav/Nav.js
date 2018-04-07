@@ -4,7 +4,6 @@ import { Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import TNTLogo from "../../components/img/3DLogo.png";
-import PrivateRoute from "../PrivateRoute";
 
 const fontStyle={
   fontSize: '1.2em',

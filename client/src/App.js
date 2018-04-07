@@ -8,7 +8,6 @@ import findAll from "./pages/findAll";
 import postTool from "./pages/postTool";
 import Detail from "./pages/Detail/Detail"
 import Messages from "./pages/Messages";
-import Protected from "./components/PrivateRoute";
 import NoMatch from "./pages/NoMatch";
 import Inbox from "./pages/Inbox";
 import Dashboard from "./pages/Dashboard";
