@@ -1,49 +1,49 @@
 import React, { Component } from "react";
-import { Form, TextArea, Container, Input, Divider } from 'semantic-ui-react'
-import { connect } from 'react-redux';
+import { Form, TextArea, Container, Input, Divider } from "semantic-ui-react";
+import { connect } from "react-redux";
 import PostModal from "../../components/PostModal";
-import Calendar from '../../components/Calendar';
-import noImage from '../../components/img/noImage.png'
-
+import Calendar from "../../components/Calendar";
+import noImage from "../../components/img/noImage.png";
 
 const mainDivStyle = {
-  marginTop: "100px",
-}
+  marginTop: "100px"
+};
 
 function mapStateToProps(store) {
   return {
     user: store.user,
     geoInfo: store.data.geoInfo,
     isGeoStored: store.data.isGeoStored,
+
   };
 }
 class postTool extends Component {
-
   constructor() {
-    super()
+    super();
     this.state = {
-      title: '',
-      description: '',
-      location: '',
-      file: '',
-      imagePreviewUrl: '',
-      coordinate:{},
+      title: "",
+      description: "",
+      location: "",
+      file: "",
+      imagePreviewUrl: "",
+      coordinate: {},
       isFulfilled: false,
-      price: '',
-      date: new Date()
+      price: "",
+      isCalendarOn: false,
+      availableDate: new Date()
     };
   }
 
   componentDidMount() {
-    
     this.setState({
-      location: (this.props.geoInfo.city && this.props.geoInfo.region) ? 
-                  (`${this.props.geoInfo.city}, ${this.props.geoInfo.region}`):
-                  "",
+      location:
+        this.props.geoInfo.city && this.props.geoInfo.region
+          ? `${this.props.geoInfo.city}, ${this.props.geoInfo.region}`
+          : "",
       coordinate: this.props.geoInfo.coordinate
-    })
+    });
   }
-    handleInputChange = event => {
+  handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -53,6 +53,7 @@ class postTool extends Component {
   _handleImageChange(e) {
     e.preventDefault();
 
+
     let reader = new FileReader();
     let file = e.target.files[0];
 
@@ -61,16 +62,13 @@ class postTool extends Component {
         file: file,
         imagePreviewUrl: reader.result
       });
-    }
+    };
 
-    reader.readAsDataURL(file)
+    reader.readAsDataURL(file);
   }
 
-
   render() {
-
     let { imagePreviewUrl } = this.state;
-
     if (this.props.user === false) {
       return (
         <div>
@@ -78,19 +76,23 @@ class postTool extends Component {
             <h1>Please sign in to continue</h1>
           </Container>
         </div>
-      )
+      );
     }
 
     return (
       <div>
         <Container style={mainDivStyle}>
-        <Calendar />
           <h1>Post your tools</h1>
           <label>All Fields are required</label>
           <Divider hidden />
 
           <Form>
-            <img alt = "img" src={imagePreviewUrl ? imagePreviewUrl : noImage} style={{ width: 300, height: 300 }} />
+            <img
+              alt="img"
+              src={imagePreviewUrl ? imagePreviewUrl : noImage}
+              style={{ width: 300, height: 300, marginLeft: "auto", 
+              marginRight: "auto" }}
+            />
 
             <Form.Field>
               <label>Post Title</label>
@@ -100,15 +102,16 @@ class postTool extends Component {
                 name="title"
                 placeholder="Title"
                 size="big"
+                maxLength = "20"
               />
             </Form.Field>
 
-
-
             <label>Image</label>
-            <input className="fileInput"
+            <input
+              className="fileInput"
               type="file"
-              onChange={(e) => this._handleImageChange(e)} />
+              onChange={e => this._handleImageChange(e)}
+            />
 
             <Form.Field>
               <label>Item Location</label>
@@ -121,7 +124,17 @@ class postTool extends Component {
               />
             </Form.Field>
             <Form.Field>
-              <label>Renting Price</label>
+              <label>Available Date</label>
+              <Input
+                name="availableDate"
+                placeholder="MM/DD/YYYY"
+                size="big"
+                type="date"
+                onChange={this.handleInputChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label>Renting Price (Per Day)</label>
               <Input
                 value={this.state.price}
                 onChange={this.handleInputChange}
@@ -143,13 +156,10 @@ class postTool extends Component {
             </Form.Field>
             <PostModal info={this.state} user={this.props.user} />
           </Form>
-
         </Container>
       </div>
     );
   }
 }
-
-
 
 export default connect(mapStateToProps)(postTool);

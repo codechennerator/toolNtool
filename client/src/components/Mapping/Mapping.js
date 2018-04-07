@@ -69,7 +69,8 @@ class Mapping extends Component {
                                 </Link>
                                     <Card.Content>
                                         <Card.Header>
-                                            {post.title}  ${post.price}
+                                            {`${post.title}, $${post.price} /day`}
+
                                         </Card.Header>
                                         <Card.Meta>
                                             {post.user !== null ? post.user.name.givenName : null}
