@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Comment, Container, Form, Button, Image, Segment } from 'semantic-ui-react';
 import API from '../../utils/API';
-import loadingGif from '../img/loading.gif';
+import loadingGif from '../img/loader.gif';
 
 const userStyling = {
     "position": "relative",
@@ -98,7 +98,7 @@ class Messaging extends Component {
         if (this.state.messages.length === 0) {
             return (
                 <Container>
-                    <Image src = {loadingGif} />
+                    <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}} />
                 </Container>
             )
         }

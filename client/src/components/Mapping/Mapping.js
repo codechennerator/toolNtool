@@ -45,8 +45,6 @@ class Mapping extends Component {
 
 
     render() {
-        console.log('mapping');
-        console.log(this.props);
         const { data } = this.props;
         console.log(data)
         return (

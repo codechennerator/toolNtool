@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Image, Container, Card, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import * as dataActions from '../../actions/dataAction';
-import loadingGif from '../../components/img/loading.gif';
+import loadingGif from '../../components/img/loader.gif';
 import API from "../../utils/API";
 
 const mainDivStyle={
@@ -85,7 +85,9 @@ class Dashboard extends Component{
         const { data } = this.state;
         if (!this.props.isGeoStored) {
             return (
-                <Image src = {loadingGif}></Image>
+                <Container style = {mainDivStyle}>
+                    <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}}></Image>
+                </Container>
             )
         }
         return(

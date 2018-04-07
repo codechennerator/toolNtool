@@ -41,7 +41,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="app" style = {style.app}>
         <div className="appContent" style={style.appContent}>
         <Router>
           <div className="router">
