@@ -5,7 +5,7 @@ import { Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
 import { Container, Grid } from 'semantic-ui-react'
 import power from "../../components/img/power.jpg"
-// import "./SearchForm.css"
+import "./SearchForm.css"
 
 
 let mapStateToProps = (store) => {
@@ -19,8 +19,8 @@ const searchStyle = {
 }
 
 const gridStyle = {
-    backgroundImage: `url(${power})`,
-   height:"600px", 
+    // backgroundImage: `url(${power})`,
+   height:"600px"
 }
 
 class SearchForm extends Component {
@@ -87,39 +87,24 @@ class SearchForm extends Component {
         }
         else if (this.props.location.pathname === "/") {
             return (
-
-                <div>                 
-                <container>
-                 <Grid>
-                     <Grid.Row centered  style={gridStyle}>
-                       
-                       <Container fluid >
-                        <Grid.Row className="textStyle1">
-                            <p>Find the tools you want and</p>
-                        </Grid.Row>
-                        <Grid.Row className="textStyle2">
-                            <p>Share the tools you have</p>
-                         </Grid.Row>
-                        </Container>
-                        <Input
-                            name="term"
-                            onKeyPress={this.handleKeyPress.bind(this)}
-                            onChange={this.handleInputChange}
-                            icon='search'
-                            placeholder='Search...'
-                            style={{ width: "1000px", fontSize: "20px",height:"60px" }}
-                           
-                        />
-                        {console.log(data.length)}
-                        {this.state.isButtonPressed === true && <Redirect to='/findTool' />}
-                    </Grid.Row>
-
-                     </Grid>
-                </container>
+                
+                <div className="divStyle">                           
+                    <Input
+                        name="term"
+                        onKeyPress={this.handleKeyPress.bind(this)}
+                        onChange={this.handleInputChange}
+                        icon='search'
+                        placeholder='Search...'
+                        className="inputStyle"
+                    />
+                    {this.state.isButtonPressed === true && <Redirect to='/findTool' />}
                 </div>
+                
             )
         }
     }
 }
 
 export default connect(mapStateToProps)(SearchForm);
+
+// style={{ width: "1000px", fontSize: "20px",height:"60px" }}

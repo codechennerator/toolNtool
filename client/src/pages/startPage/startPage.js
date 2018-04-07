@@ -11,25 +11,7 @@ class startPage extends Component{
   render(){
     return (
       <div>
-        <Container
-          fluid
-          style={{
-            textAlign: "center",
-            zIndex: "1"
-          }}
-      >
-    <SearchForm location = {this.props.location}/>
-  </Container>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+      <SearchForm location = {this.props.location}/>
       </div>
     );
   }
