@@ -9,6 +9,7 @@ import PrivateRoute from "../PrivateRoute";
 const fontStyle={
   fontSize: '1.2em',
   fontWeight: 'normal',
+  fontFamily: "'Lato', sans-serif",
   display:"inline-block",
   top: "0.1px",
 }

@@ -49,7 +49,7 @@ class Mapping extends Component {
         console.log(data)
         return (
             <Container style = {style.container}>
-            <h1>Your Posts</h1>
+            <h1 style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Your Posts</h1>
             <div className="counterContainer">
                 <select name="count" onChange={this.handleInputChange}>
                     <option value="1">1</option>

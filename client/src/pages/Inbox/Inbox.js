@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Container, Segment, Image, Grid } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import emptyProfile from "../../components/img/empty-profile.png"
+import emptyProfile from "../../components/icons/png/alert.png"
 
 const style = {
     mainDivStyle: {
@@ -13,8 +13,8 @@ const style = {
         paddingTop: 10
     },
     profileImg: {
-        height: "45px", 
-        width: "45px", 
+        height: "50px", 
+        width: "50px", 
         display: "block", 
         marginLeft: "auto", 
         marginRight: "auto"
@@ -22,10 +22,10 @@ const style = {
     profile: {
         display: "block", 
         marginLeft: "auto", 
-        marginRight: "auto"
+        marginRight: "auto",
     },
     message: {
-        paddingTop: 10
+        paddingTop: 13
     }
 }
 
@@ -60,7 +60,7 @@ class Inbox extends Component{
         }
         return(
             <Container style={style.mainDivStyle}>
-                <h1>Inbox</h1>
+                <h1 style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Inbox</h1>
                 <Segment.Group>
                     <Grid celled="internally">
                         {this.state.conversations.map(conversation =>{
@@ -72,11 +72,11 @@ class Inbox extends Component{
                                         <Image src = {emptyProfile} style = {style.profileImg}/>
                                     </Grid.Column>
                                     <Grid.Column width = {3}>
-                                        <h1 style={{textAlign: "center"}}>{conversation.users[partnerInd].name.givenName} {conversation.users[partnerInd].name.familyName}</h1>
+                                        <h2 style={{textAlign: "center", fontFamily: "'Alfa Slab One', cursive", paddingTop: 10}}>{conversation.users[partnerInd].name.givenName} {conversation.users[partnerInd].name.familyName}</h2>
                                     </Grid.Column>
                                     <Grid.Column width = {11} as = {Link} to = {"/messages/" + conversation._id} style = {style.profile} >
                                         <div style = {style.message}>
-                                            <h3>Last Message: {(conversation.messages[0]) ? conversation.messages[0].content:null}</h3>
+                                            <h3 style={{fontFamily: "'Open Sans', sans-serif"}}>Last Message: {(conversation.messages[0]) ? conversation.messages[0].content:null}</h3>
                                         </div>
                                     </Grid.Column>
                                 </Grid.Row>

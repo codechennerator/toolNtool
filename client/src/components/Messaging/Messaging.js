@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Comment, Container, Form, Button, Image, Segment } from 'semantic-ui-react';
 import API from '../../utils/API';
-import loadingGif from '../img/loader.gif';
+// import loadingGif from '../img/loader.gif';
 
 const style = {
     mainDivStyle: {
@@ -105,7 +105,10 @@ class Messaging extends Component {
         if (this.state.messages.length === 0) {
             return (
                 <Container>
-                    <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}} />
+                    {/* <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}} /> */}
+                    <div class="ui active inverted dimmer">
+                        <div class="ui large text loader" style={{marginTop: "-10%"}}>Loading</div>
+                    </div>
                 </Container>
             )
         }
@@ -123,7 +126,7 @@ class Messaging extends Component {
                             name="content"
                             placeholder="Send"
                             />
-                            <Button color='violet' content='Send Message' onClick={this.handleFormSubmit} />
+                            <Button color='black' content='Send Message' onClick={this.handleFormSubmit} />
                         </Form>
                         </Segment>
                     </Segment.Group>

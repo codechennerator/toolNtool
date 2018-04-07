@@ -60,18 +60,18 @@ class PostModal extends Component {
         const { fireRedirect } = this.state
         return(  
             <div>
-            <Modal trigger={<Button disabled={false}>Preview</Button>}>
-                <Modal.Header>Post Preview</Modal.Header>
+            <Modal trigger={<Button disabled={false} style={{fontFamily: "'Open Sans', sans-serif"}}>Preview</Button>}>
+                <Modal.Header style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Post Preview</Modal.Header>
                 <Modal.Content image scrolling>
                 <Image wrapped size='medium' src={this.props.info.imagePreviewUrl} rounded />
                 <Modal.Description>
-                    <p>{this.props.info.location}</p>
-                    <p>Title: {this.props.info.title}</p>
-                    <p>Description: {this.props.info.description}</p>
+                    <p style={{fontFamily: "'Open Sans', sans-serif"}}>{this.props.info.location}</p>
+                    <p style={{fontFamily: "'Open Sans', sans-serif"}}>Title: {this.props.info.title}</p>
+                    <p style={{fontFamily: "'Open Sans', sans-serif"}}>Description: {this.props.info.description}</p>
                 </Modal.Description>
                 </Modal.Content>
                 <Modal.Actions>
-                <Button color='violet' onClick={this.submitImage.bind(this)}>
+                <Button color="black" style={{fontFamily: "'Open Sans', sans-serif"}} onClick={this.submitImage.bind(this)}>
                     Submit
                 </Button>
                 </Modal.Actions>
