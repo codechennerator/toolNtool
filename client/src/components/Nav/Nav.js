@@ -36,7 +36,7 @@ class Nav extends Component {
         return;
       case false:
         return(
-          <Menu.Item name='Login' href="/auth/google" style={fontStyle} />
+          <Menu.Item as= {Link} name='Login' to="/signIn" style={fontStyle} />
         );
       default:
         return(
