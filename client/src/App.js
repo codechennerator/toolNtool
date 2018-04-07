@@ -34,8 +34,6 @@ const style = {
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
-    console.log("user info")
-    console.log(this.props.user)
   }
 
   render() {

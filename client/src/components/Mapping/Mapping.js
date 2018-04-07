@@ -38,7 +38,6 @@ class Mapping extends Component {
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        console.log(name, value)
         this.setState({
             [name]: Number(value)
         });
@@ -47,7 +46,6 @@ class Mapping extends Component {
 
     render() {
         const { data } = this.props;
-        console.log(data)
         return (
             <Container style = {style.container}>
             {(!this.props.user) && <LoginPlease content ='You will not be able to contact any of these tool owners without first creating an account!'/>}
@@ -68,7 +66,7 @@ class Mapping extends Component {
                             return(
                             <Card key={post._id}>
                             <Link to={"/findTool/"+post._id}>
-                                <Image floated='right' size='medium' src={post.img} style={{height: "200px"}}/>
+                                <Image floated='right' size='medium' src={post.img} style={{height: "245px"}}/>
                                 </Link>
                                     <Card.Content>
                                         <Card.Header>

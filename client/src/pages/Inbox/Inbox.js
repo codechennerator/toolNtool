@@ -37,7 +37,6 @@ class Inbox extends Component{
         };
     }
     componentDidMount(){
-        console.log('inbox');
         this.loadConversations();
     }
 

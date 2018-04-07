@@ -11,17 +11,13 @@ class PostModal extends Component {
         this.state = {
           fireRedirect: false,
           image:null,
+          isSubmitted: false
         }
       }
 
     handleFormSubmit(){
 
-        if (
-        this.props.info.title !=="" && 
-        this.props.info.description !=="" &&
-        this.props.info.imageUrl !==null &&
-        this.props.info.price !==null &&
-        this.props.info.location !==""){
+          
           API.savePost({
             title: this.props.info.title,
             description: this.props.info.description,
@@ -35,26 +31,34 @@ class PostModal extends Component {
                 this.setState({ fireRedirect: true })
             })
             .catch(err => console.log(err));
-        }
+        
     };
 
     submitImage() {
-        console.log('submitting image')
+        if (
+            this.props.info.title !=="" && 
+            this.props.info.description !=="" &&
+            this.props.info.imageUrl !==null &&
+            this.props.info.price !==null &&
+            this.props.info.location !==""){
+            this.setState({isSubmitted: true})
+            axios.post('https://api.cloudinary.com/v1_1/daretodate/image/upload',{
+            "file":this.props.info.imagePreviewUrl,
+            "upload_preset": "v4gae7vn",    
+            },
+            { "X-Requested-With": "XMLHttpRequest" })
+            .then(response=>{
+            this.setState({image:response.data.secure_url})
+            console.log(this.state.image)
 
-    
-        axios.post('https://api.cloudinary.com/v1_1/daretodate/image/upload',{
-          "file":this.props.info.imagePreviewUrl,
-          "upload_preset": "v4gae7vn",    
-        },
-        { "X-Requested-With": "XMLHttpRequest" })
-        .then(response=>{
-          this.setState({image:response.data.secure_url})
-          console.log(this.state.image)
-
-          this.handleFormSubmit()
-        })
+            this.handleFormSubmit()
+            })
+        }
       }
-
+    
+      componentWillUnmount(){
+          this.setState({isSubmitted: false});
+      }
     render(){
 
         const { fireRedirect } = this.state
@@ -71,7 +75,7 @@ class PostModal extends Component {
                 </Modal.Description>
                 </Modal.Content>
                 <Modal.Actions>
-                <Button color='violet' onClick={this.submitImage.bind(this)}>
+                <Button color='violet' disabled={this.state.isSubmitted} onClick={this.submitImage.bind(this)}>
                     Submit
                 </Button>
                 </Modal.Actions>
