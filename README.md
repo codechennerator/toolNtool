@@ -1,7 +1,16 @@
 # toolNtool
 
-## Things to Improve/Add
+## Technologies
+- React
+- React Native
+- Redux
+- Node
+- Passport & OAuth
+- Semantic UI
+- Mongoose
+- Geolocation
 
+## Things to Improve/Add
 
 ### Messaging
 - Messaging (Sockets)
