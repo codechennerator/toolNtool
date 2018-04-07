@@ -109,4 +109,12 @@ app.post("/api/mobile/userposts", function(req,res) {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 });
+
+app.delete("/api/mobile/posts/:id",function (req, res) {
+    db.Post
+      .findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  })
 }

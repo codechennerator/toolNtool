@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import SearchForm from "../Search"
-import { Menu } from 'semantic-ui-react'
+import SearchForm from "../Search";
+import { Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
-import t from "../../components/img/t.jpg"
-
-
+import { Link } from 'react-router-dom';
+import TNTLogo from "../../components/img/3DLogo.png";
+import PrivateRoute from "../PrivateRoute";
 
 const fontStyle={
   fontSize: '1.2em',
   fontWeight: 'normal',
   display:"inline-block",
+  top: "0.1px",
   bottom:"15px"
 }
 
@@ -56,9 +56,9 @@ class Nav extends Component {
        
       }} 
       >
-        <Menu pointing secondary >
+        <Menu pointing secondary style= {{padding: "5px"}}>
           <Menu.Item as={Link} name = "home" to="/">
-            <img src={t} alt="logo" style={logoStyle}/>
+            <img src={TNTLogo} alt="logo" style={logoStyle}/>
           </Menu.Item>
           <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
           <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle}/>
