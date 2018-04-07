@@ -18,17 +18,21 @@ import Footer from "./components/Footer";
 import * as userActions from "./actions/userAction";
 
 const style = {
+  app: {
+    display: "flex",
+    minHeight: "100vh",
+    flexDirection: "column"
+  },
   appContent: {
-  maxHeight: 1024,
-  maxWidth: 1440,
-  width: "100%",
-  height: "100%",
-},
+    flex: 1
+  },
   footer: {
+<<<<<<< HEAD
     position: "relative",
+=======
+>>>>>>> 3ff6de2648ffcf05e8f00a985587cb7d05d4c74a
     left: 0,
-    bottom: 0,
-    width: "100%"
+    width: "100%",
   }
 }
 
@@ -41,6 +45,7 @@ class App extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div className="app">
         <div className="appContent" style={style.appContent}>
         <Router>
@@ -60,6 +65,28 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
+=======
+      <div className="app" style={style.app}>
+        <div className="appContent" style={style.appContent} >
+          <Router>
+            <div>
+              <Nav />
+              <Switch>
+                <Route exact path="/" component={startPage} />
+                <Route exact path="/findAll" component={findAll} />
+                <Route exact path="/findTool" component={findTool} />
+                <Route exact path="/findTool/:id" component={Detail} />
+                <Route exact path="/postTool" component={postTool} />
+                <Route exact path="/inbox" component={Inbox} />
+                <Route exact path="/messages/:cid" component={Messages} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/signUp" component={SignUp} />
+                <Route exact path="/protected" component={Protected} />
+                <Route component={NoMatch} />
+              </Switch>
+            </div>
+          </Router>
+>>>>>>> 3ff6de2648ffcf05e8f00a985587cb7d05d4c74a
         </div>
         <div className="footer" style={style.footer}>
         <Footer />
