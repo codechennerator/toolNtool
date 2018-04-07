@@ -73,7 +73,7 @@ class postTool extends Component {
       return (
         <div>
           <Container style={mainDivStyle}>
-            <h1>Please sign in to continue</h1>
+            <h1 style = {{fontFamily: "'Ubuntu', sans-serif"}}>Please sign in to continue</h1>
           </Container>
         </div>
       );
@@ -82,8 +82,8 @@ class postTool extends Component {
     return (
       <div>
         <Container style={mainDivStyle}>
-          <h1>Post your tools</h1>
-          <label>All Fields are required</label>
+          <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Post your tools</h1>
+          <label style={{fontFamily: "'Open Sans', sans-serif"}}>All Fields are required</label>
           <Divider hidden />
 
           <Form>
@@ -95,7 +95,7 @@ class postTool extends Component {
             />
 
             <Form.Field>
-              <label>Post Title</label>
+              <label style={{fontFamily: "'Open Sans', sans-serif"}}>Post Title</label>
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -106,7 +106,7 @@ class postTool extends Component {
               />
             </Form.Field>
 
-            <label>Image</label>
+            <label style={{fontFamily: "'Open Sans', sans-serif"}}>Image</label>
             <input
               className="fileInput"
               type="file"
@@ -114,7 +114,7 @@ class postTool extends Component {
             />
 
             <Form.Field>
-              <label>Item Location</label>
+              <label style={{fontFamily: "'Open Sans', sans-serif"}}>Item Location</label>
               <Input
                 value={this.state.location}
                 onChange={this.handleInputChange}
@@ -124,7 +124,7 @@ class postTool extends Component {
               />
             </Form.Field>
             <Form.Field>
-              <label>Available Date</label>
+              <label style={{fontFamily: "'Open Sans', sans-serif"}}>Available Date</label>
               <Input
                 name="availableDate"
                 placeholder="MM/DD/YYYY"
@@ -134,7 +134,7 @@ class postTool extends Component {
               />
             </Form.Field>
             <Form.Field>
-              <label>Renting Price (Per Day)</label>
+              <label style={{fontFamily: "'Open Sans', sans-serif"}}>Renting Price (Per Day)</label>
               <Input
                 value={this.state.price}
                 onChange={this.handleInputChange}
@@ -145,7 +145,7 @@ class postTool extends Component {
               />
             </Form.Field>
             <Form.Field>
-              <label>Description</label>
+              <label style={{fontFamily: "'Open Sans', sans-serif"}}>Description</label>
               <TextArea
                 style={{ minHeight: 100 }}
                 value={this.state.description}

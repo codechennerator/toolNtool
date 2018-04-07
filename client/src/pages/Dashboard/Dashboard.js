@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { Image, Container, Card, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import * as dataActions from '../../actions/dataAction';
-import loadingGif from '../../components/img/loader.gif';
+// import loadingGif from '../../components/img/loader.gif';
 import API from "../../utils/API";
 
 const mainDivStyle={
     marginTop: "100px",
-    marginBottom: "40px"
+    marginBottom: "100px"
 }
 
 const style = {
@@ -93,13 +93,16 @@ class Dashboard extends Component{
         if (!this.props.isGeoStored) {
             return (
                 <Container style = {mainDivStyle}>
-                    <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}}></Image>
+                    {/* <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}}></Image> */}
+                    <div class="ui active inverted dimmer">
+                        <div class="ui large text loader" style={{marginTop: "-10%"}}>Loading</div>
+                    </div>
                 </Container>
             )
         }
         return(
             <Container style = {mainDivStyle}>
-                <h1>Your Posts</h1>
+                <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Your Posts</h1>
                     <div>
                         <div>
                         <select name="count" onChange={this.handleInputChange}>
@@ -140,7 +143,7 @@ class Dashboard extends Component{
                             </Card.Group>
                         }
                         {data.length === 0 &&
-                            <h3>No Results to Display</h3>
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif"}}>No Results to Display</h3>
                         }
                         </div>
             </div>

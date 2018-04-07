@@ -49,7 +49,7 @@ class Mapping extends Component {
         return (
             <Container style = {style.container}>
             {(!this.props.user) && <LoginPlease content ='You will not be able to contact any of these tool owners without first creating an account!'/>}
-            <h1>Posts</h1>
+            <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Posts</h1>
             <div className="counterContainer">
                 <select name="count" onChange={this.handleInputChange}>
                     <option value="1">1</option>
@@ -69,14 +69,14 @@ class Mapping extends Component {
                                 <Image floated='right' size='medium' src={post.img} style={{height: "245px"}}/>
                                 </Link>
                                     <Card.Content>
-                                        <Card.Header>
+                                        <Card.Header style = {{fontFamily: "'Ubuntu', sans-serif"}}>
                                             {`${post.title}, $${post.price} /day`}
 
                                         </Card.Header>
                                         <Card.Meta>
                                             {post.user !== null ? post.user.name.givenName : null}
                                         </Card.Meta>
-                                        <Card.Description>
+                                        <Card.Description style = {{fontFamily: "'Ubuntu', sans-serif"}}>
                                             {(post.description.length > 75) ? post.description.slice(0, 75) + '...': post.description}
                                         </Card.Description>
                                         

@@ -99,5 +99,3 @@ class SearchForm extends Component {
 }
 
 export default connect(mapStateToProps)(SearchForm);
-
-// style={{ width: "1000px", fontSize: "20px",height:"60px" }}

@@ -2,9 +2,19 @@ import React from "react";
 import { Icon, Container,  Grid, Header,  List, Segment } from 'semantic-ui-react';
 import './Footer.css';
 
+const style = {
+  footerContainer: {
+    backgroundColor: '#5C7AFF',
+    padding: '2em 0em',
+  },
+  footerList: {
+    color: '#32EAFF',
+  }
+}
+
 const Footer = props =>  (
     
-    <Segment inverted vertical style={{ padding: '2em 0em' }}>
+    <Segment inverted vertical style={style.footerContainer}>
     <Container className="footer">
       <Grid divided inverted stackable>
         <Grid.Row>
@@ -31,9 +41,9 @@ const Footer = props =>  (
           <Grid.Column width={5}>
             <Header inverted as='h4' content='Follow Us' />
             <List link inverted>
-              <List.Item as='a'><Icon name='twitter' size='big' color="32EAFF" /></List.Item>
-              <List.Item as='a'><Icon name='facebook'size='big' color="32EAFF" /></List.Item>
-              <List.Item as='a'><Icon name='instagram' size='big' color="32EAFF"/></List.Item>
+              <List.Item as='a'><Icon name='twitter' size='big' style={style.footerList} /></List.Item>
+              <List.Item as='a'><Icon name='facebook'size='big' style={style.footerList} /></List.Item>
+              <List.Item as='a'><Icon name='instagram' size='big' style={style.footerList} /></List.Item>
             </List>
           </Grid.Column>
         </Grid.Row>

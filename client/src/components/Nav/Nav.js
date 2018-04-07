@@ -8,6 +8,7 @@ import TNTLogo from "../../components/img/3DLogo.png";
 const fontStyle={
   fontSize: '1.2em',
   fontWeight: 'normal',
+  fontFamily: "'Lato', sans-serif",
   display:"inline-block",
   top: "0.1px",
 }

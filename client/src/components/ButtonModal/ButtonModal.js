@@ -36,7 +36,7 @@ class ButtonModal extends Component{
 render(){
     return(  
         <div>
-          <Modal trigger={<Button color='violet' content='Contact' />}>
+          <Modal trigger={<Button color='black' content='Contact' style={{fontFamily: "'Open Sans', sans-serif"}} />}>
               <Modal.Header>Contact the owner to find availability!</Modal.Header>
               <Modal.Content>
                 <Form>
@@ -53,7 +53,7 @@ render(){
                   </Form>
               </Modal.Content>
               <Modal.Actions>
-                <Button color='violet' onClick={this.handleFormSubmit}>
+                <Button color='black' onClick={this.handleFormSubmit}>
                     Submit
                 </Button>
               </Modal.Actions>

@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import SearchForm from "../../components/Search";
 import { connect } from 'react-redux';
 import * as dataActions from '../../actions/dataAction';
-// import Testmonials from "../../components/Testmonials/Testmonials"
-// const HomepageHeading = ({ mobile }) => (
+import Introduction from "../../components/Introduction";
+import './startPage.css';
 
-// );
 
 class startPage extends Component{
   componentDidMount(){
@@ -16,10 +15,9 @@ class startPage extends Component{
   }
   render(){
     return (
-      <div>
-      
-      <SearchForm location = {this.props.location}/>
-      {/* <Testmonials /> */}
+      <div className="startPage">
+        <SearchForm location = {this.props.location}/>
+        <Introduction />
       </div>
     );
   }

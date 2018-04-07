@@ -1,6 +1,5 @@
 .divStyle {
-    
-    background-image: url("../img/gardening.jpg");
+    background-image: url("../img/rustyback.png");
     height:475px;
     width:100%;
     background-repeat:no-repeat;
@@ -8,7 +7,7 @@
     position: relative;
     padding: 0;
     margin: 0;
-    margin-top:70px;
+    margin-top:60px;
 }
 
 .inputStyle {

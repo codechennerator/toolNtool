@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button, Form, Grid, Header, Message, Segment, Container, Icon } from 'semantic-ui-react';
 const mainDivStyle={
-  marginTop:"90px",
+  marginTop: "100px",
+  marginBottom: "100px"
 }
 
 const SignIn = () => (
@@ -25,7 +26,7 @@ const SignIn = () => (
       verticalAlign='middle'
     >
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' textAlign='center' style={{color: "#5B4DF9"}}>
+        <Header as='h1' textAlign='center' style={{color: "#5c7aff", fontFamily: "'Alfa Slab One', cursive"}}>
           {' '}Log-in to your account
         </Header>
         <Form size='large'>
@@ -44,14 +45,14 @@ const SignIn = () => (
               type='password'
             />
 
-            <Button color='violet' fluid size='large'>Login</Button>
-            <p style ={{padding: "10px"}}> OR </p>
-            <Button href="/auth/google" color="violet" fluid size='large' style={{
-              marginTop: "-15px",
+            <Button color='grey' fluid size='large' basic style={{fontFamily: "'Open Sans', sans-serif"}} >Login</Button>
+            <p style={{padding: "10px", fontFamily: "'Open Sans', sans-serif"}}> OR </p>
+            <Button href="/auth/google" color="grey" fluid size='large' style={{
+              marginTop: "-15px", fontFamily: "'Open Sans', sans-serif"
             }}><Icon name='google' />Login with Google</Button>
           </Segment>
         </Form>
-        <Message>
+        <Message style={{fontFamily: "'Open Sans', sans-serif"}}>
           New to us? <a>Sign Up</a>
         </Message>
       </Grid.Column>
