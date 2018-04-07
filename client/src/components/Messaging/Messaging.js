@@ -116,7 +116,7 @@ class Messaging extends Component {
                             name="content"
                             placeholder="Send"
                             />
-                            <Button content='Send Message' labelPosition='right' icon='edit' primary onClick={this.handleFormSubmit}/>
+                            <Button color='violet' content='Send Message' onClick={this.handleFormSubmit} />
                         </Form>
                         </Segment>
                     </Segment.Group>

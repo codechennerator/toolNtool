@@ -36,7 +36,7 @@ class ButtonModal extends Component{
 render(){
     return(  
         <div>
-          <Modal trigger={<Button content='Rent!' primary />}>
+          <Modal trigger={<Button color='violet' content='Contact' />}>
               <Modal.Header>Contact the owner to find availability!</Modal.Header>
               <Modal.Content>
                 <Form>
@@ -53,8 +53,8 @@ render(){
                   </Form>
               </Modal.Content>
               <Modal.Actions>
-                <Button primary onClick={this.handleFormSubmit}>
-                    Submit <Icon name='right chevron' />
+                <Button color='violet' onClick={this.handleFormSubmit}>
+                    Submit
                 </Button>
               </Modal.Actions>
               {this.state.fireRedirect && (

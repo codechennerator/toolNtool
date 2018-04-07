@@ -8,6 +8,7 @@ import noImage from '../../components/img/noImage.png'
 
 const mainDivStyle = {
   marginTop: "100px",
+  marginBottom: "100px"
 }
 
 function mapStateToProps(store) {

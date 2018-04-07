@@ -26,8 +26,7 @@ const SignIn = () => (
       verticalAlign='middle'
     >
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' />
+        <Header as='h2' textAlign='center' style={{color: "#5B4DF9"}}>
           {' '}Log-in to your account
         </Header>
         <Form size='large'>
@@ -46,10 +45,10 @@ const SignIn = () => (
               type='password'
             />
 
-            <Button color='teal' fluid size='large'>Login</Button>
+            <Button color='violet' fluid size='large'>Login</Button>
             <p style ={{padding: "10px"}}> OR </p>
-            <Button href="/auth/google" color='teal' fluid size='large' style={{
-              marginTop: "-15px"
+            <Button href="/auth/google" color="violet" fluid size='large' style={{
+              marginTop: "-15px",
             }}><Icon name='google' />Login with Google</Button>
           </Segment>
         </Form>
