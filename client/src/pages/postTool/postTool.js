@@ -6,8 +6,9 @@ import Calendar from "../../components/Calendar";
 import noImage from "../../components/img/noImage.png";
 
 const mainDivStyle = {
-  marginTop: "100px"
-};
+  marginTop: "100px",
+  marginBottom: "100px"
+}
 
 function mapStateToProps(store) {
   return {

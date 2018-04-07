@@ -4,6 +4,13 @@ import { Comment, Container, Form, Button, Image, Segment } from 'semantic-ui-re
 import API from '../../utils/API';
 import loadingGif from '../img/loader.gif';
 
+const style = {
+    mainDivStyle: {
+        marginTop: "100px",
+        marginBottom: "40px"
+    }
+}
+
 const userStyling = {
     "position": "relative",
     "background": "#e8e8e8",
@@ -103,7 +110,7 @@ class Messaging extends Component {
             )
         }
         return(
-            <Container> 
+            <Container style={style.mainDivStyle}> 
 
                 <Comment.Group>
                     <Segment.Group>
@@ -116,7 +123,7 @@ class Messaging extends Component {
                             name="content"
                             placeholder="Send"
                             />
-                            <Button content='Send Message' labelPosition='right' icon='edit' primary onClick={this.handleFormSubmit}/>
+                            <Button color='violet' content='Send Message' onClick={this.handleFormSubmit} />
                         </Form>
                         </Segment>
                     </Segment.Group>

@@ -8,7 +8,7 @@ import { Image, Container, Card, } from 'semantic-ui-react';
 const style = {
     container: {
       marginTop: "100px",
-      marginBottom: "15px"
+      marginBottom: "40px"
     },
     image: {
       marginBottom: '3em'
@@ -49,6 +49,7 @@ class Mapping extends Component {
         console.log(data)
         return (
             <Container style = {style.container}>
+            <h1>Your Posts</h1>
             <div className="counterContainer">
                 <select name="count" onChange={this.handleInputChange}>
                     <option value="1">1</option>
@@ -65,7 +66,7 @@ class Mapping extends Component {
                             return(
                             <Card key={post._id}>
                             <Link to={"/findTool/"+post._id}>
-                                <Image floated='right' size='medium' src={post.img} style = {{"maxHeight": "200px"}}/>
+                                <Image floated='right' size='medium' src={post.img} style={{height: "200px"}}/>
                                 </Link>
                                     <Card.Content>
                                         <Card.Header>
@@ -80,9 +81,11 @@ class Mapping extends Component {
                                         </Card.Description>
                                         
                                     </Card.Content>
-                                    <Card.Content extra>
-                                        {(this.props.user && this.props.user._id !== post.user._id) ? <ButtonModal post = {post}/> : null}
-                                    </Card.Content>
+                                        {(this.props.user && this.props.user._id !== post.user._id) ? 
+                                            <Card.Content extra>
+                                                <ButtonModal post = {post}/>
+                                            </Card.Content> : null}
+                                    
                             </Card>
 
                         )})}

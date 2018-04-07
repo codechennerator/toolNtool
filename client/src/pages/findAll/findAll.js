@@ -25,10 +25,8 @@ class findAll extends Component {
   render() {
     return (
       <Container style={mainDivStyle}>
-
-      <Mapping />
-          
-    </Container>
+        <Mapping />
+      </Container>
     );
   }
 }

@@ -11,7 +11,6 @@ const fontStyle={
   fontWeight: 'normal',
   display:"inline-block",
   top: "0.1px",
-  bottom:"15px"
 }
 
 const inputStyle={
@@ -53,10 +52,9 @@ class Nav extends Component {
       style={{
         display:"block",
         border:"none"
-       
       }} 
       >
-        <Menu pointing secondary style= {{padding: "5px"}}>
+        <Menu pointing secondary style={{padding: "5px"}}>
           <Menu.Item as={Link} name = "home" to="/">
             <img src={TNTLogo} alt="logo" style={logoStyle}/>
           </Menu.Item>

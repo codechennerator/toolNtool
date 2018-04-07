@@ -71,8 +71,8 @@ class PostModal extends Component {
                 </Modal.Description>
                 </Modal.Content>
                 <Modal.Actions>
-                <Button primary onClick={this.submitImage.bind(this)}>
-                    Submit <Icon name='right chevron' />
+                <Button color='violet' onClick={this.submitImage.bind(this)}>
+                    Submit
                 </Button>
                 </Modal.Actions>
                 {fireRedirect && (
