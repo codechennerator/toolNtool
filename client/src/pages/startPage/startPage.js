@@ -4,6 +4,9 @@ import { Container } from "semantic-ui-react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as dataActions from '../../actions/dataAction';
+import Introduction from "../../components/Introduction";
+import logo from "../../components/img/3DLogo.png";
+import './startPage.css';
 // import Testmonials from "../../components/Testmonials/Testmonials"
 // const HomepageHeading = ({ mobile }) => (
 
@@ -18,10 +21,9 @@ class startPage extends Component{
   }
   render(){
     return (
-      <div>
-      
-      <SearchForm location = {this.props.location}/>
-      {/* <Testmonials /> */}
+      <div className="startPage">
+        <SearchForm location = {this.props.location}/>
+        <Introduction />
       </div>
     );
   }

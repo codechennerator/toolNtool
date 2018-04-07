@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { fetchData, fetchAll } from "../../actions/dataAction"
 import { Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
-import { Container, Grid } from 'semantic-ui-react'
 import "./SearchForm.css"
 
 
@@ -17,10 +16,6 @@ const searchStyle = {
     width: "300px"
 }
 
-// const gridStyle = {
-//     backgroundImage: `url(${power})`,
-//     height:"600px"
-// }
 
 class SearchForm extends Component {
     constructor() {
@@ -65,7 +60,6 @@ class SearchForm extends Component {
 
     }
     render() {
-        const { data } = this.props;
         if (this.props.location === undefined){
             return (
                 <div>
@@ -105,5 +99,3 @@ class SearchForm extends Component {
 }
 
 export default connect(mapStateToProps)(SearchForm);
-
-// style={{ width: "1000px", fontSize: "20px",height:"60px" }}
