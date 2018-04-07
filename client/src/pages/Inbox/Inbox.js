@@ -10,7 +10,8 @@ const style = {
         marginTop: "100px",
         marginBottom: "40px",
         height: "auto",
-        paddingTop: 10
+        paddingTop: "auto"
+        
     },
     profileImg: {
         height: "45px", 
@@ -25,7 +26,8 @@ const style = {
         marginRight: "auto"
     },
     message: {
-        paddingTop: 10
+        paddingTop: "1.5%",
+        paddingBottom: "auto"
     }
 }
 
@@ -74,7 +76,7 @@ class Inbox extends Component{
                                     <Grid.Column width = {3}>
                                         <h1 style={{textAlign: "center"}}>{conversation.users[partnerInd].name.givenName} {conversation.users[partnerInd].name.familyName}</h1>
                                     </Grid.Column>
-                                    <Grid.Column width = {11} as = {Link} to = {"/messages/" + conversation._id} style = {style.profile} >
+                                    <Grid.Column width = {11} as = {Link} to = {"/messages/" + conversation._id} style = {style.profile}>
                                         <div style = {style.message}>
                                             <h3>Last Message: {(conversation.messages[0]) ? conversation.messages[0].content:null}</h3>
                                         </div>
