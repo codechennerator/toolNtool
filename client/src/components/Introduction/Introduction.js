@@ -28,42 +28,42 @@ class Introduction extends Component {
                     <div class="ui stackable four grid">
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="locator" src={location} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>Automatic Locator</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Automatic Locator</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}></p>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="login" src={security} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>User Authentication</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>User Authentication</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="search" src={search} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>Search</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Search</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="msg" src={message} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>Message</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Message</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="post" src={post} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>Post & Delete</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Post & Delete</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="cloudinary" src={cloudinary} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>Cloudinary</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Cloudinary</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="calendar" src={calendar} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>Calendar</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Calendar</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
                             <img alt="react" src={react} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "white", textShadow: "1px 1px #4a8fe7"}}>React Native</h3>
+                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>React Native</h3>
                             <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
                         </div>
                     </div>

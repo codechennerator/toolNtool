@@ -49,7 +49,7 @@ class Mapping extends Component {
         console.log(data)
         return (
             <Container style = {style.container}>
-            <h1 style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Your Posts</h1>
+            <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Your Posts</h1>
             <div className="counterContainer">
                 <select name="count" onChange={this.handleInputChange}>
                     <option value="1">1</option>
@@ -69,14 +69,14 @@ class Mapping extends Component {
                                 <Image floated='right' size='medium' src={post.img} style={{height: "200px"}}/>
                                 </Link>
                                     <Card.Content>
-                                        <Card.Header>
+                                        <Card.Header style = {{fontFamily: "'Ubuntu', sans-serif"}}>
                                             {`${post.title}, $${post.price} /day`}
 
                                         </Card.Header>
                                         <Card.Meta>
                                             {post.user !== null ? post.user.name.givenName : null}
                                         </Card.Meta>
-                                        <Card.Description>
+                                        <Card.Description style = {{fontFamily: "'Ubuntu', sans-serif"}}>
                                             {(post.description.length > 75) ? post.description.slice(0, 75) + '...': post.description}
                                         </Card.Description>
                                         

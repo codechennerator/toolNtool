@@ -61,7 +61,7 @@ class PostModal extends Component {
         return(  
             <div>
             <Modal trigger={<Button disabled={false} style={{fontFamily: "'Open Sans', sans-serif"}}>Preview</Button>}>
-                <Modal.Header style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Post Preview</Modal.Header>
+                <Modal.Header style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Post Preview</Modal.Header>
                 <Modal.Content image scrolling>
                 <Image wrapped size='medium' src={this.props.info.imagePreviewUrl} rounded />
                 <Modal.Description>

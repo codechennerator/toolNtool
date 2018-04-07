@@ -74,7 +74,7 @@ class postTool extends Component {
       return (
         <div>
           <Container style={mainDivStyle}>
-            <h1 style={{fontFamily: "'Open Sans', sans-serif"}}>Please sign in to continue</h1>
+            <h1 style = {{fontFamily: "'Ubuntu', sans-serif"}}>Please sign in to continue</h1>
           </Container>
         </div>
       );
@@ -83,7 +83,7 @@ class postTool extends Component {
     return (
       <div>
         <Container style={mainDivStyle}>
-          <h1 style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Post your tools</h1>
+          <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Post your tools</h1>
           <label style={{fontFamily: "'Open Sans', sans-serif"}}>All Fields are required</label>
           <Divider hidden />
 

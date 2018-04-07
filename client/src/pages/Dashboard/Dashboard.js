@@ -102,7 +102,7 @@ class Dashboard extends Component{
         }
         return(
             <Container style = {mainDivStyle}>
-                <h1 style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Your Posts</h1>
+                <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Your Posts</h1>
                     <div>
                         <div>
                         <select name="count" onChange={this.handleInputChange}>

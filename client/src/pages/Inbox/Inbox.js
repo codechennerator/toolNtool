@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Container, Segment, Image, Grid } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import emptyProfile from "../../components/icons/png/alert.png"
+import emptyProfile from "../../components/img/archive/empty-profile.png"
 
 const style = {
     mainDivStyle: {
@@ -61,7 +61,7 @@ class Inbox extends Component{
         }
         return(
             <Container style={style.mainDivStyle}>
-                <h1 style={{color: "#5c7aff", textShadow: "3px 3px #73fbd3", fontFamily: "'Alfa Slab One', cursive"}}>Inbox</h1>
+                <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Inbox</h1>
                 <Segment.Group>
                     <Grid celled="internally">
                         {this.state.conversations.map(conversation =>{
@@ -73,7 +73,7 @@ class Inbox extends Component{
                                         <Image src = {emptyProfile} style = {style.profileImg}/>
                                     </Grid.Column>
                                     <Grid.Column width = {3}>
-                                        <h2 style={{textAlign: "center", fontFamily: "'Alfa Slab One', cursive", paddingTop: 10}}>{conversation.users[partnerInd].name.givenName} {conversation.users[partnerInd].name.familyName}</h2>
+                                        <h2 style={{textAlign: "center", fontFamily: "'Ubuntu', sans-serif", paddingTop: 10}}>{conversation.users[partnerInd].name.givenName} {conversation.users[partnerInd].name.familyName}</h2>
                                     </Grid.Column>
                                     <Grid.Column width = {11} as = {Link} to = {"/messages/" + conversation._id} style = {style.profile}>
                                         <div style = {style.message}>
