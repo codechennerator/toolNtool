@@ -5,6 +5,7 @@ export default function reducer(state = {
     data: [],
     dataSelected: [],
     geoInfo:{},
+    isHomePage: false,
     error: null,
 }, action) {
     switch (action.type) {
@@ -36,6 +37,18 @@ export default function reducer(state = {
                 ...state,
                 isGeoStored: true,
                 geoInfo: action.payload
+            }
+        }
+        case "IS_HOME":{
+            return{
+                ...state,
+                isHomePage: true,
+            }
+        }
+        case "LEFT_HOME":{
+            return{
+                ...state,
+                isHomePage: false
             }
         }
         default: {

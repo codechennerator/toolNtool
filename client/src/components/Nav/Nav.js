@@ -45,7 +45,6 @@ class Nav extends Component {
   }
 
   render() {
-
     return (
       <div 
       className="ui huge top fixed menu"
@@ -64,14 +63,11 @@ class Nav extends Component {
           <Menu.Item as={Link} name='Dashboard' to="/dashboard" style={fontStyle}/>
           {this.renderContent()}
 
+        {!this.props.isHomePage &&
           <div style={inputStyle}>
-          
-            
             <SearchForm />
-            
-              
           </div>
-
+        }
         </Menu>
       </div>
 
@@ -84,6 +80,7 @@ let mapStateToProps = (store) => {
       geoInfo: store.data.geoInfo,
       user: store.user,
       isGeoStored: store.data.isGeoStored,
+      isHomePage: store.data.isHomePage
   }
 }
 export default connect(mapStateToProps)(Nav);

@@ -39,6 +39,20 @@ export const storeLoc = (loc) =>(
         })
     }
 )
+export const isHome = () =>(
+    async(dispatch) =>{
+        dispatch({
+            type: "IS_HOME"
+        })
+    }
+)
+export const leftHome = () =>(
+    async(dispatch) =>{
+        dispatch({
+            type: "LEFT_HOME"
+        })
+    }
+)
 
 // import axios from "axios"
 
