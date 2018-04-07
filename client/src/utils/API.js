@@ -29,6 +29,9 @@ export default {
   },
   newMessage: function(messageData){
     return axios.post("/api/messages/", messageData);
+  },
+  getUserPosts: function(){
+    return axios.get("/api/usersposts");
   }
 };
 

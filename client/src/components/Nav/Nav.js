@@ -63,6 +63,7 @@ class Nav extends Component {
           <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
           <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle}/>
           <Menu.Item as={Link} name='Inbox' to="/inbox" style={fontStyle}/>
+          <Menu.Item as={Link} name='Dashboard' to="/dashboard" style={fontStyle}/>
           {this.renderContent()}
 
           <div style={inputStyle}>

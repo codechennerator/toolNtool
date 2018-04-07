@@ -47,7 +47,7 @@ const SignIn = () => (
             />
 
             <Button color='teal' fluid size='large'>Login</Button>
-            <br />
+            <p style ={{padding: "10px"}}> OR </p>
             <Button href="/auth/google" color='teal' fluid size='large' style={{
               marginTop: "-15px"
             }}><Icon name='google' />Login with Google</Button>

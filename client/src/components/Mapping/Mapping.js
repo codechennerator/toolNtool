@@ -26,8 +26,8 @@ let mapStateToProps = (store) => {
 
 class Mapping extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             count: 10
         };
@@ -43,6 +43,8 @@ class Mapping extends Component {
 
 
     render() {
+        console.log('mapping');
+        console.log(this.props);
         const { data } = this.props;
         console.log(data)
         return (
@@ -73,6 +75,9 @@ class Mapping extends Component {
                                         <Card.Description>
                                             {(post.description.length > 75) ? post.description.slice(0, 75) + '...': post.description}
                                         </Card.Description>
+                                        
+                                    </Card.Content>
+                                    <Card.Content extra>
                                         {(this.props.user && this.props.user._id !== post.user._id) ? <ButtonModal post = {post}/> : null}
                                     </Card.Content>
                             </Card>
