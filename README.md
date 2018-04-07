@@ -1,6 +1,9 @@
 # toolNtool
 
-##Things to Improve/Add
+## 
+
+## Things to Improve/Add
+- DON'T USE HEROKU FOR THIS REACT APP
 - Messaging (Sockets)
 - Notifications
 - Push Alerts
