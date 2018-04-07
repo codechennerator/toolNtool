@@ -26,7 +26,7 @@ const SignIn = () => (
       verticalAlign='middle'
     >
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h1' textAlign='center' style={{color: "#5c7aff", fontFamily: "'Alfa Slab One', cursive"}}>
+        <Header as='h1' textAlign='center' style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>
           {' '}Log-in to your account
         </Header>
         <Form size='large'>
