@@ -1,16 +1,23 @@
 # toolNtool
 
-## 
-
 ## Things to Improve/Add
-- DON'T USE HEROKU FOR THIS REACT APP
+
+
+### Messaging
 - Messaging (Sockets)
 - Notifications
 - Push Alerts
+
+### Posting Information
 - Save button (watch list)
 - Calendar Periods of availability
 - Google Maps 
 - More Methods of Login
-- Responsive Nav Bar
 - Hooking Up Items with Chat
+
+### Styling
+- Responsive Nav Bar
+
+### Misc
 - Payments
+- DON'T USE HEROKU FOR THIS REACT APP
