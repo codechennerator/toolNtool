@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Message, Segment, Container, Icon } from 'semantic-ui-react'
-
+import { Button, Form, Grid, Header, Message, Segment, Container, Icon } from 'semantic-ui-react';
 const mainDivStyle={
   marginTop:"90px",
 }

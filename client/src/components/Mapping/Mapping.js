@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonModal from "../ButtonModal"
 import { Image, Container, Card, } from 'semantic-ui-react';
+import LoginPlease from "../../components/LoginPlease";
 
 
 const style = {
@@ -49,7 +50,8 @@ class Mapping extends Component {
         console.log(data)
         return (
             <Container style = {style.container}>
-            <h1>Your Posts</h1>
+            {(!this.props.user) && <LoginPlease content ='You will not be able to contact any of these tool owners without first creating an account!'/>}
+            <h1>Posts</h1>
             <div className="counterContainer">
                 <select name="count" onChange={this.handleInputChange}>
                     <option value="1">1</option>
