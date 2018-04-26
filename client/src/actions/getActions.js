@@ -1,6 +1,7 @@
 import geocoder from "geocoder";
 // import * as dataActions from './dataAction';
 import store from '../store'
+import API from '../utils/API';
 
 
 export const  _getLocation = () => {

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import geocoder from "geocoder";
 import { connect } from "react-redux";
 import { Image, Container, Card, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import * as dataActions from '../../actions/dataAction';
 // import loadingGif from '../../components/img/loader.gif';
 import API from "../../utils/API";
-import {_getLocation } from '../../actions/getActions'
 
 
 const mainDivStyle={
@@ -34,10 +32,7 @@ class Dashboard extends Component{
         }
     }
 
-    componentDidMount(){
-        // if(!this.props.isGeoStored){
-        //     _getLocation();
-        // }        
+    componentDidMount(){      
         this.getPosts();
     }
 
@@ -46,49 +41,10 @@ class Dashboard extends Component{
         this.getPosts();
         
     }
-    getPosts = () =>{
-        API.getUserPosts()
-        .then(res =>{
-            this.setState({data: res.data})
-        })
-    }
-    _getLocation = () => {
-        
-        const geolocation = navigator.geolocation;
-        const location = new Promise((resolve, reject) => {
-          if (!geolocation) {
-            reject(new Error('Not Supported'));
-          }
-
-          geolocation.getCurrentPosition((position) => {
-            resolve(position);
-          }, () => {
-            reject (new Error('Permission denied'));
-          });
-        });
-        
-            location.then((locationResults) =>{
-            geocoder.reverseGeocode(locationResults.coords.latitude, locationResults.coords.longitude, (err, data) =>{
-                
-                let geoInfo = {
-                    coordinate:{
-                        longitude: locationResults.coords.longitude,
-                        latitude: locationResults.coords.latitude
-                    }
-                }
-                for (let i = 0; i<data.results[0].address_components.length; i++){
-                    let component = data.results[0].address_components[i];
-    
-                    if(component.types.includes('sublocality') || component.types.includes('locality')) {
-                        geoInfo.city = component.long_name;
-                    }
-                    else if (component.types.includes('administrative_area_level_1')) {
-                        geoInfo.region = component.long_name;
-                    }
-                }
-                this.props.storeLoc(geoInfo);
-            }, {key: "AIzaSyCEN3E6DYSNWvPYnjAh3WyQZeJw3Y3lMVM"})
-        })
+    getPosts = async () =>{
+        let res = await API.getUserPosts();
+        let data = res.data;
+        this.setState({data});
     }
 
 
