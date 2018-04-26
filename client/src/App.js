@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import Nav from "./components/Nav";
 import SignIn from "./pages/SignIn";
 import Footer from "./components/Footer";
+import SocketTest from "./components/SocketTest.js";
 import * as userActions from "./actions/userAction";
 
 const style = {
@@ -42,13 +43,14 @@ class App extends Component {
         <div className="appContent" style={style.appContent}>
         <Router>
           <div className="router">
-            <Nav />
+            {/* <Nav /> */}
             <Switch>
               <Route exact path="/" component={startPage} />
               <Route exact path="/findAll" component={findAll} />
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/signIn" component = {SignIn} />
+              <Route exact path="/socketTest" component = {SocketTest} />
               <PrivateRoute exact path="/postTool" component={postTool} />
               <PrivateRoute exact path="/inbox" component = {Inbox} />
               <PrivateRoute exact path="/messages/:cid" component={Messages} />
