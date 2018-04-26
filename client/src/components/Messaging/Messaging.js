@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Comment, Container, Form, Button, Segment } from 'semantic-ui-react';
 import API from '../../utils/API';
+import socketIOClient from "socket.io-client";
 // import loadingGif from '../img/loader.gif';
 
 const style = {
@@ -63,18 +64,22 @@ class Messaging extends Component {
         super()
         this.state = {
             messages: [],
-            content: ""
+            content: "",
+            endpoint: "http://192.168.2.63:3001"
         };
     }
-    componentWillMount() {
-        this.timerID = setInterval(
-          () => this.loadMessages(),
-          1000
-        );
+    componentDidMount() {
+        this.loadMessages();
     }
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
+    // componentWillMount() {
+    //     this.timerID = setInterval(
+    //       () => this.loadMessages(),
+    //       1000
+    //     );
+    // }
+    // componentWillUnmount() {
+    //     clearInterval(this.timerID);
+    // }
     loadMessages() {
         API.getMessages(this.props.cid)
         .then(res =>{
@@ -96,12 +101,20 @@ class Messaging extends Component {
                 content: this.state.content
             }).then(res => {
                 this.loadMessages();
+                this.send();
                 this.setState({content: ""})
             }).catch(err => console.log(err));
         }
       }
-
+    send = () => {
+        const socket = socketIOClient(this.state.endpoint);
+        socket.emit('update messages') // change 'red' to this.state.color
+    }
     render(){
+        const socket = socketIOClient(this.state.endpoint);
+        socket.on('update messages', () => {
+          this.loadMessages();
+        })
         if (this.state.messages.length === 0) {
             return (
                 <Container>

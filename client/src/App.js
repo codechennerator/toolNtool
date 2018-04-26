@@ -43,7 +43,7 @@ class App extends Component {
         <div className="appContent" style={style.appContent}>
         <Router>
           <div className="router">
-            {/* <Nav /> */}
+            <Nav />
             <Switch>
               <Route exact path="/" component={startPage} />
               <Route exact path="/findAll" component={findAll} />
