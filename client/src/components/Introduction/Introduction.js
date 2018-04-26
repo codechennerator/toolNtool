@@ -17,7 +17,7 @@ class Introduction extends Component {
         return(
             <div className="introContatiner">
             <Container>
-                <Grid style={{paddingTop: "40vh", paddingBottom: "20vh"}}>
+                <Grid style={{paddingTop: "20vh", paddingBottom: "20vh"}}>
                     <div class="ui stackable four grid">
                         <div className="ui center aligned four wide column" style={style.column}>
                             <Ionicon icon="ios-map" fontSize="60px" />

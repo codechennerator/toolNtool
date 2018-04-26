@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Slider from "react-slick"
-import HeaderImg1 from "../img/header1.jpeg";
-import HeaderImg2 from "../img/header2.png";
-import HeaderImg3 from "../img/header3.jpg";
+import bg1 from "../img/bgImg/bg1.png"
+import bg2 from "../img/bgImg/bg2.png"
+import bg3 from "../img/bgImg/bg3.png"
+import bg4 from "../img/bgImg/bg4.png"
+import bg5 from "../img/bgImg/bg5.png"
+
 
 export default class Slide extends Component {
     render() {
@@ -22,24 +25,35 @@ export default class Slide extends Component {
             <div style={{
                 position:"absolute",
                 zIndex:1,
-                width:"100%",
-                height:"50vh"
+                width:"65%",
+                height:"50vh",
+                left:"15%"
             }}>
 
                 <Slider {...settings}>
                 <div>
-                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${HeaderImg1})`, zIndex:1}}>
+                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${bg1})`, zIndex:1,  backgroundRepeat: "no-repeat",}}>
                     
                     </div>
                 </div>
 
                 <div>
-                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${HeaderImg2})`, zIndex:1}}>
+                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${bg2})`, zIndex:1,  backgroundRepeat: "no-repeat",}}>
                     </div>
 
                 </div>
                 <div>
-                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${HeaderImg3})`, zIndex:1}}>
+                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${bg3})`, zIndex:1,  backgroundRepeat: "no-repeat",}}>
+                    </div>
+
+                </div>
+                <div>
+                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${bg4})`, zIndex:1,  backgroundRepeat: "no-repeat",}}>
+                    </div>
+
+                </div>
+                <div>
+                    <div style={{width:"100%", height:"60vh", backgroundImage: `url(${bg5})`, zIndex:1,  backgroundRepeat: "no-repeat",}}>
                     </div>
 
                 </div>

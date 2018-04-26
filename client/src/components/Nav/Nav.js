@@ -16,7 +16,7 @@ const fontStyle={
 const inputStyle={
   maxHeight: "500px",
   position:"absolute",
-  right:"5%",
+  right:"20%",
   top:"25%",
 }
 
@@ -55,7 +55,7 @@ class Nav extends Component {
         boxShadow: "none"
       }} 
       >
-        <Menu secondary style={{padding: "7px"}}>
+        <Menu secondary style={{padding: "7px", marginLeft:"auto", marginRight:"auto", width:"50%"}}>
           <Menu.Item as={Link} name = "home" to="/">
             <Ionicon icon="ios-construct-outline" fontSize="30px" />
           </Menu.Item>
