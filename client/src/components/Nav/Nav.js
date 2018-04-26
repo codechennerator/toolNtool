@@ -4,70 +4,97 @@ import { Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import TNTLogo from "../../components/img/3DLogo.png";
+import {_getLocation } from '../../actions/getActions'
 
-const fontStyle={
+
+
+let mapStateToProps = (store) => {
+  return {
+    geoInfo: store.data.geoInfo,
+    user: store.user,
+    isGeoStored: store.data.isGeoStored,
+    isHomePage: store.data.isHomePage
+  }
+}
+
+const fontStyle = {
   fontSize: '1.2em',
   fontWeight: 'normal',
   fontFamily: "'Lato', sans-serif",
-  display:"inline-block",
+  display: "inline-block",
   top: "0.1px",
 }
 
-const inputStyle={
-  position:"absolute",
-  right:"5%",
-  top:"25%",
+const inputStyle = {
+  position: "absolute",
+  right: "5%",
+  top: "25%",
 }
 
-const logoStyle={
-  width:"50px",
-  display:"inline-block",
-  position:"relative",
-  top:"4px"
-  
+const logoStyle = {
+  width: "50px",
+  display: "inline-block",
+  position: "relative",
+  top: "4px"
+
 }
+
 
 class Nav extends Component {
 
-  renderContent(){
-    switch(this.props.user){
+  // componentDidMount(){
+  //   if(!this.props.isGeoStored && this.props.user !==null){
+  //     _getLocation()
+  //   }
+  // }
+
+  renderContent() {
+    switch (this.props.user) {
       case null:
         return;
       case false:
-        return(
-          <Menu.Item as= {Link} name='Login' to="/signIn" style={fontStyle} />
+        return (
+          <Menu.Item as={Link} name='Login' to="/signIn" style={fontStyle} />
         );
       default:
-        return(
-          <Menu.Item name='Logout' href='/auth/logout' style={fontStyle} />
+        return (
+          <div style={{marginTop:"10px"}}>
+            <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle} />
+            <Menu.Item as={Link} name='Inbox' to="/inbox" style={fontStyle} />
+            <Menu.Item as={Link} name='Dashboard' to="/dashboard" style={fontStyle} />
+            <Menu.Item name='Logout' href='/auth/logout' style={fontStyle} />
+          </div>
         );
     }
   }
 
   render() {
+
+    if(!this.props.isGeoStored && this.props.user !==null){
+      _getLocation()
+    }
+
     return (
-      <div 
-      className="ui huge top fixed menu"
-      style={{
-        display:"block",
-        border:"none"
-      }} 
+      <div
+        className="ui huge top fixed menu"
+        style={{
+          display: "block",
+          border: "none"
+        }}
       >
-        <Menu pointing secondary style={{padding: "5px"}}>
-          <Menu.Item as={Link} name = "home" to="/">
-            <img src={TNTLogo} alt="logo" style={logoStyle}/>
+        <Menu pointing secondary style={{ padding: "5px" }}>
+          <Menu.Item as={Link} name="home" to="/">
+            <img src={TNTLogo} alt="logo" style={logoStyle} />
           </Menu.Item>
-          <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
-          <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle}/>
-          <Menu.Item as={Link} name='Inbox' to="/inbox" style={fontStyle}/>
-          <Menu.Item as={Link} name='Dashboard' to="/dashboard" style={fontStyle}/>
+          <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle} />
+
           {this.renderContent()}
 
-        {!this.props.isHomePage &&
-          <div style={inputStyle}>
-            <SearchForm />
-          </div>
-        }
+          {!this.props.isHomePage &&
+            <div style={inputStyle}>
+              <SearchForm />
+            </div>
+          }
         </Menu>
       </div>
 
@@ -75,12 +102,5 @@ class Nav extends Component {
   }
 }
 
-let mapStateToProps = (store) => {
-  return {
-      geoInfo: store.data.geoInfo,
-      user: store.user,
-      isGeoStored: store.data.isGeoStored,
-      isHomePage: store.data.isHomePage
-  }
-}
+
 export default connect(mapStateToProps)(Nav);

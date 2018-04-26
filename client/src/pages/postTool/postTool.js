@@ -68,6 +68,8 @@ class postTool extends Component {
   }
 
   render() {
+
+
     let { imagePreviewUrl } = this.state;
     if (this.props.user === false) {
       return (
@@ -116,7 +118,11 @@ class postTool extends Component {
             <Form.Field>
               <label style={{fontFamily: "'Open Sans', sans-serif"}}>Item Location</label>
               <Input
-                value={this.state.location}
+                value={
+                  this.props.isGeoStored?                  
+                  `${this.props.geoInfo.city}, ${this.props.geoInfo.region}`
+                :`Loading user location...`
+                }
                 onChange={this.handleInputChange}
                 name="location"
                 placeholder="Location: (Example: City, State)"
@@ -154,7 +160,9 @@ class postTool extends Component {
                 placeholder="Description"
               />
             </Form.Field>
+
             <PostModal info={this.state} user={this.props.user} />
+
           </Form>
         </Container>
       </div>

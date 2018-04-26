@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import * as dataActions from '../../actions/dataAction';
 // import loadingGif from '../../components/img/loader.gif';
 import API from "../../utils/API";
+import {_getLocation } from '../../actions/getActions'
+
 
 const mainDivStyle={
     marginTop: "100px",
@@ -33,7 +35,9 @@ class Dashboard extends Component{
     }
 
     componentDidMount(){
-        this._getLocation();
+        // if(!this.props.isGeoStored){
+        //     _getLocation();
+        // }        
         this.getPosts();
     }
 
@@ -90,16 +94,16 @@ class Dashboard extends Component{
 
     render(){
         const { data } = this.state;
-        if (!this.props.isGeoStored) {
-            return (
-                <Container style = {mainDivStyle}>
-                    {/* <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}}></Image> */}
-                    <div class="ui active inverted dimmer">
-                        <div class="ui large text loader" style={{marginTop: "-10%"}}>Loading</div>
-                    </div>
-                </Container>
-            )
-        }
+        // if (!this.props.isGeoStored) {
+        //     return (
+        //         <Container style = {mainDivStyle}>
+        //             {/* <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}}></Image> */}
+        //             <div class="ui active inverted dimmer">
+        //                 <div class="ui large text loader" style={{marginTop: "-10%"}}>Loading</div>
+        //             </div>
+        //         </Container>
+        //     )
+        // }
         return(
             <Container style = {mainDivStyle}>
                 <h1 style={{color: "#5c7aff", fontFamily: "'Ubuntu', sans-serif"}}>Your Posts</h1>
