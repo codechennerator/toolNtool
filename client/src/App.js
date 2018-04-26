@@ -16,6 +16,8 @@ import SignIn from "./pages/SignIn";
 import Footer from "./components/Footer";
 import * as userActions from "./actions/userAction";
 
+import testPage from './pages/test'
+
 const style = {
   app: {
     display: "flex",
@@ -49,6 +51,7 @@ class App extends Component {
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/signIn" component = {SignIn} />
+              <Route exact path="/test" component = {testPage} />
               <PrivateRoute exact path="/postTool" component={postTool} />
               <PrivateRoute exact path="/inbox" component = {Inbox} />
               <PrivateRoute exact path="/messages/:cid" component={Messages} />

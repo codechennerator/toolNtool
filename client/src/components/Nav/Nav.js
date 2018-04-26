@@ -3,17 +3,18 @@ import SearchForm from "../Search";
 import { Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import TNTLogo from "../../components/img/3DLogo.png";
+import Ionicon from 'react-ionicons';
 
 const fontStyle={
   fontSize: '1.2em',
-  fontWeight: 'normal',
-  fontFamily: "'Lato', sans-serif",
+  fontWeight: 'bold',
+  fontFamily: "'Open Sans', sans-serif",
   display:"inline-block",
   top: "0.1px",
 }
 
 const inputStyle={
+  maxHeight: "500px",
   position:"absolute",
   right:"5%",
   top:"25%",
@@ -50,12 +51,13 @@ class Nav extends Component {
       className="ui huge top fixed menu"
       style={{
         display:"block",
-        border:"none"
+        border:"none",
+        boxShadow: "none"
       }} 
       >
-        <Menu pointing secondary style={{padding: "5px"}}>
+        <Menu secondary style={{padding: "7px"}}>
           <Menu.Item as={Link} name = "home" to="/">
-            <img src={TNTLogo} alt="logo" style={logoStyle}/>
+            <Ionicon icon="ios-construct-outline" fontSize="30px" />
           </Menu.Item>
           <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle}/>
           <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle}/>
