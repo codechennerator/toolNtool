@@ -15,9 +15,7 @@ const fontStyle={
 
 const inputStyle={
   maxHeight: "500px",
-  position:"absolute",
-  right:"20%",
-  top:"25%",
+  marginTop: "10px"
 }
 
 const logoStyle={
@@ -66,7 +64,7 @@ class Nav extends Component {
           {this.renderContent()}
 
         {!this.props.isHomePage &&
-          <div style={inputStyle}>
+          <div style = {inputStyle}>
             <SearchForm />
           </div>
         }
