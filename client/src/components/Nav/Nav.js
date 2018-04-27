@@ -27,7 +27,9 @@ const fontStyle = {
 
 const inputStyle={
   maxHeight: "500px",
-  marginTop: "10px"
+  marginTop: "10px",
+  position: "absolute",
+  right: "10%"
 }
 
 const logoStyle = {
