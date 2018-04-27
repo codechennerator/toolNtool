@@ -3,8 +3,8 @@ import SearchForm from "../Search";
 import { Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import TNTLogo from "../../components/img/3DLogo.png";
-import {_getLocation } from '../../actions/getActions'
+import { _getLocation } from '../../actions/getActions';
+import Ionicon from 'react-ionicons';
 
 
 
@@ -19,16 +19,15 @@ let mapStateToProps = (store) => {
 
 const fontStyle = {
   fontSize: '1.2em',
-  fontWeight: 'normal',
-  fontFamily: "'Lato', sans-serif",
-  display: "inline-block",
+  fontWeight: 'bold',
+  fontFamily: "'Open Sans', sans-serif",
+  display:"inline-block",
   top: "0.1px",
 }
 
-const inputStyle = {
-  position: "absolute",
-  right: "5%",
-  top: "25%",
+const inputStyle={
+  maxHeight: "500px",
+  marginTop: "10px"
 }
 
 const logoStyle = {
@@ -58,7 +57,7 @@ class Nav extends Component {
         );
       default:
         return (
-          <div style={{marginTop:"10px"}}>
+          <div style={{marginTop:"5px"}}>
             <Menu.Item as={Link} name='post Tool' to="/postTool" style={fontStyle} />
             <Menu.Item as={Link} name='Inbox' to="/inbox" style={fontStyle} />
             <Menu.Item as={Link} name='Dashboard' to="/dashboard" style={fontStyle} />
@@ -75,26 +74,27 @@ class Nav extends Component {
     }
 
     return (
-      <div
-        className="ui huge top fixed menu"
-        style={{
-          display: "block",
-          border: "none"
-        }}
+      <div 
+      className="ui huge top fixed menu"
+      style={{
+        display:"block",
+        border:"none",
+        boxShadow: "none"
+      }} 
       >
-        <Menu pointing secondary style={{ padding: "5px" }}>
-          <Menu.Item as={Link} name="home" to="/">
-            <img src={TNTLogo} alt="logo" style={logoStyle} />
+        <Menu secondary style={{padding: "7px", marginLeft:"auto", marginRight:"auto", width:"50%"}}>
+          <Menu.Item as={Link} name = "home" to="/">
+            <Ionicon icon="ios-construct-outline" fontSize="30px" />
           </Menu.Item>
           <Menu.Item as={Link} name='find All' to="/findAll" style={fontStyle} />
 
           {this.renderContent()}
 
-          {!this.props.isHomePage &&
-            <div style={inputStyle}>
-              <SearchForm />
-            </div>
-          }
+        {!this.props.isHomePage &&
+          <div style = {inputStyle}>
+            <SearchForm />
+          </div>
+        }
         </Menu>
       </div>
 

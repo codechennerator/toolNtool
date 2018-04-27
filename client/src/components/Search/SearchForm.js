@@ -87,8 +87,9 @@ class SearchForm extends Component {
                         onKeyPress={this.handleKeyPress.bind(this)}
                         onChange={this.handleInputChange}
                         icon='search'
-                        placeholder='Search...'
+                        placeholder='Start Search'
                         className="inputStyle"
+                        style={{fontSize:"30px"}}
                     />
                     {this.state.isButtonPressed === true && <Redirect to='/findTool' />}
                 </div>

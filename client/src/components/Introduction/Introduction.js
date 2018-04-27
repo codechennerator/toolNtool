@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Container } from 'semantic-ui-react';
-import location from "../icons/png/location.png";
-import calendar from "../icons/png/calendar.png";
-import search from "../icons/png/search.png";
-import post from "../icons/png/post.png";
-import security from "../icons/png/security.png";
-import message from "../icons/png/message.png";
-import cloudinary from "../icons/png/cloudinary.png";
-import react from "../icons/png/react.png";
+import Ionicon from 'react-ionicons';
 
 const style={
     column: {
@@ -24,47 +17,39 @@ class Introduction extends Component {
         return(
             <div className="introContatiner">
             <Container>
-                <Grid style={{marginTop: "50px", paddingBottom: "50px"}}>
+                <Grid style={{paddingTop: "20vh", paddingBottom: "20vh"}}>
                     <div class="ui stackable four grid">
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="locator" src={location} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Automatic Locator</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}></p>
+                            <Ionicon icon="ios-map" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>Automatic Locator</h3>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="login" src={security} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>User Authentication</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
+                            <Ionicon icon="ios-lock-outline" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>User Authentication</h3>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="search" src={search} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Search</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
+                            <Ionicon icon="ios-search" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>Search</h3>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="msg" src={message} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Message</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
+                            <Ionicon icon="md-text" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>Message</h3>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="post" src={post} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Post & Delete</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
+                            <Ionicon icon="ios-construct-outline" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>Post & Delete</h3>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="cloudinary" src={cloudinary} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Cloudinary</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
+                            <Ionicon icon="ios-images" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>Cloudinary</h3>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="calendar" src={calendar} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>Calendar</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
+                            <Ionicon icon="ios-calendar-outline" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>Calendar</h3>
                         </div>
                         <div className="ui center aligned four wide column" style={style.column}>
-                            <img alt="react" src={react} style={style.iconImg} />
-                            <h3 style={{fontFamily: "'Alegreya Sans', sans-serif", color: "black"}}>React Native</h3>
-                            <p style={{fontFamily: "'Open Sans', sans-serif"}}> </p>
+                            <Ionicon icon="ios-ice-cream-outline" fontSize="60px" />
+                            <h3 style={{fontFamily: "'Open Sans', sans-serif", color: "black"}}>React Native</h3>
                         </div>
                     </div>
                 </Grid>

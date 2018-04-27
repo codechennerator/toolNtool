@@ -1,5 +1,5 @@
 .divStyle {
-    background-image: url("../img/rustyback.png");
+    /* background-image: url("../img/rustyback.png"); */
     height:475px;
     width:100%;
     background-repeat:no-repeat;
@@ -13,11 +13,15 @@
 .inputStyle {
     position:relative;
     left:25%;
-     top:50%;
+    top:50%;
     width:50%;
-    height: 10%;
+    height: 30%;
+    max-height: 67px;
+     /* Main Page Search Bar Style  */
     padding:0;
     margin: 0;
+    font-size: 35px;
+    z-index: 3;
 }
 
 @media(max-width:1400px){
@@ -41,7 +45,7 @@
     .inputStyle{
         position: absolute !important;
         top: 57%; 
-        height: 13%;  
+        height: 13%; 
     }
 }
 @media(max-width:768px){

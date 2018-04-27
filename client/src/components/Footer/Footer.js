@@ -4,11 +4,11 @@ import './Footer.css';
 
 const style = {
   footerContainer: {
-    backgroundColor: '#5C7AFF',
+    backgroundColor: 'rgb(0, 0, 0)',
     padding: '2em 0em',
   },
   footerList: {
-    color: '#32EAFF',
+    color: 'rgb(21, 221, 98)',
   }
 }
 
