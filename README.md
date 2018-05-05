@@ -2,7 +2,7 @@
 
 ## Technologies
 - React
-- React Native
+- React Native (https://github.com/mtoasis/TNT-RN)
 - Redux
 - Node
 - Passport & OAuth
