@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Comment, Container, Form, Button, Segment } from 'semantic-ui-react';
 import API from '../../utils/API';
+import io from "socket.io-client";
 // import loadingGif from '../img/loader.gif';
+
+const socketUrl = "localhost:3001";
 
 const style = {
     mainDivStyle: {
@@ -63,17 +66,13 @@ class Messaging extends Component {
         super()
         this.state = {
             messages: [],
-            content: ""
+            content: "",
+            socket: null
         };
     }
-    componentWillMount() {
-        this.timerID = setInterval(
-          () => this.loadMessages(),
-          1000
-        );
-    }
-    componentWillUnmount() {
-        clearInterval(this.timerID);
+    componentDidMount() {
+        this.loadMessages();
+        this.initSocket();
     }
     loadMessages() {
         API.getMessages(this.props.cid)
@@ -81,6 +80,13 @@ class Messaging extends Component {
           this.setState({messages:res.data.messages})
         })
         .catch(err => console.log(err));
+    }
+    initSocket = () =>{
+        const socket = io(socketUrl);
+        socket.on('connect', () => {
+            console.log('connected');
+        })
+        this.setState({socket});
     }
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -95,19 +101,21 @@ class Messaging extends Component {
                 conversation: this.props.cid,
                 content: this.state.content
             }).then(res => {
-                this.loadMessages();
+                this.state.socket.emit('update messages');
+                this.state.socket.on('update messages', () =>{
+                    this.loadMessages();
+                })
                 this.setState({content: ""})
             }).catch(err => console.log(err));
         }
       }
-
     render(){
         if (this.state.messages.length === 0) {
             return (
                 <Container>
                     {/* <Image src = {loadingGif} style = {{"height": "50px", "width": "50px"}} /> */}
-                    <div class="ui active inverted dimmer">
-                        <div class="ui large text loader" style={{marginTop: "-10%"}}>Loading</div>
+                    <div className="ui active inverted dimmer">
+                        <div className="ui large text loader" style={{marginTop: "-10%"}}>Loading</div>
                     </div>
                 </Container>
             )
