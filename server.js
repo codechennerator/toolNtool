@@ -41,7 +41,7 @@ io.on('connection', socket => {
     console.log('Color Changed to: ', color)
     io.sockets.emit('change color', color)
   })
-  socket.on('update messages', () =>{
+  socket.on('update messages', (data, callback) =>{
     console.log('Updating Messages');
     io.sockets.emit('update messages');
   })

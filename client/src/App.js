@@ -52,11 +52,6 @@ class App extends Component {
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/signIn" component = {SignIn} />
-<<<<<<< HEAD
-              <Route exact path="/socketTest" component = {SocketTest} />
-=======
-              <Route exact path="/test" component = {testPage} />
->>>>>>> origin
               <PrivateRoute exact path="/postTool" component={postTool} />
               <PrivateRoute exact path="/inbox" component = {Inbox} />
               <PrivateRoute exact path="/messages/:cid" component={Messages} />
