@@ -13,7 +13,6 @@
 ## Things to Improve/Add
 
 ### Messaging
-- Messaging (Sockets)
 - Notifications
 - Push Alerts
 
