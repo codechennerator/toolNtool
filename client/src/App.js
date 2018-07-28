@@ -17,6 +17,8 @@ import Footer from "./components/Footer";
 import SocketTest from "./components/SocketTest.js";
 import * as userActions from "./actions/userAction";
 
+import testPage from './pages/test'
+
 const style = {
   app: {
     display: "flex",
@@ -50,7 +52,11 @@ class App extends Component {
               <Route exact path="/findTool" component={findTool} />
               <Route exact path="/findTool/:id" component={Detail} />
               <Route exact path="/signIn" component = {SignIn} />
+<<<<<<< HEAD
               <Route exact path="/socketTest" component = {SocketTest} />
+=======
+              <Route exact path="/test" component = {testPage} />
+>>>>>>> origin
               <PrivateRoute exact path="/postTool" component={postTool} />
               <PrivateRoute exact path="/inbox" component = {Inbox} />
               <PrivateRoute exact path="/messages/:cid" component={Messages} />
